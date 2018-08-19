@@ -4,4 +4,4 @@ import json
 
 # school ids for lookup on ratemyprofessors.com
 with open('sids.json', 'r') as sids:
-    json.load(sids)
+    sids = json.load(sids)
