@@ -16,6 +16,7 @@ for faculty_entry in faculties_page.json():
         office = faculty_entry['office']
         email = faculty_entry['email']
         research_areas = '' # for faculties whose research_areas are not defined
+        google_scholar_link = ''
 
         # google-scholar profile link
         faculty_page = requests.get(page)
