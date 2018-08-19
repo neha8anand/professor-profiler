@@ -16,7 +16,7 @@ def create_ranks(scores):
 majors = ['aerospace', 'biological-agricultural', 'biomedical','chemical-engineering',
           'civil-engineering', 'computer-engineering','electrical-engineering',
           'environmental-engineering', 'industrial-engineering','material-engineering',
-          'mechanical-engineering', 'nuclear-engineering', 'petroleum engineering']
+          'mechanical-engineering', 'nuclear-engineering', 'petroleum-engineering']
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'}
 
@@ -57,5 +57,5 @@ for major in majors:
         results[major][university] = {'location': location, 'score' : score, 'rank': rank}
 
 # Writing results to a json file
-with open('usnews.json', 'w') as usnews:
-    json.dump(results, usnews)
+with open('university_rankings.json', 'w') as university_rankings:
+    json.dump(results, university_rankings)
