@@ -3,7 +3,6 @@ import bs4
 import json
 from bs4 import BeautifulSoup
 
-
 pge_faculties_page_url = "https://pangea.stanford.edu/ere/people/all?tmp_associate_type=faculty&field_ses_phd_student_value=All&name="
 pge_faculties_page = requests.get(pge_faculties_page_url)
 pge_faculties_soup = BeautifulSoup(pge_faculties_page.content, 'html.parser')
