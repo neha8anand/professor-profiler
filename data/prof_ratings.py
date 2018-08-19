@@ -44,9 +44,10 @@ def rating_and_tags(sid, school_name, faculty_name):
 university = university_rankings.copy()
 sid = '1255'
 school = 'University of Texas at Austin'
+university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'] = {}
 
 for faculty in ut_pge['faculty_names']:
-    university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] [faculty] = rating_and_tags(sid, school, faculty)
+    university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
 
 # Writing results to a json file
 with open('university.json', 'w') as f:
