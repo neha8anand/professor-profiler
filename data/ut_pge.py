@@ -2,6 +2,8 @@ import requests
 import bs4
 import json
 from bs4 import BeautifulSoup
+import warnings
+warnings.filterwarnings("ignore") # ut's certificate is not trusted
 
 ut_pge_url = "https://www.pge.utexas.edu"
 ut_pge_faculties_page_url = ut_pge_url + "/facultystaff/profiles"
@@ -27,6 +29,5 @@ for ut_pge_faculty_entry in ut_pge_faculty_entries:
         faculty_name = ut_pge_faculty_name.replace("  ", " ") #Name in HTML contains 2 spaces instead of 1
         faculty_names_dictionary['faculty_names'].append(faculty_name)
 
-with open('faculty_names/ut_pge_faculty_names.json', 'w') as ut_pge_faculty_names_file:
+with open('ut_pge.json', 'w') as ut_pge_faculty_names_file:
     json.dump(faculty_names_dictionary, ut_pge_faculty_names_file)
-    

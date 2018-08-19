@@ -7,8 +7,8 @@ with open('sids.json', 'r') as sids:
     sids = json.load(sids)
 
 # school and faculty names for lookup on ratemyprofessors.com
-with open('utpge.json', 'r') as f:
-    ut = json.load(f)
+with open('ut_pge.json', 'r') as f:
+    ut_pge = json.load(f)
 
 # university rankings and other info pulled from usnews website
 with open('university_rankings.json', 'r') as f:
@@ -45,7 +45,7 @@ university = university_rankings.copy()
 sid = '1255'
 school = 'University of Texas at Austin'
 
-for faculty in ut['faculty_names']:
+for faculty in ut_pge['faculty_names']:
     university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] [faculty] = rating_and_tags(sid, school, faculty)
 
 # Writing results to a json file
