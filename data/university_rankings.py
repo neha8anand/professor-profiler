@@ -60,6 +60,35 @@ for major in majors:
         for university, location, score, rank in zip(universities, locations, scores, ranks):
             results[major][university] = {'location': location, 'score' : score, 'rank': rank}
 
+# For computer science
+results[major] = {}
+major = 'computer-science'
+url = "https://www.usnews.com/best-graduate-schools/search?program=top-computer-science-schools&location=&name="
+response = requests.get(url, headers=headers)
+soup = BeautifulSoup(response.content, 'html.parser')
+
+# Names of universities
+universities = []
+for a_tag in soup.select("h3.sc-bdVaJa.btaKty"):
+    universities.append(a_tag.get_text())
+
+# scores
+scores = [''] * len(universities) # no scores available
+
+# locations and ranks
+paras = []
+for p_tag in soup.select("p.Paragraph-fqygwe-0.zReoL"):
+    paras.append(p_tag.get_text())
+locations = paras[0::2]
+rank_texts = paras[1::2]
+
+ranks = [int(text[:3].strip('#').strip(' ')) for text in rank_texts]
+
+# Dropping duplicate entries, taking only first 20 entries
+# Storing results
+for university, location, score, rank in zip(universities[:20], locations[:20], scores[:20], ranks[:20]):
+    results[major][university] = {'location': location, 'score' : score, 'rank': rank}
+
 # Writing results to a json file
 with open('university_rankings.json', 'w') as university_rankings:
     json.dump(results, university_rankings)
