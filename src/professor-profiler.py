@@ -1,4 +1,5 @@
 from cleaning import database_cleaner
+from nlp_pipeline import feature_matrix
 
 import string
 import numpy as np
@@ -7,6 +8,7 @@ import pandas as pd
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+from nltk.util import ngrams
 from nltk.stem.porter import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -35,3 +37,9 @@ df = tamu_df[['faculty_name', 'research_areas', 'paper_titles', 'abstracts']]
 missing = df['paper_titles'] == ''
 print(f'{missing} faculties have missing papers in tamu_database')
 print('Running nlp-pipeline on faculties with non-missing papers...')
+
+df_nlp = df[~missing]
+
+# Choosing abstracts to predict topics for a professor
+corpus = df_nlp['abstracts'].values
+vectorizer, matrix = nlp_pipeline(df_nlp)
