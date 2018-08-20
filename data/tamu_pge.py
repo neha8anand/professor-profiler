@@ -42,7 +42,7 @@ for faculty_entry in faculties_page.json():
                                              'google_scholar_link' : google_scholar_link}
 
 pge_dictionary = {}
-pge_dictionary['university_name'] = 'Texas A&M University--College Station'
+pge_dictionary['university_name'] = 'Texas A&M University at College Station'
 pge_dictionary['faculty_names'] = faculty_names_dictionary
 
 with open('tamu_pge.json', 'w') as tamu_pge_faculty_names_file:
