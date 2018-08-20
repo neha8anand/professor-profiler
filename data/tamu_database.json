@@ -6432,7 +6432,9 @@
             "research_areas": [
                 "Analytical simulation and pressure transient techniques."
             ],
-            "google_scholar_link": ""
+            "google_scholar_link": "",
+            "papers": {}
+            
         },
         "Yuefeng Sun": {
             "title": "Professor",
@@ -6450,7 +6452,8 @@
                 "Reservoir geophysics:",
                 "Core-log-seismic-electromagnetic integration for reservoir description – Deep/frontier exploration, enhanced oil/gas recovery, carbon sequestration, and unconventional resources"
             ],
-            "google_scholar_link": ""
+            "google_scholar_link": "",
+            "papers": {}
         },
         "Thomas A. Blasingame": {
             "title": "Professor ",
