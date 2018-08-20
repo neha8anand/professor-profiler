@@ -7,8 +7,14 @@ with open('sids.json', 'r') as sids:
     sids = json.load(sids)
 
 # school and faculty names for lookup on ratemyprofessors.com
-with open('ut_pge.json', 'r') as f:
-    ut_pge = json.load(f)
+with open('ut_pge_profs.json', 'r') as f:
+    ut_pge_profs = json.load(f)
+
+with open('stanford_pge_profs.json', 'r') as f:
+    stanford_pge_profs = json.load(f)
+
+with open('tamu_pge_profs.json', 'r') as f:
+    tamu_pge_profs = json.load(f)
 
 # university rankings and other info pulled from usnews website
 with open('university_rankings.json', 'r') as f:
@@ -42,13 +48,26 @@ def rating_and_tags(sid, school_name, faculty_name):
 
 # Creating complete university database
 university = university_rankings.copy()
-sid = '1255'
-school = 'University of Texas at Austin'
-university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'] = {}
+schools_for_lookup = ['University of Texas at Austin', 'Stanford University', 'Texas A&M University at College Station']
+sids_for_lookup = ['1255', '953', '1003']
 
-for faculty in ut_pge['faculty_names']:
-    university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
+for sid, school in  zip(sids_for_lookup, schools_for_lookup):
+
+    if school == 'University of Texas at Austin':
+        university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'] = {}
+        for faculty in ut_pge_profs['faculty_names']:
+            university['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
+
+    if school == 'Stanford University':
+        university['petroleum-engineering']['Stanford University'] ['faculty_names'] = {}
+        for faculty in stanford_pge_profs['faculty_names']:
+            university['petroleum-engineering']['Stanford University'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
+
+    if school == 'Texas A&M University at College Station':
+        university['petroleum-engineering']['Texas A&M University--College Station'] ['faculty_names'] = {}
+        for faculty in tamu_pge_profs['faculty_names']:
+            university['petroleum-engineering']['Texas A&M University--College Station'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
 
 # Writing results to a json file
-with open('university.json', 'w') as f:
+with open('database.json', 'w') as f:
     json.dump(university, f)
