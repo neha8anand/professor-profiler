@@ -8108,7 +8108,31 @@
                 "Analytical simulation and pressure transient techniques."
             ],
             "google_scholar_link": "",
-            "papers": {}
+            "papers": {
+                "https://www.onepetro.org/journal-paper/SPE-157367-PA"
+                "http://www.earthdoc.org/publication/publicationdetails/?publication=70294"
+                "https://www.onepetro.org/conference-paper/SPE-164882-MS"
+                "https://www.onepetro.org/journal-paper/SPE-0214-0014-JPT"
+                "https://www.onepetro.org/conference-paper/SPE-38355-MS"
+                "https://www.onepetro.org/conference-paper/SPE-38129-MS"
+                "https://www.onepetro.org/journal-paper/SPE-1213-0014-JPT"
+                "https://www.onepetro.org/conference-paper/SPE-54306-MS"
+                "https://www.onepetro.org/journal-paper/SPE-0516-0054-JPT"
+                "https://www.onepetro.org/journal-paper/SPE-0913-0032-JPT"
+                "https://www.onepetro.org/journal-paper/SPE-0205-0040-JPT"
+                "http://archives.datapages.com/data/ipa/data/027/027001/1_ipa027e-101.htm"
+                "https://library.seg.org/doi/abs/10.15530/urtec-2015-2169844"
+                "http://archives.datapages.com/data/urtec/2018/2901615.pdf"
+                "https://www.onepetro.org/journal-paper/SPE-1013-0014-JPT"
+                "http://archives.datapages.com/data/ipa/data/027/027001/1_ipa027e-104.htm"
+                "http://archives.datapages.com/data/urtec/2015/2169844.pdf"
+                "https://www.onepetro.org/conference-paper/SPWLA-2018-CCCC"
+                "https://www.onepetro.org/conference-paper/SPE-103040-MS"
+                "https://www.onepetro.org/conference-paper/SPE-102413-MS"
+                "https://www.onepetro.org/conference-paper/IPTC-11718-MS"
+                "https://www.onepetro.org/conference-paper/SPE-135168-MS"
+                "http://www.earthdoc.org/publication/publicationdetails/?publication=77502"
+            }
         },
         "Yuefeng Sun": {
             "title": "Professor",
@@ -8127,7 +8151,32 @@
                 "Core-log-seismic-electromagnetic integration for reservoir description – Deep/frontier exploration, enhanced oil/gas recovery, carbon sequestration, and unconventional resources"
             ],
             "google_scholar_link": "",
-            "papers": {}
+            "papers": {
+                "https://library.seg.org/doi/abs/10.1190/1.1926808"
+                "https://pubs.geoscienceworld.org/aapgbull/article-abstract/93/10/1297/132955"
+                "http://iopscience.iop.org/article/10.1088/1742-2132/1/4/005/meta"
+                "https://ieeexplore.ieee.org/document/5162785/"
+                "https://ieeexplore.ieee.org/document/4273591/"
+                "https://ieeexplore.ieee.org/document/5163014/"
+                "https://ieeexplore.ieee.org/document/4535223/"
+                "https://link.springer.com/article/10.1023/A:1010359128574"
+                "https://www.mdpi.com/2076-3263/8/2/65"
+                "https://www.sciencedirect.com/science/article/pii/S1367912018302748"
+                "https://onlinelibrary.wiley.com/doi/abs/10.1002/gj.3168"
+                "https://www.onepetro.org/journal-paper/SPWLA-2017-v58n6a2"
+                "https://ieeexplore.ieee.org/abstract/document/7882634/"
+                "https://www.sciencedirect.com/science/article/pii/S2352711016300401"
+                "https://pubs.geoscienceworld.org/segweb/interpretation/article/5/4/T545/520600"
+                "https://www.sciencedirect.com/science/article/pii/S0920410517301341"
+                "https://www.sciencedirect.com/science/article/pii/S0920410517303182"
+                "https://library.seg.org/doi/abs/10.1190/segam2016-13868159.1"
+                "https://library.seg.org/doi/abs/10.1190/segam2016-13872087.1"
+                "https://library.seg.org/doi/abs/10.1190/segam2016-13821446.1"
+                "https://www.worldscientific.com/doi/abs/10.1142/S0218396X15400056"
+                "https://www.worldscientific.com/doi/abs/10.1142/S0218396X1540010X"
+                "https://www.worldscientific.com/doi/abs/10.1142/S0218396X15400068"
+
+            }
         },
         "Thomas A. Blasingame": {
             "title": "Professor ",
@@ -8838,23 +8887,7 @@
                     "abstract": ""
                 }
             }
-        },
-        "Yuhe Wang": {
-            "title": "Assistant Professor",
-            "page": "https://engineering.tamu.edu/petroleum/profiles/ywang.html",
-            "phone": "974-4423-0422",
-            "office": "204H",
-            "email": "yuhe.wang@qatar.tamu.edu",
-            "research_areas": [
-                "Multiphase flow through porous media",
-                "Reservoir simulation and high performance computing",
-                "Fast and multiscale reservoir simulation",
-                "Stochastic reservoir modeling and uncertainty quantifications",
-                "Carbonate and unconventional reservoirs",
-                "Big-data analysis in reservoir engineering"
-            ],
-            "google_scholar_link": "",
-            "papers": {}
         }
+        
     }
 }
