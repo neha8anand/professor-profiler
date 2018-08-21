@@ -20,11 +20,21 @@ def filter_tokens(sent):
     return([w for w in sent if not w in stopwords_ and not w in punctuation_])
 
 def feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1), max_df=1.0, min_df=1, max_features=None):
-    '''
-    Returns tf-idf vector for a given corpus (list/array of documents) by default
-    Count vector(bag of words) returned when tf_idf is set to False
-    Option to include stemming or lemmatizing
-    '''
+    """Return vectorizer and feature_matrix for a given corpus.
+    Parameters
+    ----------
+    corpus: List/array of documents
+    tf_idf: Returns tf-idf by default, Count-vector(bag of words) returned when
+            tf_idf is set to False
+    stem_lem: Option to include stemming or lemmatizing, set to None by default, set to
+              'stem' for stemming, 'lem' for lemmatizing
+    *options: All other parameters are default parameters for the TfidfVectorizer
+              or CountVectorizer object in scikit-learn.
+    Returns
+    -------
+    vectorizer: A numpy array containing TfidfVectorizer or CountVectorizer object.
+    matrix: A numpy array containing the feature matrix returned by the vectorizer object.
+    """
     tokens = [word_tokenize(doc) for doc in corpus]
     tokens_lower = [[word.lower() for word in sent] for sent in tokens]
     tokens_filtered = list(map(filter_tokens, tokens_lower))

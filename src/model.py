@@ -40,7 +40,7 @@ class MyModel():
         return self._clusterer.fit_predict(X)
 
     def top_n_features(self, vocabulary, n):
-        """Returns assignments for new data."""
+        """Returns top n features for a given vocabulary object (Eg. vectorizer.vocabulary_)."""
         reverse_vocab = reverse_vocabulary(vocabulary)
         centroids = self._clusterer.cluster_centers_ # topics/research areas Kmeans has discovered
         indices = np.argsort(centroids, axis=1)
@@ -50,14 +50,14 @@ class MyModel():
         return top_n_features
 
 def get_data(filename):
-    """Load raw data from a file and return training data and responses.
+    """Load raw data from a file and return vectorizer and feature_matrix.
     Parameters
     ----------
-    filename: The path to a csv file containing the raw text data and response.
+    filename: The path to a json file containing the university database.
     Returns
     -------
-    X: A numpy array containing the text fragments used for training.
-    y: A numpy array containing labels, used for model response.
+    vectorizer: A numpy array containing TfidfVectorizer or CountVectorizer object.
+    matrix: A numpy array containing the feature matrix returned by the vectorizer object.
     """
     df_cleaned = database_cleaner(filename)
 
@@ -86,7 +86,7 @@ def reverse_vocabulary(vocabulary):
     return reverse_vocab
 
 if __name__ == '__main__':
-    vectorizer, matrix = get_data('../data/tamu_database.json')
+    vectorizer, matrix = get_data('../data/combined_database.json')
     model = MyModel(10)
     y_pred = model.fit_predict(matrix)
     print(y_pred)
