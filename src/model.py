@@ -72,6 +72,7 @@ def get_data(filename):
 
     # Choosing abstracts to predict topics for a professor
     corpus = df_nlp['abstracts'].values
+    #corpus = df_nlp['paper_titles'].values
     vectorizer, matrix = feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
                                     max_df=1.0, min_df=1, max_features=None)
 
@@ -85,8 +86,9 @@ def reverse_vocabulary(vocabulary):
     return reverse_vocab
 
 if __name__ == '__main__':
-    vectorizer, matrix = get_data('../data/tamu_database.json')
+    vectorizer, matrix = get_data('../data/stanford_database.json')
     model = MyModel(10)
     y_pred = model.fit_predict(matrix)
+    print(y_pred)
     with open('../data/model.pkl', 'wb') as f:
         pickle.dump(model, f)
