@@ -86,9 +86,13 @@ def reverse_vocabulary(vocabulary):
     return reverse_vocab
 
 if __name__ == '__main__':
-    vectorizer, matrix = get_data('../data/combined_database.json')
-    model = MyModel(10)
+    vectorizer, matrix = get_data('../data/pge_database.json')
+    model = MyModel(15)
     y_pred = model.fit_predict(matrix)
     print(y_pred)
-    with open('../data/tamu_model.pkl', 'wb') as f:
+
+    with open('../data/pge_model.pkl', 'wb') as f:
         pickle.dump(model, f)
+
+    with open('../data/pge_vectorizer.pkl', 'wb') as f:
+        pickle.dump(vectorizer, f)
