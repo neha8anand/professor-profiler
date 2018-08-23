@@ -5,6 +5,7 @@ When run as a module, this will load a json dataset, train a clustering
 model, and then pickle the resulting model object to disk.
 """
 from cleaning import database_cleaner
+from combine_databases import add_database
 from nlp_pipeline import feature_matrix
 
 import numpy as np
@@ -86,16 +87,20 @@ def reverse_vocabulary(vocabulary):
     return reverse_vocab
 
 if __name__ == '__main__':
-    # Create pge_database
+    # Create pge_database with updated predicted_research_areas based on top-10 features
     current_db_path = '../data/ut_database.json'
     new_db_paths = ['../data/stanford_database.json', '../data/tamu_database.json']
     combined_db_path = '../data/pge_database.json'
     add_database(current_db_path, new_db_paths, combined_db_path)
-    
+
     vectorizer, matrix = get_data('../data/pge_database.json')
     model = MyModel(12)
     y_pred = model.fit_predict(matrix)
-    # print(y_pred)
+
+    pge_df = database_cleaner('../data/pge_database.json')
+    top_ten_features = model.top_n_features(vectorizer.vocabulary_, 10)
+    pge_df['predicted_research_areas'] = [top_ten_features[num] for num in y_pred]
+    pge_df.to_json(path_or_buf='../data/final_database.json')
 
     with open('../data/pge_model.pkl', 'wb') as f:
         pickle.dump(model, f)
