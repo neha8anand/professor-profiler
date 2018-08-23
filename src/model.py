@@ -86,10 +86,16 @@ def reverse_vocabulary(vocabulary):
     return reverse_vocab
 
 if __name__ == '__main__':
+    # Create pge_database
+    current_db_path = '../data/ut_database.json'
+    new_db_paths = ['../data/stanford_database.json', '../data/tamu_database.json']
+    combined_db_path = '../data/pge_database.json'
+    add_database(current_db_path, new_db_paths, combined_db_path)
+    
     vectorizer, matrix = get_data('../data/pge_database.json')
     model = MyModel(12)
     y_pred = model.fit_predict(matrix)
-    print(y_pred)
+    # print(y_pred)
 
     with open('../data/pge_model.pkl', 'wb') as f:
         pickle.dump(model, f)

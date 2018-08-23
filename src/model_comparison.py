@@ -130,7 +130,7 @@ def silhouette_analysis(range_n_clusters, data):
         xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
 
         # Obtain labels for each point in mesh. Use last trained model.
-        Z = kmeans.predict(np.c_[xx.ravel(), yy.ravel()])
+        Z = clusterer_reduced.predict(np.c_[xx.ravel(), yy.ravel()])
 
         # Put the result into a color plot
         Z = Z.reshape(xx.shape)
@@ -160,10 +160,20 @@ def silhouette_analysis(range_n_clusters, data):
         plt.suptitle(("Silhouette analysis for KMeans clustering on sample data "
                       "with n_clusters = %d" % n_clusters),
                      fontsize=14, fontweight='bold')
-
         plt.show()
 
-        return pd.DataFrame({'range_n_clusters': range_n_clusters,
+    fig, ax3 = plt.subplots()
+    ax4 = ax3.twinx()
+
+    ax3.plot(range_n_clusters, silhouette_avg_scores, color='green')
+    ax4.plot(range_n_clusters, ch_scores)
+    ax3.set_title('Choosing optimal number of clusters')
+    ax3.set_xlabel('Number of clusters')
+    ax3.legend(['Silhouette Score'])
+    ax4.legend(['Calinski-Harabaz Index'])
+    plt.show()
+
+    return pd.DataFrame({'range_n_clusters': range_n_clusters,
                             'silhouette_scores': silhouette_avg_scores,
                             'calinski_harabaz_scores': ch_scores})
 
