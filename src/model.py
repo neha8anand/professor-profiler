@@ -74,7 +74,7 @@ def get_data(filename):
     corpus = df_nlp['abstracts'].values
     #corpus = df_nlp['paper_titles'].values
     vectorizer, matrix = feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
-                                    max_df=1.0, min_df=1, max_features=None)
+                                    max_df=0.8, min_df=2, max_features=None)
 
     return vectorizer, matrix
 
@@ -87,7 +87,7 @@ def reverse_vocabulary(vocabulary):
 
 if __name__ == '__main__':
     vectorizer, matrix = get_data('../data/pge_database.json')
-    model = MyModel(15)
+    model = MyModel(12)
     y_pred = model.fit_predict(matrix)
     print(y_pred)
 
