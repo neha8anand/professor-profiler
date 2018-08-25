@@ -19,7 +19,7 @@ stopwords_ = set(stopwords.words('english'))
 def filter_tokens(sent):
     return([w for w in sent if not w in stopwords_ and not w in punctuation_])
 
-def feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1), max_df=1.0, min_df=1, max_features=None):
+def feature_matrix(corpus, tf_idf=True, stem_lem=None, **kwargs):
     """Return vectorizer and feature_matrix for a given corpus.
     Parameters
     ----------
@@ -28,7 +28,7 @@ def feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1), max_df
             tf_idf is set to False
     stem_lem: Option to include stemming or lemmatizing, set to None by default, set to
               'stem' for stemming, 'lem' for lemmatizing
-    *options: All other parameters are default parameters for the TfidfVectorizer
+    **kwargs: All other parameters are default parameters for the TfidfVectorizer
               or CountVectorizer object in scikit-learn.
     Returns
     -------
@@ -54,13 +54,15 @@ def feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1), max_df
 
     # Vectorizing
     if tf_idf:
-        vectorizer = TfidfVectorizer(stop_words=stopwords_, ngram_range=ngram_range,
-                                     max_df=max_df, min_df=min_df, max_features=max_features)
+        vectorizer = TfidfVectorizer(stop_words=stopwords_,
+                                     strip_accents='unicode', # replace all accented unicode char by their corresponding  ASCII char
+                                     **kwargs)
         matrix = vectorizer.fit_transform(tokens_filtered) # sparse matrix
 
     else:
-        vectorizer = CountVectorizer(stop_words=stopwords_, ngram_range=ngram_range,
-                                     max_df=max_df, min_df=min_df, max_features=max_features)
+        vectorizer = CountVectorizer(stop_words=stopwords_,
+                                     strip_accents='unicode',
+                                     **kwargs)
         matrix = vectorizer.fit_transform(tokens_filtered) # sparse matrix
 
     return vectorizer, matrix

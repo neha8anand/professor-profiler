@@ -50,15 +50,14 @@ class MyModel():
         top_n_features = top_n_features.reshape(len(centroids), -1) # topics with the top n greatest representation in each of the centroids
         return top_n_features
 
-def get_data(filename):
+def get_corpus(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
     Parameters
     ----------
     filename: The path to a json file containing the university database.
     Returns
     -------
-    vectorizer: A numpy array containing TfidfVectorizer or CountVectorizer object.
-    matrix: A numpy array containing the feature matrix returned by the vectorizer object.
+    corpus: A numpy array containing abstracts.
     """
     df_cleaned = database_cleaner(filename)
 
@@ -71,9 +70,22 @@ def get_data(filename):
 
     df_nlp = df_filtered[~missing]
 
-    # Choosing abstracts to predict topics for a professor
-    corpus = df_nlp['abstracts'].values
-    #corpus = df_nlp['paper_titles'].values
+    # Choosing abstracts and paper_titles to predict topics for a professor
+    corpus = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
+
+    return corpus
+
+def vectorize_corpus(corpus):
+    """
+    Parameters
+    ----------
+    corpus: A numpy array containing abstracts.
+    Returns
+    -------
+    vectorizer: A numpy array containing TfidfVectorizer or CountVectorizer object.
+    matrix: The feature matrix (numpy 2-D array) returned by the vectorizer object.
+    """
+
     vectorizer, matrix = feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=2, max_features=None)
 
@@ -93,12 +105,14 @@ if __name__ == '__main__':
     combined_db_path = '../data/pge_database.json'
     add_database(current_db_path, new_db_paths, combined_db_path)
 
-    vectorizer, matrix = get_data('../data/pge_database.json')
+    corpus = get_corpus('../data/pge_database.json')
+    vectorizer, matrix = vectorize_corpus(corpus)
     model = MyModel(12)
     y_pred = model.fit_predict(matrix)
 
     pge_df = database_cleaner('../data/pge_database.json')
     top_ten_features = model.top_n_features(vectorizer.vocabulary_, 10)
+    pge_df['predicted_cluster_num'] = y_pred
     pge_df['predicted_research_areas'] = [top_ten_features[num] for num in y_pred]
     pge_df.to_json(path_or_buf='../data/final_database.json')
 
