@@ -1,0 +1,524 @@
+{
+    "university_name": "The University of Tulsa",
+    "faculty_names": {
+        "Mustafa Onur": {
+            "title": "McMan Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mustafa-onur",
+            "phone": "918-631-3059",
+            "office": "",
+            "email": "mustafa-onur@utulsa.edu",
+            "research_areas": [
+                "Pressure Transient (Well Test) Analysis ",
+                "Wireline Formation Testers ",
+                "Reservoir Engineering Methods",
+                "Reservoir Simulation & Modeling ",
+                "Assisted History Matching ",
+                "Nonlinear Parameter Optimization ",
+                "Naturally Fractured Reservoirs ",
+                "EOR Methods",
+                "Geothermal Reservoir Engineering",
+                "Unconventional Oil and Gas Reservoirs "
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=rMY1Y8IAAAAJ&hl=en&oi=ao",
+            "papers": {}
+        },
+        "Randy Hazlett": {
+            "title": "Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/randy-hazlett",
+            "phone": "918-631-2695",
+            "office": "",
+            "email": "randy-hazlett@utulsa.edu",
+            "research_areas": [
+                "Unconventional Reservoirs",
+                "Discrete Well Modeling",
+                "Pressure and Rate Transient Analysis",
+                "Multiphase Flow in Porous Media",
+                "Productivity Modeling of Complex Wells",
+                "Production from Complex Fracture Systems",
+                "Flow in Fractures",
+                "Computational Fluid Dynamics Applications in Reservoir Engineering",
+                "Lattice Boltzmann methods for Petroleum Engineering",
+                "Enhanced Oil Recovery"
+            ],
+            "google_scholar_link": "",
+            "papers": {
+                "https://www.sciencedirect.com/science/article/pii/002197979090425N"
+                "https://www.sciencedirect.com/science/article/pii/0166662288801719"
+                "https://www.researchgate.net/profile/Randy_Hazlett/publication/248126597_Toward_Improved_Prediction_of_Reservoir_Flow_Performance/links/54d0e76d0cf298d656694935.pdf"
+                "https://www.onepetro.org/journal-paper/SPE-84281-PA"
+                "https://pubs.acs.org/doi/pdf/10.1021/i100017a017"
+                "https://www.sciencedirect.com/science/article/pii/0166662288801720"
+                "https://pubs.acs.org/doi/abs/10.1021/ie990818x"
+                "https://www.onepetro.org/journal-paper/SPE-159379-PA"
+                "https://books.google.com/books?hl=en&lr=&id=-VxPAgAAQBAJ&oi=fnd&pg=PA151&dq=Randy+Hazlett&ots=O8BP519BWm&sig=Gqh4vGQ8anXTyeo3HaYufH7G8u8"
+                "https://www.sciencedirect.com/science/article/pii/S1631072115000893"
+                "https://www.onepetro.org/journal-paper/SPE-95913-PA"
+                "https://www.onepetro.org/conference-paper/SPE-159379-MS"
+                "https://www.onepetro.org/conference-paper/SPE-179577-MS"
+                "https://link.springer.com/article/10.1007/BF00616924"
+                "https://www.sciencedirect.com/science/article/pii/S0920410597000351"
+                "https://link.springer.com/article/10.1007/BF02768903"
+                "https://www.onepetro.org/journal-paper/SPE-50985-PA"
+                "https://www.sciencedirect.com/science/article/pii/S0920410598000175"
+                "https://www.tandfonline.com/doi/abs/10.1163/156856192X01006"
+                "https://www.onepetro.org/journal-paper/SPE-19687-PA"
+                "https://www.onepetro.org/journal-paper/SPE-30542-PA"
+                "https://www.sciencedirect.com/science/article/pii/S0920410599000431"
+                "https://www.researchgate.net/profile/Randy_Hazlett/publication/254507623_Validation_of_Gravity-dominated_Relative_Permeability_and_Residual_Oil_Saturation_in_a_Giant_Oil_Reservoir/links/54d0e76c0cf298d656694932.pdf"
+                "https://www.sciencedirect.com/science/article/pii/S0920410501001838"
+                "http://www.ux.uis.no/~s-skj/ipt/Proceedings/SCA.1987-2004/1-SCA1993-11.pdf"
+                "https://www.osti.gov/biblio/436364"
+
+            }
+        },
+        "Mohan Kelkar": {
+            "title": "Williams Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/balmohan-kelkar",
+            "phone": "918-631-3036",
+            "office": "",
+            "email": "mohan@utulsa.edu",
+            "research_areas": [
+                "Integrated Reservoir Modeling",
+                "Liquid Loading"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=J4PD21sAAAAJ&hl=en&oi=sra",
+            "papers": {}
+        },
+        "Jun Lu": {
+            "title": "Assistant Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/jun-lu",
+            "phone": "918-631-3886",
+            "office": "",
+            "email": "jun-lu@utulsa.edu",
+            "research_areas": [],
+            "google_scholar_link": "",
+            "papers": {
+                "https://www.sciencedirect.com/science/article/pii/S0920410514001387"
+                "https://www.onepetro.org/conference-paper/SPE-154256-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410514003490"
+                "https://www.onepetro.org/conference-paper/SPE-154262-MS"
+                "https://www.onepetro.org/conference-paper/SPE-159979-MS"
+                "https://www.onepetro.org/journal-paper/SPE-154261-PA"
+                "https://www.onepetro.org/conference-paper/SPE-164090-MS"
+                "https://www.onepetro.org/conference-paper/IPTC-16425-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410515000753"
+                "https://www.sciencedirect.com/science/article/pii/S001623611400101X"
+                "https://www.onepetro.org/journal-paper/SPE-175101-PA"
+                "https://www.onepetro.org/conference-paper/SPE-179702-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0306261918300199"
+                "https://www.onepetro.org/conference-paper/SPE-169169-MS"
+                "https://www.onepetro.org/journal-paper/SPE-174033-PA"
+                "https://www.onepetro.org/journal-paper/SPE-163624-PA"
+                "https://www.onepetro.org/conference-paper/SPE-181655-MS"
+                "http://www.earthdoc.org/publication/publicationdetails/?publication=69764"
+                "https://www.onepetro.org/conference-paper/SPE-179684-MS"
+                "https://www.mdpi.com/1996-1073/10/4/454htm"
+                "https://www.onepetro.org/conference-paper/SPE-180757-MS"
+                "http://www.dl.begellhouse.com/journals/49dcde6d4c0809db,0292bfbe0994e49a,4db4513936ef88ca.html"
+                "https://www.sciencedirect.com/science/article/pii/S0016236118305970"
+                "http://pubs.rsc.org/en/content/articlehtml/2017/lc/c6lc01476c"
+                "https://link.springer.com/content/pdf/10.1007/s13369-017-2916-1.pdf"
+                "http://iopscience.iop.org/article/10.1088/1742-2140/aaacae/meta"
+                "https://www.onepetro.org/journal-paper/SPE-185946-PA"
+                "https://www.mdpi.com/2073-4360/10/6/628?type=check_update&version=1"
+                "https://www.onepetro.org/journal-paper/SPE-179684-PA"
+                "https://pubs.acs.org/doi/abs/10.1021/acs.energyfuels.7b00790"
+                "https://www.mdpi.com/1996-1073/11/2/393"
+
+            }
+        },
+        "Stefan Miska": {
+            "title": "Jonathan B. Detwiler Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/stefan-miska",
+            "phone": "918-631-5167",
+            "office": "",
+            "email": "stefan-miska@utulsa.edu",
+            "research_areas": [
+                "Drilling Hydraulics",
+                "Drillstring, Tubing and Casing Mechanics",
+                "Drilling Optimization",
+                "Geomechanics"
+            ],
+            "google_scholar_link": "",
+            "papers": {
+                "https://www.onepetro.org/journal-paper/SPE-120084-PA"
+                "https://www.onepetro.org/journal-paper/SPE-114130-PA"
+                "https://www.onepetro.org/journal-paper/SPE-167950-PA"
+                "http://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=1868627"
+                "https://www.onepetro.org/journal-paper/SPE-119302-PA"
+                "https://www.onepetro.org/journal-paper/SPE-113883-PA"
+                "https://www.onepetro.org/journal-paper/SPE-116300-PA"
+                "https://www.onepetro.org/conference-paper/SPE-151406-MS"
+                "https://www.researchgate.net/profile/Arild_Saasen/publication/284668965_Viscoelastic_properties_of_oil-based_drilling_fluids/links/57b1b64908ae0101f17a4ae5/Viscoelastic-properties-of-oil-based-drilling-fluids.pdf"
+                "https://www.onepetro.org/conference-paper/SPE-146959-MS"
+                "http://manufacturingscience.asmedigitalcollection.asme.org/article.aspx?articleid=2339966"
+                "https://www.onepetro.org/conference-paper/SPE-149415-MS"
+                "https://www.onepetro.org/conference-paper/SPE-133428-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410509002629"
+                "https://www.onepetro.org/conference-paper/SPE-170286-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410515000595"
+                "http://computationalnonlinear.asmedigitalcollection.asme.org/article.aspx?articleid=2086426"
+                "https://www.onepetro.org/conference-paper/SPE-134269-MS"
+                "https://www.onepetro.org/conference-paper/ARMA-2013-125"
+                "https://www.sciencedirect.com/science/article/pii/S1875510017300082"
+                "https://www.onepetro.org/conference-paper/SPE-143854-MS"
+                "https://www.sciencedirect.com/science/article/pii/S1875510017301440"
+                "https://www.sciencedirect.com/science/article/pii/S0920410516303485"
+                "https://www.onepetro.org/conference-paper/SPE-173840-MS"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1911779"
+                "https://www.sciencedirect.com/science/article/pii/S0920410511000982"
+                "https://energyresources.asmedigitalcollection.asme.org/article.aspx?articleID=1415128"
+                "https://www.onepetro.org/conference-paper/SPE-162751-MS"
+                "https://www.onepetro.org/conference-paper/SPE-170262-MS"
+                "https://www.onepetro.org/journal-paper/SPE-173181-PA"
+                "https://www.sciencedirect.com/science/article/pii/S187551001630590X"
+                "https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleID=2655855"
+                "https://www.sciencedirect.com/science/article/pii/S0920410515302333"
+                "https://www.onepetro.org/journal-paper/SPE-166074-PA"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1911815"
+                "https://www.onepetro.org/journal-paper/SPE-173189-PA"
+                "https://www.sciencedirect.com/science/article/pii/S0920410514001855"
+                "https://www.onepetro.org/conference-paper/ARMA-2012-317"
+                "http://www.aade.org/app/download/7238016388/AADE-14-FTCE-14.pdf"
+                "https://www.onepetro.org/conference-paper/SPE-159747-MS"
+                "https://www.researchgate.net/profile/Ruizhi_Zhong/publication/316322079_A_Leak-Off_Model_for_Critical_Permeability_in_Wellbore_Strengthening_Applications/links/58fa41e30f7e9ba3ba5007ef/A-Leak-Off-Model-for-Critical-Permeability-in-Wellbore-Strengthening-Applications.pdf"
+                "https://www.onepetro.org/conference-paper/SPE-151235-MS"
+                "https://www.infona.pl/resource/bwmeta1.element.baztech-article-AGHM-0030-0024"
+                "https://www.onepetro.org/conference-paper/SPE-180307-MS"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1911809"
+                "https://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-9c3416b6-7c68-4a00-9035-19f7edcbb726"
+                "https://www.onepetro.org/conference-paper/ARMA-2017-0416"
+                "https://www.onepetro.org/conference-paper/SPE-174853-MS"
+                "https://www.onepetro.org/conference-paper/SPE-174908-MS"
+                "https://www.onepetro.org/conference-paper/SPE-180322-MS"
+                "https://www.onepetro.org/conference-paper/SPE-165362-MS"
+                "https://www.onepetro.org/conference-paper/SPE-167947-MS"
+                "http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2539424"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1911808"
+                "https://www.onepetro.org/journal-paper/SPE-180322-PA"
+                "https://www.onepetro.org/conference-paper/SPE-180338-MS"
+                "https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleID=1790037"
+                "https://www.sciencedirect.com/science/article/pii/S0920410517309993"
+                "https://www.onepetro.org/conference-paper/SPE-189646-MS"
+            }
+        },
+        "Evren Ozbayoglu": {
+            "title": "Wellspring Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mehmet-ozbayoglu",
+            "phone": "918-631-2972",
+            "office": "",
+            "email": "evren-ozbayoglu@utulsa.edu",
+            "research_areas": [
+                "Drilling Engineering",
+                "Fluid and Solid Mechanics",
+                "Directional Horizontal Drilling",
+                "Cuttings Transport",
+                "Fluid Characterization",
+                "Hydraulics"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=z8MB1NYAAAAJ&hl=en&oi=ao",
+            "papers": {}
+        },
+        "Eduardo Pereyra": {
+            "title": "Assistant Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/eduardo-pereyra",
+            "phone": "918-631-5114",
+            "office": "",
+            "email": "eduardo-pereyra@utulsa.edu",
+            "research_areas": [
+                "Multiphase Flow",
+                "Flow Assurance",
+                "Gas Well Deliquification",
+                "Artificial Lift",
+                "Multiphase Flow Metering",
+                "Separation Technologies",
+                "Uncertainty Analysis"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=-4qUrDcAAAAJ&hl=en",
+            "papers": {}
+            
+        },
+        "Mauricio Prado": {
+            "title": "Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mauricio-prado",
+            "phone": "918-631-5163",
+            "office": "",
+            "email": "mauricio-prado@utulsa.edu",
+            "research_areas": [
+                "Artificial Lift",
+                "Dewatering and Boosting",
+                "Multiphase Flow",
+                "Production Optimization",
+                "Dynamic of Multiphase Flow in Pipes"
+            ],
+            "google_scholar_link": "",
+            "papers": {
+                "https://www.onepetro.org/journal-paper/SPE-134089-PA"
+                "https://www.onepetro.org/journal-paper/SPE-140937-PA"
+                "https://www.onepetro.org/journal-paper/SPE-163048-PA"
+                "https://www.onepetro.org/conference-paper/SPE-140937-MS"
+                "https://energyresources.asmedigitalcollection.asme.org/article.aspx?articleID=1415163"
+                "http://manufacturingscience.asmedigitalcollection.asme.org/article.aspx?articleid=1415159"
+                "http://tribology.asmedigitalcollection.asme.org/article.aspx?articleid=1935619"
+                "https://oaktrust.library.tamu.edu/handle/1969.1/162631"
+                "https://www.onepetro.org/conference-paper/SPE-152217-MS"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1733081"
+                "http://pressurevesseltech.asmedigitalcollection.asme.org/pdfaccess.ashx?url=/data/journals/jertd2/26579/042902_1.pdf"
+                "https://link.springer.com/chapter/10.1007/978-1-4614-7828-7_25"
+                "https://link.springer.com/chapter/10.1007/978-1-4614-7828-7_24"
+            }
+        },
+        "Cem Sarica": {
+            "title": "F.H. \"Mick\" Merelli/Cimarex Energy Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/cem-sarica",
+            "phone": "918-631-5154",
+            "office": "",
+            "email": "cem-sarica@utulsa.edu",
+            "research_areas": [
+                "Production Engineering",
+                "Multiphase Flow in Pipes",
+                "Flow Assurance",
+                "Horizontal Wells"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=er_5QIoAAAAJ&hl=en",
+            "papers": {}
+        },
+        "Ovadia Shoham": {
+            "title": "Floyd M. Stevenson Distinguished Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/ovadia-shoham",
+            "phone": "918-631-3255",
+            "office": "",
+            "email": "ovadia-shoham@utulsa.edu",
+            "research_areas": [
+                "Production, Transportation and Separation of Multiphase Flow",
+                "Two Phase Flow Modeling"
+            ],
+            "google_scholar_link": "",
+            "papers": {
+                "https://www.onepetro.org/conference-paper/SPE-174960-MS"
+                "http://proceedings.asmedigitalcollection.asme.org/article.aspx?articleid=1415045"
+                "https://www.onepetro.org/conference-paper/SPE-168209-MS"
+                "https://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=1415243"
+                "https://www.sciencedirect.com/science/article/pii/S1875510016303079"
+                "https://www.onepetro.org/journal-paper/SPE-174960-PA"
+                "https://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=1833784"
+                "https://www.onepetro.org/journal-paper/SPE-163077-PA"
+                "https://www.onepetro.org/journal-paper/SPE-168209-PA"
+                "https://www.onepetro.org/journal-paper/SPE-124499-PA"
+                "http://dynamicsystems.asmedigitalcollection.asme.org/article.aspx?articleid=2492123"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2591086"
+                "http://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=1414979"
+                "https://www.onepetro.org/journal-paper/SPE-163055-PA"
+                "https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleID=2602512"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2602410"
+                "https://www.sciencedirect.com/science/article/pii/S0920410518301347"
+                "https://www.onepetro.org/conference-paper/SPE-135723-MS"
+                "https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleID=1720199"
+                "https://www.osti.gov/biblio/1253190"
+                "https://www.onepetro.org/journal-paper/SPE-139406-PA"
+                "http://materialstechnology.asmedigitalcollection.asme.org/article.aspx?articleid=1415172"
+                "https://www.sciencedirect.com/science/article/pii/S0920410516312281"
+                "https://www.onepetro.org/conference-paper/SPE-174964-MS"
+                "https://www.sciencedirect.com/science/article/pii/S187551001830180X"
+                "https://link.springer.com/chapter/10.1007/978-0-8176-8238-5_28"
+                "https://www.onepetro.org/conference-paper/SPE-190097-MS"
+                "https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleID=2659864"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2659866"
+                "https://www.sciencedirect.com/science/article/pii/S1875510018302531"
+                "https://www.researchgate.net/profile/Ramin_Dabirian/publication/324781302_Utilization_of_Churn_Flow_Coalescer_for_Improving_Foam_Breakup_in_Gas-Liquid_Cylindrical_Cyclone/links/5ae1fff9a6fdcc9139a07765/Utilization-of-Churn-Flow-Coalescer-for-Improving-Foam-Breakup-in-Gas-Liquid-Cylindrical-Cyclone.pdf"
+                "http://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=2672678"
+                "https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1720164"
+                "https://www.researchgate.net/profile/Ramin_Dabirian/publication/324674334_Foam_Breakup_in_CFCGLCC_System/links/5adabe020f7e9b28593e6684/Foam-Breakup-in-CFC-GLCC-System.pdf"
+                "https://www.onepetro.org/conference-paper/SPE-177206-MS"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1621360"
+                "http://gasturbinespower.asmedigitalcollection.asme.org/pdfaccess.ashx?url=/data/journals/jertd2/927649/jert_136_02_022902.pdf"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2659789"
+                "http://fluidsengineering.asmedigitalcollection.asme.org/pdfaccess.ashx?resourceid=16562069&pdfsource=13"
+                "https://www.onepetro.org/conference-paper/SPE-187049-MS"
+                "https://www.researchgate.net/profile/Ramin_Dabirian/publication/325612808_Foam_generation_characterization_and_breakup_in_pipes/links/5b366b530f7e9b0df5dc52bc/Foam-generation-characterization-and-breakup-in-pipes.pdf"
+                "http://gasturbinespower.asmedigitalcollection.asme.org/article.aspx?articleid=1415171"
+                "https://www.onepetro.org/journal-paper/SPE-187049-PA"
+                "https://www.sciencedirect.com/science/article/pii/S0920410518301293"
+                "http://vibrationacoustics.asmedigitalcollection.asme.org/article.aspx?articleid=2665658"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2500969"
+                "https://www.researchgate.net/profile/Ramin_Dabirian/publication/302554267_Critical_sand_deposition_velocity_for_gas-liquid_stratified_flow_in_horizontal_pipes/links/5a9b3f4e45851586a2ac2c02/Critical-sand-deposition-velocity-for-gas-liquid-stratified-flow-in-horizontal-pipes.pdf"
+                "https://www.researchgate.net/profile/Ramin_Dabirian/publication/318405181_CFD_Simulation_of_Critical_Sand_Deposition_Velocity_for_Solid-Liquid_Slurry_Flow/links/5967d1bfaca2728ca6731099/CFD-Simulation-of-Critical-Sand-Deposition-Velocity-for-Solid-Liquid-Slurry-Flow.pdf"
+                "https://www.onepetro.org/conference-paper/ISOPE-I-15-502"
+                "https://www.onepetro.org/journal-paper/SPE-166197-PA"
+                "https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2659863"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2659850"
+            }
+        },
+        "Rami Younis": {
+            "title": "Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/rami-younis",
+            "phone": "918-631-2426",
+            "office": "",
+            "email": "rami-younis@utulsa.edu",
+            "research_areas": [
+                "Numerical Reservoir Simulation",
+                "Software Design Paradigms",
+                "Nonlinear and Linear Solvers",
+                "Discretization of Coupled Flow and Transport",
+                "Geomechanics in Fractured Porous Media, Applications of Simulation in Unconventional Reservoirs and EOR"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=_fm4ybcAAAAJ&hl=en",
+            "papers": {
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+                ""
+            }
+        },
+        "Mengjiao Yu": {
+            "title": "Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mengjiao-yu",
+            "phone": "918-631-2863",
+            "office": "",
+            "email": "mengjiao-yu@utulsa.edu",
+            "research_areas": [
+                "Drilling and Well Completion",
+                "Drilling Fluids",
+                "Fluid Rheology and Hydraulics",
+                "Wellbore Stability",
+                "Shale and Shale Stability",
+                "Cuttings Transport",
+                "UBD/MPD",
+                "Drillstring Mechanics",
+                "Downhole and Surface Measurement",
+                "Drilling Automations",
+                "Large Scale Engineering Simulations"
+            ],
+            "google_scholar_link": "",
+            "papers": {
+                "https://www.onepetro.org/journal-paper/SPE-114130-PA"
+                "http://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=1868627"
+                "https://www.onepetro.org/journal-paper/SPE-167950-PA"
+                "https://www.sciencedirect.com/science/article/pii/S0920410510000586"
+                "https://www.onepetro.org/journal-paper/SPE-119302-PA"
+                "https://www.onepetro.org/journal-paper/SPE-116300-PA"
+                "https://www.onepetro.org/conference-paper/SPE-151406-MS"
+                "https://www.researchgate.net/profile/Arild_Saasen/publication/284668965_Viscoelastic_properties_of_oil-based_drilling_fluids/links/57b1b64908ae0101f17a4ae5/Viscoelastic-properties-of-oil-based-drilling-fluids.pdf"
+                "http://manufacturingscience.asmedigitalcollection.asme.org/article.aspx?articleid=2339966"
+                "https://www.onepetro.org/conference-paper/SPE-149415-MS"
+                "https://www.onepetro.org/conference-paper/SPE-159583-MS"
+                "https://www.onepetro.org/conference-paper/SPE-133428-MS"
+                "https://www.onepetro.org/conference-paper/ARMA-2015-152"
+                "https://www.onepetro.org/conference-paper/SPE-170286-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410509002629"
+                "http://computationalnonlinear.asmedigitalcollection.asme.org/article.aspx?articleid=2086426"
+                "https://www.onepetro.org/conference-paper/SPE-134269-MS"
+                "https://www.onepetro.org/conference-paper/SPE-163445-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410515000595"
+                "https://www.onepetro.org/conference-paper/ARMA-2013-125"
+                "https://www.sciencedirect.com/science/article/pii/S1875510017300082"
+                "https://www.sciencedirect.com/science/article/pii/S1875510017301440"
+                "https://www.onepetro.org/conference-paper/SPE-173435-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410516303485"
+                "https://www.sciencedirect.com/science/article/pii/S1875510015301219"
+                "https://www.sciencedirect.com/science/article/pii/S187551001630556X"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1911779"
+                "https://www.onepetro.org/conference-paper/SPE-173840-MS"
+                "https://www.sciencedirect.com/science/article/pii/S0920410511000982"
+                "http://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=2624422"
+                "https://energyresources.asmedigitalcollection.asme.org/article.aspx?articleID=1415128"
+                "https://www.onepetro.org/conference-paper/SPE-162751-MS"
+                "https://www.onepetro.org/journal-paper/SPE-173181-PA"
+                "https://www.onepetro.org/conference-paper/ARMA-2012-317"
+                "https://www.sciencedirect.com/science/article/pii/S1875510016302591"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1911815"
+                "https://www.sciencedirect.com/science/article/pii/S0920410515302333"
+                "https://www.onepetro.org/journal-paper/SPE-173189-PA"
+                "https://www.onepetro.org/journal-paper/SPE-159747-PA"
+                "http://www.aade.org/app/download/7238016388/AADE-14-FTCE-14.pdf"
+                "https://www.researchgate.net/profile/Ruizhi_Zhong/publication/316322079_A_Leak-Off_Model_for_Critical_Permeability_in_Wellbore_Strengthening_Applications/links/58fa41e30f7e9ba3ba5007ef/A-Leak-Off-Model-for-Critical-Permeability-in-Wellbore-Strengthening-Applications.pdf"
+                "https://www.onepetro.org/conference-paper/SPE-180307-MS"
+                "https://www.onepetro.org/conference-paper/SPE-159747-MS"
+                "https://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-9c3416b6-7c68-4a00-9035-19f7edcbb726"
+            }
+        },
+        "Hong-Quan Zhang": {
+            "title": "Williams Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/hong-quan-zhang",
+            "phone": "918-631-5142",
+            "office": "",
+            "email": "hong-quan-zhang@utulsa.edu",
+            "research_areas": [
+                "Artificial Lift",
+                "Multiphase Flow in Wells and Pipelines",
+                "Heat and Mass Transfer",
+                "Computational Fluid Dynamics",
+                "Heavy Oil and Emulsion Rheology",
+                "Oil and Gas Production",
+                "Flow Assurance"
+            ],
+            "google_scholar_link": "",
+            "papers": {
+                "https://www.onepetro.org/journal-paper/SPE-134765-PA"
+                "https://www.sciencedirect.com/science/article/pii/S187638041460046X"
+                "https://www.onepetro.org/journal-paper/SPE-148330-PA"
+                "https://www.sciencedirect.com/science/article/pii/S1875510011000217"
+                "https://www.onepetro.org/journal-paper/SPE-124181-PA"
+                "https://www.onepetro.org/conference-paper/SPE-146954-MS"
+                "https://www.onepetro.org/conference-paper/SPE-146448-MS"
+                "https://www.onepetro.org/conference-paper/OTC-20617-MS"
+                "https://pubs.acs.org/doi/abs/10.1021/ef300179s"
+                "https://www.sciencedirect.com/science/article/pii/S0301932210001916"
+                "https://www.sciencedirect.com/science/article/pii/S1875510016307582"
+                "http://energyresources.asmedigitalcollection.asme.org/article.aspx?articleid=1415167"
+                "https://www.onepetro.org/journal-paper/SPE-135099-PA"
+                "https://www.sciencedirect.com/science/article/pii/S0920410516302984"
+                "https://www.onepetro.org/journal-paper/SPE-170727-PA"
+                "https://www.onepetro.org/journal-paper/SPE-163148-PA"
+                "https://www.sciencedirect.com/science/article/pii/S1875510017302731"
+                "https://www.onepetro.org/conference-paper/IPTC-17846-MS"
+                "https://www.onepetro.org/conference-paper/SPE-146630-MS"
+                "https://www.onepetro.org/journal-paper/SPE-171563-PA"
+                "https://www.onepetro.org/conference-paper/OTC-24046-MS"
+                "https://www.onepetro.org/conference-paper/SPE-159217-MS"
+                "https://www.onepetro.org/conference-paper/SPE-181151-MS"
+                "https://www.mdpi.com/1996-1073/11/1/180"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2669248"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2669277"
+                "http://search.proquest.com/openview/de01ec4315e2ae3ea877644d716c997b/1?pq-origsite=gscholar&cbl=2034861"
+                "https://www.onepetro.org/conference-paper/SPE-146630-MS"
+                "https://www.onepetro.org/journal-paper/SPE-171563-PA"
+                "https://www.onepetro.org/conference-paper/OTC-24046-MS"
+                "https://www.onepetro.org/conference-paper/SPE-159217-MS"
+                "https://www.onepetro.org/conference-paper/SPE-181151-MS"
+                "https://www.mdpi.com/1996-1073/11/1/180"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2669248"
+                "http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=2669277"
+                "http://search.proquest.com/openview/de01ec4315e2ae3ea877644d716c997b/1?pq-origsite=gscholar&cbl=2034861"
+                "http://manufacturingscience.asmedigitalcollection.asme.org/pdfaccess.ashx?url=/data/journals/jertd2/26579/043001_1.pdf"
+                "https://www.onepetro.org/conference-paper/SPE-190927-MS"
+                "https://www.onepetro.org/conference-paper/SPE-187393-MS"
+                "https://www.onepetro.org/conference-paper/SPE-165691-MS"
+                "http://search.proquest.com/openview/0396014c8f8f5f0b9061c3806eac627d/1?pq-origsite=gscholar&cbl=2037677"
+                "http://www.tualp.utulsa.edu/Jiecheng%20Zhang%20Thesis%20Jan2018.pdf"
+                "https://link.springer.com/article/10.1007/s12665-017-6646-1"
+            }
+        }
+    }
+}
