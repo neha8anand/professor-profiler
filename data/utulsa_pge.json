@@ -19,8 +19,7 @@
                 "Geothermal Reservoir Engineering",
                 "Unconventional Oil and Gas Reservoirs "
             ],
-            "google_scholar_link": "https://scholar.google.com/citations?user=rMY1Y8IAAAAJ&hl=en&oi=ao",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Randy Hazlett": {
             "title": "Associate Professor of Petroleum Engineering",
@@ -40,8 +39,7 @@
                 "Lattice Boltzmann methods for Petroleum Engineering",
                 "Enhanced Oil Recovery"
             ],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Mohan Kelkar": {
             "title": "Williams Professor of Petroleum Engineering",
@@ -53,8 +51,7 @@
                 "Integrated Reservoir Modeling",
                 "Liquid Loading"
             ],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Jun Lu": {
             "title": "Assistant Professor of Petroleum Engineering",
@@ -63,8 +60,7 @@
             "office": "",
             "email": "jun-lu@utulsa.edu",
             "research_areas": [],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Stefan Miska": {
             "title": "Jonathan B. Detwiler Professor of Petroleum Engineering",
@@ -78,8 +74,7 @@
                 "Drilling Optimization",
                 "Geomechanics"
             ],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Evren Ozbayoglu": {
             "title": "Wellspring Associate Professor of Petroleum Engineering",
@@ -95,8 +90,7 @@
                 "Fluid Characterization",
                 "Hydraulics"
             ],
-            "google_scholar_link": "https://scholar.google.com/citations?user=z8MB1NYAAAAJ&hl=en&oi=ao",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Eduardo Pereyra": {
             "title": "Assistant Professor of Petroleum Engineering",
@@ -113,8 +107,7 @@
                 "Separation Technologies",
                 "Uncertainty Analysis"
             ],
-            "google_scholar_link": "https://scholar.google.com/citations?user=-4qUrDcAAAAJ&hl=en",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Mauricio Prado": {
             "title": "Associate Professor of Petroleum Engineering",
@@ -129,8 +122,7 @@
                 "Production Optimization",
                 "Dynamic of Multiphase Flow in Pipes"
             ],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Cem Sarica": {
             "title": "F.H. \"Mick\" Merelli/Cimarex Energy Professor of Petroleum Engineering",
@@ -144,8 +136,7 @@
                 "Flow Assurance",
                 "Horizontal Wells"
             ],
-            "google_scholar_link": "https://scholar.google.com/citations?user=er_5QIoAAAAJ&hl=en",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Ovadia Shoham": {
             "title": "Floyd M. Stevenson Distinguished Professor of Petroleum Engineering",
@@ -157,8 +148,7 @@
                 "Production, Transportation and Separation of Multiphase Flow",
                 "Two Phase Flow Modeling"
             ],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Mike Stafford": {
             "title": "Instructor in Petroleum Engineering",
@@ -167,8 +157,7 @@
             "office": "",
             "email": "mike-stafford@utulsa.edu",
             "research_areas": [],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Rami Younis": {
             "title": "Associate Professor of Petroleum Engineering",
@@ -183,8 +172,7 @@
                 "Discretization of Coupled Flow and Transport",
                 "Geomechanics in Fractured Porous Media, Applications of Simulation in Unconventional Reservoirs and EOR"
             ],
-            "google_scholar_link": "https://scholar.google.com/citations?user=_fm4ybcAAAAJ&hl=en",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Mengjiao Yu": {
             "title": "Professor of Petroleum Engineering",
@@ -205,8 +193,7 @@
                 "Drilling Automations",
                 "Large Scale Engineering Simulations"
             ],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         },
         "Hong-Quan Zhang": {
             "title": "Williams Professor of Petroleum Engineering",
@@ -223,8 +210,7 @@
                 "Oil and Gas Production",
                 "Flow Assurance"
             ],
-            "google_scholar_link": "",
-            "papers": {}
+            "google_scholar_link": ""
         }
     }
 }

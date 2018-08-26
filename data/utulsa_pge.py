@@ -41,8 +41,7 @@ for pge_faculty_entry in pge_faculty_entries:
                                              'office': '',
                                              'email': email,
                                              'research_areas' : research_areas,
-                                             'google_scholar_link' : '',
-                                             'papers' : {}}
+                                             'google_scholar_link' : ''}
 
 pge_dictionary['faculty_names'] = faculty_names_dictionary
 

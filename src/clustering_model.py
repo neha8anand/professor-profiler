@@ -23,21 +23,15 @@ class MyModel():
     def __init__(self, n):
         self._clusterer = KMeans(n)
 
-    def fit(self, X, y):
-        """Fit a clustering model.
+    def fit_predict(self, X):
+        """Return cluster assignments for training data.
         Parameters
         ----------
         X: A numpy array or list of text fragments, to be used as predictors.
         Returns
         -------
-        self: The fit model object.
+        y: The fit model predictions.
         """
-        # Code to fit the model.
-        self._clusterer.fit(X)
-        return self
-
-    def fit_predict(self, X):
-        """Return cluster assignments for training data."""
         return self._clusterer.fit_predict(X)
 
     def predict(self, X):
@@ -53,6 +47,14 @@ class MyModel():
         top_n_features = np.array([reverse_vocab[index] for row in top_n_indices for index in row])
         top_n_features = top_n_features.reshape(len(centroids), -1) # topics with the top n greatest representation in each of the centroids
         return top_n_features
+
+    def most_similar(self, search_text, vectorizer, top_n=5):
+        """Returns top n most similar professors for a given search text."""
+        x = self._model.transform(vectorizer.transform([search_text]))[0]
+        dists = euclidean_distances(x.reshape(1, -1), self._model)
+        pairs = enumerate(dists[0])
+        most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
+        return most_similar
 
 def get_corpus(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
@@ -75,12 +77,11 @@ def get_corpus(filename):
     df_nlp = df_filtered[~missing]
 
     # Choosing abstracts and paper_titles to predict topics for a professor
-    corpus = df_nlp['abstracts'].values
-    # corpus = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
+    corpus = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
 
     return corpus
 
-def vectorize_corpus(corpus):
+def vectorize_corpus(corpus, tf_idf=True, stem_lem=None, **kwargs):
     """
     Parameters
     ----------
@@ -91,8 +92,7 @@ def vectorize_corpus(corpus):
     matrix: The feature matrix (numpy 2-D array) returned by the vectorizer object.
     """
 
-    vectorizer, matrix = feature_matrix(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
-                                    max_df=0.8, min_df=2, max_features=None)
+    vectorizer, matrix = feature_matrix(corpus, tf_idf=True, stem_lem=None, **kwargs)
 
     return vectorizer, matrix
 
@@ -111,7 +111,9 @@ if __name__ == '__main__':
     add_database(current_db_path, new_db_paths, combined_db_path)
 
     corpus = get_corpus('../data/pge_database.json')
-    vectorizer, matrix = vectorize_corpus(corpus)
+    # words occurring in only one document or in at least 80% of the documents are removed.
+    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
+                                    max_df=0.8, min_df=2, max_features=None)
     model = MyModel(12)
     y_pred = model.fit_predict(matrix)
     print(y_pred)

@@ -3,28 +3,45 @@ from clustering_model import get_corpus, vectorize_corpus, MyModel
 import pandas as pd
 import pickle
 
-# pge_model
+# cluster_model
 with open('../data/pge_model.pkl', 'rb') as f:
         model = pickle.load(f)
 
 with open('../data/pge_vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
 
+# topic_model
+with open('../data/pge_topic_model.pkl', 'rb') as f:
+        topic_model = pickle.load(f)
+
+with open('../data/pge_topic_vectorizer.pkl', 'rb') as f:
+    topic_vectorizer = pickle.load(f)
+
+
 final_df = pd.read_json('../data/final_database.json')
 
 # Search algorithm
-def search(search_text, type='text_input'):
+def search(search_text, type='text_input', model='topic_model'):
     '''
+    Parameters
+    ----------
+    search_text: the text to be used for searching.
     type: 'text_input' for abstract/whole body of their past paper,
     'research_area_input' for research_area.
-
-    search_text: the text to be used for searching.
+    model: 'topic_model' for soft clustering and 'cluster_model' for hard clustering
     '''
     # If searching by research_area
     # If searching by text_input
-    X_test = vectorizer.transform(search_text)
-    y_test = model.predict(X_test) # predicted cluster label for given text
-    results_df = final_df[final_df['predicted_cluster_num'] == y_test[0]]
+    if type == 'text_input':
+        if model == 'cluster_model':
+            X_test = vectorizer.transform(search_text)
+            y_test = model.predict(X_test) # predicted cluster label for given text
+            results_df = final_df[final_df['predicted_cluster_num'] == y_test[0]]
+        else:
+            x = topic_model.transform(topic_vectorizer.transform([text]))[0]
+            similarities = most_similar(x, nmf_Z)
+            for (document_id, similarity) in similarities:
+                print(final_df.iloc[document_id].loc[['faculty_name', 'research_areas']])
     return results_df[['faculty_name', 'research_areas', 'predicted_research_areas']]
 
 # Ranking algorithm

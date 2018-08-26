@@ -11,6 +11,7 @@ from nlp_pipeline import feature_matrix
 import numpy as np
 import pickle
 import pandas as pd
+from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
 
 class MyModel():
@@ -34,7 +35,8 @@ class MyModel():
 
     def fit_transform(self, X):
         """Return transformed training data."""
-        return self._model.fit_transform(X)
+        self.transformed_X = self._model.fit_transform(X)
+        return self.transformed_X
 
     def transform(self, X):
         """Return transformed new data."""
@@ -42,15 +44,15 @@ class MyModel():
 
     def top_n_features(self, vectorizer, top_n=10):
         """Returns top n features/words for all topics given a vectorizer object."""
-        topic_words = np.empty([self._model.components_.shape[0], top_n])
+        topic_words = []
         for idx, topic in enumerate(self._model.components_):
-            topic_words[idx,:] = [vectorizer.get_feature_names()[i] for i in topic.argsort()[:-top_n - 1:-1]]
-        return topic_words
+            topic_words.append([vectorizer.get_feature_names()[i] for i in topic.argsort()[:-top_n - 1:-1]])
+        return np.array(topic_words)
 
     def most_similar(self, search_text, vectorizer, top_n=5):
         """Returns most similar professors for a given search text."""
         x = self._model.transform(vectorizer.transform([search_text]))[0]
-        dists = euclidean_distances(x.reshape(1, -1), self._model)
+        dists = euclidean_distances(x.reshape(1, -1), self.transformed_X)
         pairs = enumerate(dists[0])
         most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
         return most_similar
@@ -106,19 +108,17 @@ if __name__ == '__main__':
     # words occurring in only one document or in at least 80% of the documents are removed.
     vectorizer, matrix = vectorize_corpus(corpus, tf_idf=False, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=5, max_features=None)
-    model = MyModel(12, 'NMF')
+    model = MyModel(n_topics=12, algorithm='NMF')
     y_pred = model.fit_transform(matrix)
     topic_words = model.top_n_features(vectorizer, top_n=10)
-    print(topic_words)
 
-    # pge_df = database_cleaner('../data/pge_database.json')
-    # top_ten_features = model.top_n_features(vectorizer.vocabulary_, 10)
-    # pge_df['predicted_topic_num'] = y_pred.argsort(axis=1)[-1]
-    # pge_df['predicted_research_areas'] = [top_ten_features[num] for num in y_pred]
-    # pge_df.to_json(path_or_buf='../data/final_database.json')
-    #
-    # with open('../data/pge_topic_model.pkl', 'wb') as f:
-    #     pickle.dump(model, f)
-    #
-    # with open('../data/pge_topic_vectorizer.pkl', 'wb') as f:
-    #     pickle.dump(vectorizer, f)
+    pge_df = database_cleaner('../data/pge_database.json')
+    pge_df['predicted_topic_num'] = [num[-1] for num in y_pred.argsort(axis=1)]
+    pge_df['predicted_research_areas'] = [topic_words[topic_num] for topic_num in pge_df['predicted_topic_num']]
+    pge_df.to_json(path_or_buf='../data/final_topic_database.json')
+
+    with open('../data/pge_topic_model.pkl', 'wb') as f:
+        pickle.dump(model, f)
+
+    with open('../data/pge_topic_vectorizer.pkl', 'wb') as f:
+        pickle.dump(vectorizer, f)
