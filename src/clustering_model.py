@@ -12,6 +12,7 @@ import numpy as np
 import pickle
 import pandas as pd
 from sklearn.cluster import KMeans
+from sklearn.metrics.pairwise import euclidean_distances
 
 class MyModel():
     """A clustering model to identify research areas given information about papers:
@@ -51,11 +52,11 @@ class MyModel():
 
     def most_similar(self, search_text, vectorizer, top_n=5):
         """Returns top n most similar professors for a given search text."""
-        x = (vectorizer.transform([search_text]))[0]
-        dists = euclidean_distances(x.reshape(1, -1), self.X)
+        x = (vectorizer.transform([search_text]))
+        dists = euclidean_distances(x, self.X)
         pairs = enumerate(dists[0])
         most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
-        return most_similar
+        return np.array(most_similar)
 
 def get_corpus(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
