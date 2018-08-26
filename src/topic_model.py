@@ -14,7 +14,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
 
-class MyModel():
+class MyTopicModel():
     """A clustering model to identify research areas given information about papers:
         - cleans the json dataset
         - Vectorize the raw text into features.
@@ -55,7 +55,7 @@ class MyModel():
         dists = euclidean_distances(x.reshape(1, -1), self.transformed_X)
         pairs = enumerate(dists[0])
         most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
-        return most_similar
+        return np.array(most_similar)
 
 def get_corpus(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     # words occurring in only one document or in at least 80% of the documents are removed.
     vectorizer, matrix = vectorize_corpus(corpus, tf_idf=False, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=5, max_features=None)
-    model = MyModel(n_topics=12, algorithm='NMF')
+    model = MyTopicModel(n_topics=12, algorithm='NMF')
     y_pred = model.fit_transform(matrix)
     topic_words = model.top_n_features(vectorizer, top_n=10)
 

@@ -1,5 +1,6 @@
 from cleaning import database_cleaner
-from clustering_model import get_corpus, vectorize_corpus, MyModel
+from clustering_model import MyModel
+from topic_model import MyTopicModel
 import pandas as pd
 import pickle
 
@@ -17,11 +18,12 @@ with open('../data/pge_topic_model.pkl', 'rb') as f:
 with open('../data/pge_topic_vectorizer.pkl', 'rb') as f:
     topic_vectorizer = pickle.load(f)
 
-
 final_df = pd.read_json('../data/final_database.json')
+final_topic_df = pd.read_json('../data/final_topic_database.json')
 
-# Search algorithm
-def search(search_text, type='text_input', model='topic_model'):
+# Search algorithm and Ranking algorithm
+
+def search(search_text, type='text_input', choose_model='topic_model'):
     '''
     Parameters
     ----------
@@ -33,19 +35,19 @@ def search(search_text, type='text_input', model='topic_model'):
     # If searching by research_area
     # If searching by text_input
     if type == 'text_input':
-        if model == 'cluster_model':
-            X_test = vectorizer.transform(search_text)
-            y_test = model.predict(X_test) # predicted cluster label for given text
+        if choose_model == 'cluster_model':
+            y_test = model.predict(vectorizer.transform([search_text])) # predicted cluster label for given text
             results_df = final_df[final_df['predicted_cluster_num'] == y_test[0]]
         else:
-            x = topic_model.transform(topic_vectorizer.transform([text]))[0]
-            similarities = most_similar(x, nmf_Z)
-            for (document_id, similarity) in similarities:
-                print(final_df.iloc[document_id].loc[['faculty_name', 'research_areas']])
+            similarities = topic_model.most_similar(search_text, topic_vectorizer, top_n=5) # document_id, similarity
+            similarities = similarities[similarities[:,0].argsort()] # sorting by document_id
+            document_ids = list(map(int, similarities[:,0]))
+            results_df = final_topic_df[final_topic_df.index.isin(document_ids)].sort_index()
+            results_df['similarity'] = similarities[:,1]
+            results_df.sort_values(by='similarity').drop(columns='similarity', axis=1)
     return results_df[['faculty_name', 'research_areas', 'predicted_research_areas']]
 
-# Ranking algorithm
 if __name__ == '__main__':
-    search_text = ['For wells drilled in shale gas reservoirs to be economic, hydraulic fracturing has become a common completion practice. Production from these completed wells is highly dependent on the characteristics of proppants placed in the created fractures. Fracturing leads to an interaction between the minerals of the proppants, formation and the fluids; this results in the phenomenon of proppants diagenesis. It involves mechanisms such as diffusion, dissolution, precipitation along with chemical reactions that take place at the fracture surface. Over time, this combined process results in a loss of proppant pack permeability thereby leading to a decline in well productivity. This occurs due to changes in compositional differences between proppants, fracturing fluid and the formation. A mathematical model, representing this phenomenon is developed in this paper']
-    results = search(search_text, type='text_input')
+    search_text = "Steam injection is a widely used oil-recovery method that has been commercially successful in many types of heavy-oil reservoirs, including the oil sands of Alberta, Canada. Steam is very effective in delivering heat that is the key to heavy-oil mobilization. In the distant past in California, and also recently in Alberta, solvents were/are being used as additives to steam for additional viscosity reduction. The current applications are in field projects involving steam-assisted gravity drainage (SAGD) and cyclic steam stimulation (CSS).The past and present projects using solvents alone or in combination with steam are reviewed and evaluated, including enhanced solvent SAGD (ES-SAGD) and liquid addition to steam for enhancing recovery (LASER). The use of solvent in other processes, such as effective solvent extraction incorporating electromagnetic heating (ESEIEH) and after cold-heavy-oil production with sand (CHOPS), are also reviewed. The theories behind the use of solvents with steam are outlined. These postulate additional heavy-oil/bitumen mobilization; oil mobilization ahead of the steam front; and oil mobilization by solvent dispersion caused by frontal instability. The plausibility of the different approaches and solvent availability and economics are also discussed."
+    results = search(search_text, type='text_input', choose_model='cluster_model')
     print(results)

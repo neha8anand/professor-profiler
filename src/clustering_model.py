@@ -32,6 +32,7 @@ class MyModel():
         -------
         y: The fit model predictions.
         """
+        self.X = X
         return self._clusterer.fit_predict(X)
 
     def predict(self, X):
@@ -50,8 +51,8 @@ class MyModel():
 
     def most_similar(self, search_text, vectorizer, top_n=5):
         """Returns top n most similar professors for a given search text."""
-        x = self._model.transform(vectorizer.transform([search_text]))[0]
-        dists = euclidean_distances(x.reshape(1, -1), self._model)
+        x = (vectorizer.transform([search_text]))[0]
+        dists = euclidean_distances(x.reshape(1, -1), self.X)
         pairs = enumerate(dists[0])
         most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
         return most_similar
@@ -116,7 +117,6 @@ if __name__ == '__main__':
                                     max_df=0.8, min_df=2, max_features=None)
     model = MyModel(12)
     y_pred = model.fit_predict(matrix)
-    print(y_pred)
 
     pge_df = database_cleaner('../data/pge_database.json')
     top_ten_features = model.top_n_features(vectorizer.vocabulary_, 10)
