@@ -100,7 +100,7 @@ def vectorize_corpus(corpus, tf_idf=True, stem_lem=None, **kwargs):
 if __name__ == '__main__':
     # Create pge_database with updated predicted_research_areas based on top-10 features
     current_db_path = '../data/ut_database.json'
-    new_db_paths = ['../data/stanford_database.json', '../data/tamu_database.json']
+    new_db_paths = ['../data/stanford_database.json', '../data/tamu_database.json', '../data/utulsa_database.json']
     combined_db_path = '../data/pge_database.json'
     add_database(current_db_path, new_db_paths, combined_db_path)
 
