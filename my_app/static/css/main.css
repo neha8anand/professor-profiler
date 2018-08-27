@@ -4,7 +4,7 @@
 /* Mobile Layout: 320px */
 /* Wide Mobile Layout: 480px */
 /* =================================== */
-/*  Basic Style 
+/*  Basic Style
 /* =================================== */
 ::-moz-selection {
   /* Code for Firefox */
@@ -2216,6 +2216,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-image: -moz-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
   background-image: -webkit-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
   background-image: -ms-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
+  background-color: rgba(67, 25, 161, 0.65);
 }
 
 .p1-gradient-color, .feat-txt h1 {
