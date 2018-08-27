@@ -34,8 +34,7 @@ def submit():
     return json
 
 def get_model_results():
-    test_df = get_live_data()
-
+    display_data =  
     return display_data
 
 @app.route('/plot.png')
