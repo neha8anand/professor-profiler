@@ -22,7 +22,6 @@ final_df = pd.read_json('../data/final_database.json')
 final_topic_df = pd.read_json('../data/final_topic_database.json')
 
 # Search algorithm and Ranking algorithm
-
 def search(search_text, type='text_input', choose_model='topic_model'):
     '''
     Parameters

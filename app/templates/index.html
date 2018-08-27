@@ -48,23 +48,19 @@
 			    </div>
 			  </header><!-- #header -->
 
-
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">
 				<div class="overlay overlay-bg"></div>
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-center">
 						<div class="banner-content col-lg-12">
-							<h1 class="text-white">
-								<span>1500+</span> Jobs posted last week
-							</h1>
-							<form action="search.html" class="serach-form-area">
+							<form action="search.html" class="search-form-area">
 								<div class="row justify-content-center form-wrap">
 									<div class="col-lg-4 form-cols">
-										<input type="text" class="form-control" name="search" placeholder="Enter research area or abstract text">
+										<input type="text" class="form-control" id="text_input" placeholder="Enter research area or abstract text">
 									</div>
 									<div class="col-lg-2 form-cols">
-									    <button type="button" class="btn btn-info">
+									    <button type="button" class="btn btn-info" id="submit" onclick="predict()" >
 									      <span class="lnr lnr-magnifier"></span> Search
 									    </button>
 									</div>
@@ -76,6 +72,39 @@
 				</div>
 			</section>
 			<!-- End banner Area -->
+			cols = ['faculty_name', 'faculty_title', 'research_areas', 'predicted_research_areas', 'office', 'email', 'phone', 'page', 'google_scholar_link']
+			<!-- /.container-fluid -->
+        <table class="table table-bordered" id="results-table" width="100%" cellspacing="0">
+         <thead>
+           <tr>
+             <th>Faculty Name</th>
+             <th>Faculty Title</th>
+             <th>Research Description</th>
+             <th>Research Tags</th>
+             <th>Office</th>
+             <th>Email</th>
+						 <th>Phone</th>
+						 <th>Page</th>
+						 <th>Google Scholar Profile</th>
+           </tr>
+         </thead>
+         <tbody id="results-table-body">
+           {% for item in data %}
+              <tr>
+                 <td class="c1">{{item['faculty_name']}}</td>
+                 <td class="c2">{{item['faculty_title']}}</td>
+                 <td class="c3">{{item['research_areas']}}</td>
+                 <td class="c4">{{item['predicted_research_areas']}}</td>
+                 <td class="c5">{{item['office']}}</td>
+                 <td class="c6">{{item['email']}}</td>
+								 <td class="c7">{{item['phone']}}</td>
+								 <td class="c8">{{item['page']}}</td>
+								 <td class="c9">{{item['google_scholar_link']}}</td>
+								 <td class="c10">{{item['email']}}</td>
+              </tr>
+            {% endfor %}
+         </tbody>
+       </table>
 
 			<!-- Start post Area -->
 			<section class="post-area section-gap">

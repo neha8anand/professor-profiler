@@ -1,23 +1,29 @@
-let send_text_json = function() {
+let get_input_text = function() {
+    let X = $("input#text_input").val()
+    return {"text_input": X}
+    };
+
+let send_text_json = function(X) {
     $.ajax({
         url: '/submit',
         contentType: "application/json; charset=utf-8",
         type: 'POST',
-        data: JSON.stringify(),
+        data: JSON.stringify(X), //This gets sent to the submit page.
         success: function (data) {
             drawTable(data);
         }
     });
 };
 
-let predict = function(){
-        send_text_json();
-    };
-
 function drawTable(data) {
   var html = '';
   for (var i = 0; i < data.length; i++) {
-    html += '<tr><td>' + data[i].object_id + '</td><td>'+ data[i].name + '</td><td>' + data[i].currency + '</td><td>' + data[i].risk_level + '</td><td>' + data[i].acct_category_pred  +'</td><td>' + data[i].predict_fraud  + '</td></tr>';
+    html += '<tr><td>' + data[i].faculty_name + '</td><td>'+ data[i].faculty_title + '</td><td>' + data[i].research_areas + '</td><td>' + data[i].predicted_research_areas + '</td><td>' + data[i].office  +'</td><td>' + data[i].email + '</td><td>' + data[i].phone + '</td><td>' + data[i].page + '</td><td>' + data[i].google_scholar_link + '</td></tr>';
   }
   $('#results-table-body').html(html);
 }
+
+let predict = function(){
+        let X = get_input_text();
+        send_text_json(X);
+    };
