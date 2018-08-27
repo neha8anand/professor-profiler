@@ -1,19 +1,18 @@
-from collections import Counter
+
+from topic_model import MyTopicModel
+
 from flask import Flask, request, render_template
+
 import pickle
 import numpy as np
 import pandas as pd
 
-import requests
-from topic_model import MyTopicModel
 from bson import json_util, ObjectId
 import json
-import seaborn as sns
-import matplotlib
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
+
 from io import BytesIO
-import random
+
+import sys
 
 app = Flask(__name__,
         static_url_path='')
@@ -28,7 +27,8 @@ with open('../data/pge_topic_vectorizer.pkl', 'rb') as f:
 # Form page to submit text
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', data=display_data)
+    sys.path.append("..")
+    return render_template('index.html')
 
 # My professor profiler app
 @app.route('/submit', methods=['POST'])
@@ -36,9 +36,9 @@ def submit():
     user_data = request.json
     search_text = user_data["text_input"]
     display_data = get_model_results(search_text)
-    return display_data.to_json(force_ascii=True, orient='records', default_handler=str)
+    return display_data.to_json()
 
-# Search algorithm and Ranking algorithm
+# Search and Ranking algorithm
 def get_model_results(search_text):
     '''
     Parameters
