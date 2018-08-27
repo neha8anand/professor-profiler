@@ -2,7 +2,7 @@
 Module containing model fitting code for a web application that implements a
 research interests identification topic model(Choice between LDA, NMF and LSI).
 When run as a module, this will load a json dataset, train a decomposition
-model, and then pickle the resulting model object to disk.
+model using sklearn, and then pickle the resulting model object to disk.
 """
 from cleaning import database_cleaner
 from combine_databases import add_database
