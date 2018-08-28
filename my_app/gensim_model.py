@@ -2,7 +2,8 @@
 Module containing model fitting code for a web application that implements a
 research interests identification topic model using gensim(Choice between LDA, LSI and LDAMallet).
 When run as a module, this will load a json dataset, train a decomposition
-model using gensim, and then pickle the resulting model object to disk.
+model using gensim, optimize the number of topics, and then pickle
+the resulting optimum model object to disk.
 """
 from combine_databases import add_database
 from cleaning import database_cleaner
@@ -21,6 +22,7 @@ from gensim.test.utils import datapath
 # Plotting tools
 import pyLDAvis
 import pyLDAvis.gensim
+import matplotlib.pyplot as plt
 
 # NLTK
 from nltk.corpus import stopwords
@@ -31,6 +33,7 @@ import spacy
 
 import gzip
 import os
+import pickle
 
 import warnings
 warnings.filterwarnings("ignore",category=UserWarning)
@@ -96,7 +99,7 @@ class MyGenSimModel():
             self._model = models.ldamodel.LdaModel(corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
 
         elif self.algorithm == 'LDAMallet':
-            # Build a Mallet Model
+            # Build a Mallet Model (doesn't work with tf-idf)
             self._model = models.wrappers.LdaMallet(mallet_path, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='~/Documents/Github/capstone/')
 
         elif self.algorithm == 'LSI':
@@ -136,7 +139,7 @@ class MyGenSimModel():
         dataDir = "/Users/Neha/Documents/GitHub/capstone"
         statefile = 'state.mallet.gz'
         model = get_LDA_data(dataDir, statefile)
-        vis = pyLDAvis.gensim.prepare(**model)
+        vis = pyLDAvis.gensim.prepare(topic_model=model, corpus=self.corpus, dictionary=self.dictionary)
         return vis
 
     def format_document_topics(self):
@@ -231,32 +234,48 @@ if __name__ == '__main__':
     data = get_data('../data/pge_database.json')
 
     # Initiate model
-    model = MyGenSimModel(num_topics=9, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    model = MyGenSimModel(num_topics=9, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
     model.transform(data)
-    # model.fit()
 
     # Choose optimum number of clusters
-    coherence_values = compute_coherence_values(dictionary=model.dictionary, corpus=model.corpus, texts=model.tokens, limit, start=5, step=1, algorithm=model.algorithm)
-    optimum_num_topics = np.argmax(np.array(coherence_values))
+    start, limit, step = 5, 17, 2
+    coherence_values = compute_coherence_values(dictionary=model.dictionary, corpus=model.corpus, texts=model.tokens, limit=limit, start=start, step=step, algorithm=model.algorithm)
+    list_num_topics = np.array(range(start, limit, step))
+    optimum_num_topics = list_num_topics[np.argmax(np.array(coherence_values))]
+    print(optimum_num_topics)
+
+    # Coherence Plot
+    plt.plot(list_num_topics, coherence_values)
+    plt.xlabel("Num Topics")
+    plt.ylabel("Coherence score")
+    # plt.title('Coherence Plot for LDA model')
+    plt.title('Coherence Plot for LDAMallet model')
+    # plt.show()
+    # plt.savefig('LDA_Coherence_Plot.png', bbox_inches='tight')
+    plt.savefig('LDAMallet Coherence Plot', bbox_inches='tight')
+    plt.close()
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
     optimum_model.transform(data)
     optimum_model.fit()
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
     pge_df = database_cleaner('../data/pge_database.json')
     pge_df.index = list(range(len(pge_df)))
-    doc_topics_df = model.format_document_topics()
+
+    doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
-    # doc_topics_df = optimum_model.format_document_topics()
     pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)
-    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database.json')
+    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database_LDAMallet.json')
+
+    # Pickle model (has associated dictionary and tf_idf model)
+    with open('../data/pge_gensim_LDAMallet.pkl', 'wb') as f:
+        pickle.dump(optimum_model, f)
 
     # Save model to disk.
-    gensim_file = datapath("optimum_model")
-    model._model.save(gensim_file)
-    # optimum_model.save(gensim_file)
+    # gensim_file = datapath("optimum_LDA_model")
+    # optimum_model._model.save(gensim_file)
 
     # Load a potentially pretrained model from disk.
     # model = models.ldamodel.LdaModel.load(gensim_file)

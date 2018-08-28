@@ -106,11 +106,12 @@ if __name__ == '__main__':
 
     corpus = get_corpus('../data/pge_database.json')
     # words occurring in only one document or in at least 80% of the documents are removed.
-    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=False, stem_lem=None, ngram_range=(1,1),
+    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=5, max_features=None)
     model = MyTopicModel(n_topics=12, algorithm='NMF')
     y_pred = model.fit_transform(matrix)
     topic_words = model.top_n_features(vectorizer, top_n=10)
+    # print(model._model.perplexity(matrix))
 
     pge_df = database_cleaner('../data/pge_database.json')
     pge_df['predicted_topic_num'] = [num[-1] for num in y_pred.argsort(axis=1)]

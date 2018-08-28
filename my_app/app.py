@@ -1,4 +1,3 @@
-
 from topic_model import MyTopicModel
 from nlp_pipeline import clean_text
 
@@ -8,24 +7,40 @@ import pickle
 import numpy as np
 import pandas as pd
 
+import matplotlib.pyplot as plt
+import matplotlib
+# matplotlib.use('Agg') # to prevent plt image popups
+
 from bson import json_util, ObjectId
 import json
 
 from io import BytesIO
 
-
 app = Flask(__name__,
         static_url_path='')
 
-# topic model and vectorizer
+# topic model and vectorizer(using sklearn)
 with open('../data/pge_topic_model.pkl', 'rb') as f:
         topic_model = pickle.load(f)
 
 with open('../data/pge_topic_vectorizer.pkl', 'rb') as f:
     topic_vectorizer = pickle.load(f)
 
+# gensim model and vectorizer
+with open('../data/pge_gensim_LDA.pkl', 'rb') as f:
+        gensim_LDA = pickle.load(f)
+
+with open('../data/pge_gensim_LDAMallet.pkl', 'rb') as f:
+        gensim_LDAMallet = pickle.load(f)
+
 # database
 final_topic_df = pd.read_json('../data/final_topic_database.json')
+final_gensim_database_LDA = pd.read_json('../data/final_gensim_database_LDA')
+final_gensim_database_LDAMallet = pd.read_json('../data/final_gensim_database_LDAMallet')
+
+# from gensim.test.utils import datapath
+# gensim_file = datapath("optimum_LDA_model")
+# optimum_LDA_model = models.ldamodel.LdaModel.load(gensim_file)
 
 # Form page to submit text
 @app.route('/', methods=['GET'])
