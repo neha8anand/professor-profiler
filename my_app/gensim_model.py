@@ -125,7 +125,7 @@ class MyGenSimModel():
     def most_similar(self, search_text, top_n=5):
         """Returns top-n most similar professors for a given search text (cleaned and tokenized)."""
         lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
-        similarity_results = lda_index[self.transform(search_text)]
+        similarity_results = lda_index[self.transform_new(search_text)]
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
         return similarity_results[:top_n]
 
@@ -138,8 +138,8 @@ class MyGenSimModel():
         """Visualize LDA model using pyLDAvis"""
         dataDir = "/Users/Neha/Documents/GitHub/capstone"
         statefile = 'state.mallet.gz'
-        model = get_LDA_data(dataDir, statefile)
-        vis = pyLDAvis.gensim.prepare(topic_model=model, corpus=self.corpus, dictionary=self.dictionary)
+        data = get_LDA_data(dataDir, statefile)
+        vis = pyLDAvis.prepare(**data)
         return vis
 
     def format_document_topics(self):
@@ -234,7 +234,7 @@ if __name__ == '__main__':
     data = get_data('../data/pge_database.json')
 
     # Initiate model
-    model = MyGenSimModel(num_topics=9, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    model = MyGenSimModel(num_topics=9, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
     model.transform(data)
 
     # Choose optimum number of clusters
@@ -248,11 +248,11 @@ if __name__ == '__main__':
     plt.plot(list_num_topics, coherence_values)
     plt.xlabel("Num Topics")
     plt.ylabel("Coherence score")
-    # plt.title('Coherence Plot for LDA model')
-    plt.title('Coherence Plot for LDAMallet model')
+    plt.title('Coherence Plot for LDA model')
+    # plt.title('Coherence Plot for LDAMallet model')
     # plt.show()
-    # plt.savefig('LDA_Coherence_Plot.png', bbox_inches='tight')
-    plt.savefig('LDAMallet Coherence Plot', bbox_inches='tight')
+    plt.savefig('LDA_Coherence_Plot.png', bbox_inches='tight')
+    # plt.savefig('LDAMallet Coherence Plot', bbox_inches='tight')
     plt.close()
 
     # Fit optimum model to training data
@@ -267,10 +267,10 @@ if __name__ == '__main__':
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)
-    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database_LDAMallet.json')
+    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database_LDA.json')
 
     # Pickle model (has associated dictionary and tf_idf model)
-    with open('../data/pge_gensim_LDAMallet.pkl', 'wb') as f:
+    with open('../data/pge_gensim_LDA.pkl', 'wb') as f:
         pickle.dump(optimum_model, f)
 
     # Save model to disk.
