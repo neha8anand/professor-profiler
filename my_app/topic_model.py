@@ -15,10 +15,10 @@ from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
 
 class MyTopicModel():
-    """A clustering model to identify research areas given information about papers:
+    """A topic model to identify research areas given information about papers:
         - cleans the json dataset
         - Vectorize the raw text into features.
-        - Fit a K-Means clustering model to the resulting features.
+        - Fit a topic model to the resulting features.
     """
 
     def __init__(self, n_topics=12, algorithm='NMF'):
