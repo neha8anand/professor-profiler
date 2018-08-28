@@ -6,6 +6,7 @@ model using gensim, and then pickle the resulting model object to disk.
 """
 from combine_databases import add_database
 from nlp_pipeline import clean_text
+from pyLDAvis_mallet import get_LDA_data
 
 import numpy as np
 import pickle
@@ -27,6 +28,9 @@ from nltk import word_tokenize
 
 # spacy for lemmatization
 import spacy
+
+import gzip
+import os
 
 mallet_path = '~/Documents/GitHub/capstone/mallet-2.0.8/bin/mallet' # update this path
 
@@ -59,7 +63,7 @@ class MyGenSimModel():
         # tf-idf vectorizer
         if tf_idf:
             self._tfidf_model = models.TfidfModel(corpus, id2word=dictionary)
-            corpus = self._tfidf_model[corpus]
+            self.corpus = self._tfidf_model[self.corpus]
 
         if algorithm == 'LDA':
             # Build a Latent Dirichlet Allocation Model
@@ -77,33 +81,29 @@ class MyGenSimModel():
         self.transformed_X = self._model.fit_transform(X)
         return self.transformed_X
 
-    def transform(self, X):
+    def transform(self, search_text):
         """Return transformed new data."""
-        return self._model.transform(X)
+        bow = self.dictionary.doc2bow(clean_text(search_text))
 
-    def top_n_features(self, vectorizer, top_n=10):
-        """Returns top n features/words for all topics given a vectorizer object."""
-        topic_words = []
-        for idx, topic in enumerate(self._model.components_):
-            topic_words.append([vectorizer.get_feature_names()[i] for i in topic.argsort()[:-top_n - 1:-1]])
-        return np.array(topic_words)
-
-    def most_similar(self, search_text, vectorizer, top_n=5):
-        """Returns most similar professors for a given search text (cleaned and tokenized)."""
-        x = self._model.transform(vectorizer.transform(search_text))[0]
-        dists = euclidean_distances(x.reshape(1, -1), self.transformed_X)
-        pairs = enumerate(dists[0])
-        most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
-        return np.array(most_similar)
+        if self.tf_idf:
+            return self.model[self.tfidf_model[bow]])
+        return self.model[bow]
 
     def perplexity(self):
-        """Returns perplexity for LDA model. Measure of log-likelihood"""
+        """Returns perplexity for LDA model. Measures per-word likelihood bound, using a chunk of documents as evaluation corpus."""
         return self.model.log_perplexity(self.corpus)
 
     def coherence_score(self):
         """Returns topic coherence for topic models. This is the implementation of the four stage topic coherence pipeline."""
         coherence_model = CoherenceModel(model=self.model, texts=self.tokens_filtered, dictionary=self.dictionary, coherence='c_v')
         return coherence_model.get_coherence()
+
+    def most_similar(self, search_text, top_n=5):
+        """Returns most similar professors for a given search text (cleaned and tokenized)."""
+        lda_index = similarities.MatrixSimilarity(self.model[self.corpus])
+        similarity_results = lda_index[self.transform(search_text)]
+        similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
+        return similarity_results[:top_n]
 
     def visualize_lda_model(self):
         """ Visualize LDA model using pyLDAvis"""
@@ -112,8 +112,30 @@ class MyGenSimModel():
 
     def visualize_lda_mallet(self):
         """ Visualize LDA model using pyLDAvis"""
-        vis = pyLDAvis.gensim.prepare(self.model, self.corpus, self.dictionary)
+        dataDir = "/Users/Neha/Documents/GitHub/capstone"
+        statefile = 'state.mallet.gz'
+        model = get_LDA_data(dataDir, statefile)
+        vis = pyLDAvis.gensim.prepare(**model)
         return vis
+
+    def format_topics_sentences(self):
+        # Init output
+        sent_topics_df = pd.DataFrame()
+
+        # Get main topic in each document
+        for i, row in enumerate(self.model[self.corpus]):
+            row = sorted(row, key=lambda x: (x[1]), reverse=True)
+            # Get the Dominant topic, Perc Contribution and Keywords for each document
+            for j, (topic_num, prop_topic) in enumerate(row):
+                if j == 0:  # => dominant topic
+                    wp = self.model.show_topic(topic_num)
+                    topic_keywords = ", ".join([word for word, prop in wp])
+                    sent_topics_df = sent_topics_df.append(pd.Series([int(topic_num), round(prop_topic,4), topic_keywords]), ignore_index=True)
+                else:
+                    break
+        sent_topics_df.columns = ['Dominant_Topic', 'Perc_Contribution', 'Topic_Keywords']
+
+        return(sent_topics_df)
 
 def get_data(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
@@ -154,6 +176,7 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
         texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
     return texts_out
 
+
 if __name__ == '__main__':
     # Create pge_database with updated predicted_research_areas based on top-10 features
     current_db_path = '../data/ut_database.json'
@@ -162,9 +185,6 @@ if __name__ == '__main__':
     add_database(current_db_path, new_db_paths, combined_db_path)
 
     data = get_data('../data/pge_database.json')
-    # words occurring in only one document or in at least 80% of the documents are removed.
-    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=False, stem_lem=None, ngram_range=(1,1),
-                                    max_df=0.8, min_df=5, max_features=None)
 
     # Save model to disk.
     temp_file = datapath("model")
