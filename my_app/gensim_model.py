@@ -5,6 +5,7 @@ When run as a module, this will load a json dataset, train a decomposition
 model using gensim, and then pickle the resulting model object to disk.
 """
 from combine_databases import add_database
+from cleaning import database_cleaner
 from nlp_pipeline import clean_text
 from pyLDAvis_mallet import get_LDA_data
 
@@ -44,7 +45,7 @@ class MyGenSimModel():
     """
 
     def __init__(self, num_topics=9, algorithm='LDAMallet', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False):
-        self.num_topics = n_topics
+        self.num_topics = num_topics
         self.algorithm = algorithm
         self.tf_idf = tf_idf
         self.bigrams = bigrams
@@ -57,13 +58,13 @@ class MyGenSimModel():
         self.tokens = [clean_text(doc) for doc in data]
 
         # bigrams
-        if self.make_bigrams:
+        if self.bigrams:
             bigram = models.Phrases(self.tokens, min_count=5, threshold=100) # higher threshold fewer phrases.
             bigram_mod = models.phrases.Phraser(bigram)
             self.tokens = make_bigrams(self.tokens)
 
         # trigrams
-        if self.make_trigrams:
+        if self.trigrams:
             bigram = models.Phrases(self.tokens, min_count=5, threshold=100)
             trigram = models.Phrases(bigram[self.tokens], threshold=100)
             trigram_mod = models.phrases.Phraser(trigram)
@@ -106,28 +107,28 @@ class MyGenSimModel():
         """Return transformed new data."""
         bow = self.dictionary.doc2bow(clean_text(search_text))
         if self.tf_idf:
-            return self.model[self.tfidf_model[bow]])
-        return self.model[bow]
+            return self._model[self._tfidf_model[bow]]
+        return self._model[bow]
 
     def perplexity(self):
         """Returns perplexity for LDA model. Measures per-word likelihood bound, using a chunk of documents as evaluation corpus."""
-        return self.model.log_perplexity(self.corpus)
+        return self._model.log_perplexity(self.corpus)
 
     def coherence_score(self):
         """Returns topic coherence for topic models. This is the implementation of the four stage topic coherence pipeline."""
-        coherence_model = CoherenceModel(model=self.model, texts=self.tokens_filtered, dictionary=self.dictionary, coherence='c_v')
+        coherence_model = CoherenceModel(model=self._model, texts=self.tokens, dictionary=self.dictionary, coherence='c_v')
         return coherence_model.get_coherence()
 
     def most_similar(self, search_text, top_n=5):
         """Returns top-n most similar professors for a given search text (cleaned and tokenized)."""
-        lda_index = similarities.MatrixSimilarity(self.model[self.corpus])
+        lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
         similarity_results = lda_index[self.transform(search_text)]
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
         return similarity_results[:top_n]
 
     def visualize_lda_model(self):
         """Visualize LDA model using pyLDAvis"""
-        vis = pyLDAvis.gensim.prepare(self.model, self.corpus, self.dictionary)
+        vis = pyLDAvis.gensim.prepare(self._model, self.corpus, self.dictionary)
         return vis
 
     def visualize_lda_mallet(self):
@@ -145,12 +146,12 @@ class MyGenSimModel():
         doc_topics_df = pd.DataFrame()
 
         # Get main topic in each document
-        for i, row in enumerate(self.model[self.corpus]):
+        for i, row in enumerate(self._model[self.corpus]):
             row = sorted(row, key=lambda x: (x[1]), reverse=True)
             # Get the Dominant topic, Perc Contribution and Keywords for each document
             for j, (topic_num, prop_topic) in enumerate(row):
                 if j == 0:  # => dominant topic
-                    wp = self.model.show_topic(topic_num)
+                    wp = self._model.show_topic(topic_num)
                     topic_keywords = ", ".join([word for word, prop in wp])
                     doc_topics_df = doc_topics_df.append(pd.Series([int(topic_num), round(prop_topic,4), topic_keywords]), ignore_index=True)
                 else:
@@ -230,28 +231,32 @@ if __name__ == '__main__':
     data = get_data('../data/pge_database.json')
 
     # Initiate model
-    model = MyGenSimModel(n_topics=9, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    model = MyGenSimModel(num_topics=9, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
     model.transform(data)
+    # model.fit()
 
     # Choose optimum number of clusters
-    coherence_values = compute_coherence_values(dictionary, corpus, texts, limit, start=5, step=1, algorithm=model.algorithm)
+    coherence_values = compute_coherence_values(dictionary=model.dictionary, corpus=model.corpus, texts=model.tokens, limit, start=5, step=1, algorithm=model.algorithm)
     optimum_num_topics = np.argmax(np.array(coherence_values))
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(n_topics=optimum_num_topics, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
     optimum_model.transform(data)
-    optimum_model.fit(data)
+    optimum_model.fit()
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
     pge_df = database_cleaner('../data/pge_database.json')
     pge_df.index = list(range(len(pge_df)))
-    doc_topics_df = optimum_model.format_document_topics()
-    pge_df_updated = pd.concat([pge_df, df_dominant_topic], axis=1)
+    doc_topics_df = model.format_document_topics()
+    print(doc_topics_df)
+    # doc_topics_df = optimum_model.format_document_topics()
+    pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)
     pge_df_updated.to_json(path_or_buf='../data/final_gensim_database.json')
 
     # Save model to disk.
     gensim_file = datapath("optimum_model")
-    optimum_model.save(gensim_file)
+    model._model.save(gensim_file)
+    # optimum_model.save(gensim_file)
 
     # Load a potentially pretrained model from disk.
     # model = models.ldamodel.LdaModel.load(gensim_file)
