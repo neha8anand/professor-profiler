@@ -9,7 +9,6 @@ from nlp_pipeline import clean_text
 from pyLDAvis_mallet import get_LDA_data
 
 import numpy as np
-import pickle
 import pandas as pd
 
 # Gensim
@@ -32,6 +31,9 @@ import spacy
 import gzip
 import os
 
+import warnings
+warnings.filterwarnings("ignore",category=UserWarning)
+
 mallet_path = '~/Documents/GitHub/capstone/mallet-2.0.8/bin/mallet' # update this path
 
 class MyGenSimModel():
@@ -41,50 +43,68 @@ class MyGenSimModel():
         - Fit a topic model to the resulting features.
     """
 
-    def __init__(self, n_topics=9, algorithm='LDAMallet', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False):
-        self.n_topics = n_topics
+    def __init__(self, num_topics=9, algorithm='LDAMallet', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False):
+        self.num_topics = n_topics
         self.algorithm = algorithm
         self.tf_idf = tf_idf
         self.bigrams = bigrams
         self.trigrams = trigrams
         self.lemmatization = lemmatization
 
-    def fit_transform(self, data):
-        """Return transformed training data."""
+    def transform(self, data):
+        """Transform training data."""
         # For gensim we need to tokenize the data and filter out stopwords
-        self.tokens_filtered = [clean_text(doc) for doc in data]
+        self.tokens = [clean_text(doc) for doc in data]
+
+        # bigrams
+        if self.make_bigrams:
+            bigram = models.Phrases(self.tokens, min_count=5, threshold=100) # higher threshold fewer phrases.
+            bigram_mod = models.phrases.Phraser(bigram)
+            self.tokens = make_bigrams(self.tokens)
+
+        # trigrams
+        if self.make_trigrams:
+            bigram = models.Phrases(self.tokens, min_count=5, threshold=100)
+            trigram = models.Phrases(bigram[self.tokens], threshold=100)
+            trigram_mod = models.phrases.Phraser(trigram)
+            self.tokens = make_trigrams(self.tokens)
+
+        # lemmatization
+        if self.lemmatization:
+            # Initialize spacy 'en_core_web_sm' model, keeping only tagger component (for efficiency)
+            nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+            # Do lemmatization keeping only noun, adj, vb, adv
+            self.tokens = do_lemmatization(self.tokens, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
 
         # Build a Dictionary - association word to numeric id
-        self.dictionary = corpora.Dictionary(self.tokens_filtered)
+        self.dictionary = corpora.Dictionary(self.tokens)
 
         # Transform the collection of texts to a numerical form [(word_id, count), ...]
-        self.corpus = [dictionary.doc2bow(text) for text in self.tokens_filtered]
+        self.corpus = [self.dictionary.doc2bow(text) for text in self.tokens]
 
         # tf-idf vectorizer
-        if tf_idf:
-            self._tfidf_model = models.TfidfModel(corpus, id2word=dictionary)
+        if self.tf_idf:
+            self._tfidf_model = models.TfidfModel(self.corpus, id2word=self.dictionary)
             self.corpus = self._tfidf_model[self.corpus]
 
-        if algorithm == 'LDA':
+    def fit(self):
+        """Fit on transformed training data."""
+        # topic model
+        if self.algorithm == 'LDA':
             # Build a Latent Dirichlet Allocation Model
-            self._model = models.ldamodel.LdaModel(corpus=corpus, num_topics=n_topics, id2word=dictionary)
+            self._model = models.ldamodel.LdaModel(corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
 
-        elif algorithm == 'LDAMallet':
+        elif self.algorithm == 'LDAMallet':
             # Build a Mallet Model
-            self._model = ldamallet = models.wrappers.LdaMallet(mallet_path, corpus=corpus, num_topics=n_topics, id2word=dictionary, prefix='~/Documents/Github/capstone/')
+            self._model = models.wrappers.LdaMallet(mallet_path, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='~/Documents/Github/capstone/')
 
-        elif algorithm == 'LSI':
+        elif self.algorithm == 'LSI':
             # Build a Latent Semantic Indexing Model
-            self._model = models.LsiModel(corpus=corpus, num_topics=n_topics, id2word=dictionary)
+            self._model = models.LsiModel(corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
 
-
-        self.transformed_X = self._model.fit_transform(X)
-        return self.transformed_X
-
-    def transform(self, search_text):
+    def transform_new(self, search_text):
         """Return transformed new data."""
         bow = self.dictionary.doc2bow(clean_text(search_text))
-
         if self.tf_idf:
             return self.model[self.tfidf_model[bow]])
         return self.model[bow]
@@ -99,28 +119,30 @@ class MyGenSimModel():
         return coherence_model.get_coherence()
 
     def most_similar(self, search_text, top_n=5):
-        """Returns most similar professors for a given search text (cleaned and tokenized)."""
+        """Returns top-n most similar professors for a given search text (cleaned and tokenized)."""
         lda_index = similarities.MatrixSimilarity(self.model[self.corpus])
         similarity_results = lda_index[self.transform(search_text)]
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
         return similarity_results[:top_n]
 
     def visualize_lda_model(self):
-        """ Visualize LDA model using pyLDAvis"""
+        """Visualize LDA model using pyLDAvis"""
         vis = pyLDAvis.gensim.prepare(self.model, self.corpus, self.dictionary)
         return vis
 
     def visualize_lda_mallet(self):
-        """ Visualize LDA model using pyLDAvis"""
+        """Visualize LDA model using pyLDAvis"""
         dataDir = "/Users/Neha/Documents/GitHub/capstone"
         statefile = 'state.mallet.gz'
         model = get_LDA_data(dataDir, statefile)
         vis = pyLDAvis.gensim.prepare(**model)
         return vis
 
-    def format_topics_sentences(self):
+    def format_document_topics(self):
+        """Returns a dataframe with dominant topic, contribution of dominant topic to document
+        and keywords for the dominant topic"""
         # Init output
-        sent_topics_df = pd.DataFrame()
+        doc_topics_df = pd.DataFrame()
 
         # Get main topic in each document
         for i, row in enumerate(self.model[self.corpus]):
@@ -130,15 +152,16 @@ class MyGenSimModel():
                 if j == 0:  # => dominant topic
                     wp = self.model.show_topic(topic_num)
                     topic_keywords = ", ".join([word for word, prop in wp])
-                    sent_topics_df = sent_topics_df.append(pd.Series([int(topic_num), round(prop_topic,4), topic_keywords]), ignore_index=True)
+                    doc_topics_df = doc_topics_df.append(pd.Series([int(topic_num), round(prop_topic,4), topic_keywords]), ignore_index=True)
                 else:
                     break
-        sent_topics_df.columns = ['Dominant_Topic', 'Perc_Contribution', 'Topic_Keywords']
 
-        return(sent_topics_df)
+        doc_topics_df.columns = ['Dominant_Topic', 'Perc_Contribution', 'Topic_Keywords']
+
+        return doc_topics_df
 
 def get_data(filename):
-    """Load raw data from a file and return vectorizer and feature_matrix.
+    """Load raw data from a file and return paper abstracts and titles.
     Parameters
     ----------
     filename: The path to a json file containing the university database.
@@ -151,15 +174,9 @@ def get_data(filename):
     # For nlp, only retaining faculty_name, research_areas, paper_titles, abstracts
     df_filtered = df_cleaned[['faculty_name', 'research_areas', 'paper_titles', 'abstracts']]
     missing = df_filtered['paper_titles'] == ''
-    num_missing = sum(missing)
-    print(f'{num_missing} faculties have missing papers in {filename}')
-    print('Running nlp-pipeline on faculties with non-missing papers...')
-
     df_nlp = df_filtered[~missing]
-
     # Choosing abstracts and paper_titles to predict topics for a professor
     data = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
-
     return data
 
 def make_bigrams(texts):
@@ -168,7 +185,7 @@ def make_bigrams(texts):
 def make_trigrams(texts):
     return [trigram_mod[bigram_mod[doc]] for doc in texts]
 
-def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
+def do_lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
     """https://spacy.io/api/annotation"""
     texts_out = []
     for sent in texts:
@@ -176,19 +193,66 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
         texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
     return texts_out
 
+def compute_coherence_values(dictionary, corpus, texts, limit, start=5, step=1, algorithm='LDAMallet'):
+    """
+    Compute c_v coherence for various number of topics for a LDA/LDAMallet given model.
+
+    Parameters:
+    ----------
+    dictionary : Gensim dictionary
+    corpus : Gensim corpus
+    texts : List of input texts
+    limit : Max num of topics
+
+    Returns:
+    -------
+    coherence_values : Coherence values corresponding to the model with respective number of topics
+    """
+    coherence_values = []
+
+    for num_topics in range(start, limit, step):
+        if algorithm == 'LDAMallet':
+            model = models.wrappers.LdaMallet(mallet_path, corpus=corpus, num_topics=num_topics, id2word=dictionary)
+        else:
+            model = models.ldamodel.LdaModel(corpus=corpus, num_topics=num_topics, id2word=dictionary)
+
+        coherencemodel = CoherenceModel(model=model, texts=texts, dictionary=dictionary, coherence='c_v')
+        coherence_values.append(coherencemodel.get_coherence())
+
+    return coherence_values
 
 if __name__ == '__main__':
-    # Create pge_database with updated predicted_research_areas based on top-10 features
+    # Create pge_database
     current_db_path = '../data/ut_database.json'
     new_db_paths = ['../data/stanford_database.json', '../data/tamu_database.json', '../data/utulsa_database.json']
     combined_db_path = '../data/pge_database.json'
     add_database(current_db_path, new_db_paths, combined_db_path)
-
     data = get_data('../data/pge_database.json')
 
+    # Initiate model
+    model = MyGenSimModel(n_topics=9, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    model.transform(data)
+
+    # Choose optimum number of clusters
+    coherence_values = compute_coherence_values(dictionary, corpus, texts, limit, start=5, step=1, algorithm=model.algorithm)
+    optimum_num_topics = np.argmax(np.array(coherence_values))
+
+    # Fit optimum model to training data
+    optimum_model = MyGenSimModel(n_topics=optimum_num_topics, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model.transform(data)
+    optimum_model.fit(data)
+
+    # Append to pge_database with updated predicted_research_areas based on top-10 features
+    pge_df = database_cleaner('../data/pge_database.json')
+    pge_df.index = list(range(len(pge_df)))
+    doc_topics_df = optimum_model.format_document_topics()
+    pge_df_updated = pd.concat([pge_df, df_dominant_topic], axis=1)
+    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database.json')
+
     # Save model to disk.
-    temp_file = datapath("model")
-    lda.save(temp_file)
+    gensim_file = datapath("optimum_model")
+    optimum_model.save(gensim_file)
 
     # Load a potentially pretrained model from disk.
-    lda = LdaModel.load(temp_file)
+    # model = models.ldamodel.LdaModel.load(gensim_file)
+    # or model = models.wrappers.LdaMallet(gensim_file)
