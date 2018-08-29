@@ -38,10 +38,6 @@ final_topic_df = pd.read_json('../data/json/final_topic_database.json')
 final_gensim_database_LDA = pd.read_json('../data/json/final_gensim_database_LDA')
 final_gensim_database_LDAMallet = pd.read_json('../data/json/final_gensim_database_LDAMallet')
 
-# from gensim.test.utils import datapath
-# gensim_file = datapath("optimum_LDA_model")
-# optimum_LDA_model = models.ldamodel.LdaModel.load(gensim_file)
-
 # Form page to submit text
 @app.route('/', methods=['GET'])
 def index():

@@ -38,7 +38,7 @@ import pickle
 import warnings
 warnings.filterwarnings("ignore",category=UserWarning)
 
-mallet_path = '~/Documents/GitHub/capstone/mallet-2.0.8/bin/mallet' # update this path
+mallet_path = '~/Documents/GitHub/capstone/mallet-2.0.8/bin/mallet' # update this path if needed
 
 class MyGenSimModel():
     """A gensim based topic model to identify research areas given information about papers:
@@ -64,21 +64,22 @@ class MyGenSimModel():
         if self.bigrams:
             bigram = models.Phrases(self.tokens, min_count=5, threshold=100) # higher threshold fewer phrases.
             bigram_mod = models.phrases.Phraser(bigram)
-            self.tokens = make_bigrams(self.tokens)
+            self.tokens = make_bigrams(self.tokens, bigram_mod)
 
         # trigrams
         if self.trigrams:
             bigram = models.Phrases(self.tokens, min_count=5, threshold=100)
+            bigram_mod = models.phrases.Phraser(bigram)
             trigram = models.Phrases(bigram[self.tokens], threshold=100)
             trigram_mod = models.phrases.Phraser(trigram)
-            self.tokens = make_trigrams(self.tokens)
+            self.tokens = make_trigrams(self.tokens, bigram_mod, trigram_mod)
 
         # lemmatization
         if self.lemmatization:
             # Initialize spacy 'en_core_web_sm' model, keeping only tagger component (for efficiency)
-            nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+            spacy_nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
             # Do lemmatization keeping only noun, adj, vb, adv
-            self.tokens = do_lemmatization(self.tokens, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+            self.tokens = do_lemmatization(spacy_nlp=spacy_nlp, texts=self.tokens, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
 
         # Build a Dictionary - association word to numeric id
         self.dictionary = corpora.Dictionary(self.tokens)
@@ -174,7 +175,6 @@ def get_data(filename):
     corpus: A numpy array containing abstracts.
     """
     df_cleaned = database_cleaner(filename)
-
     # For nlp, only retaining faculty_name, research_areas, paper_titles, abstracts
     df_filtered = df_cleaned[['faculty_name', 'research_areas', 'paper_titles', 'abstracts']]
     missing = df_filtered['paper_titles'] == ''
@@ -183,17 +183,17 @@ def get_data(filename):
     data = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
     return data
 
-def make_bigrams(texts):
+def make_bigrams(texts, bigram_mod):
     return [bigram_mod[doc] for doc in texts]
 
-def make_trigrams(texts):
+def make_trigrams(texts, trigram_mod, bigram_mod):
     return [trigram_mod[bigram_mod[doc]] for doc in texts]
 
-def do_lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
+def do_lemmatization(spacy_nlp, texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
     """https://spacy.io/api/annotation"""
     texts_out = []
     for sent in texts:
-        doc = nlp(" ".join(sent))
+        doc = spacy_nlp(" ".join(sent))
         texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
     return texts_out
 
@@ -259,10 +259,10 @@ if __name__ == '__main__':
     optimum_model = MyGenSimModel(num_topics=9, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
     optimum_model.transform(data)
     optimum_model.fit()
+    print(optimum_model.coherence_score())
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
     pge_df = pd.read_json('../data/json/pge_database.json')
-
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)
@@ -271,11 +271,3 @@ if __name__ == '__main__':
     # Pickle model (has associated dictionary and tf_idf model)
     with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'wb') as f:
         pickle.dump(optimum_model, f)
-
-    # Save model to disk.
-    # gensim_file = datapath("optimum_LDA_model")
-    # optimum_model._model.save(gensim_file)
-
-    # Load a potentially pretrained model from disk.
-    # model = models.ldamodel.LdaModel.load(gensim_file)
-    # or model = models.wrappers.LdaMallet(gensim_file)
