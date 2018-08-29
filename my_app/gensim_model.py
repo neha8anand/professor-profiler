@@ -227,11 +227,11 @@ def compute_coherence_values(dictionary, corpus, texts, limit, start=5, step=1, 
 
 if __name__ == '__main__':
     # Create pge_database
-    current_db_path = '../data/ut_database.json'
-    new_db_paths = ['../data/stanford_database.json', '../data/tamu_database.json', '../data/utulsa_database.json']
-    combined_db_path = '../data/pge_database.json'
+    current_db_path = '../data/json/ut_database.json'
+    new_db_paths = ['../data/json/stanford_database.json', '../data/json/tamu_database.json', '../data/json/utulsa_database.json']
+    combined_db_path = '../data/json/pge_database.json'
     add_database(current_db_path, new_db_paths, combined_db_path)
-    data = get_data('../data/pge_database.json')
+    data = get_data('../data/json/pge_database.json')
 
     # Initiate model
     # model = MyGenSimModel(num_topics=11, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
@@ -261,17 +261,15 @@ if __name__ == '__main__':
     optimum_model.fit()
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
-    # pge_df = database_cleaner('../data/pge_database.json')
-    pge_df = pd.read_json('../data/pge_database.json')
-    # pge_df.index = list(range(len(pge_df)))
+    pge_df = pd.read_json('../data/json/pge_database.json')
 
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)
-    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database_LDAMallet.json')
+    pge_df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDAMallet.json')
 
     # Pickle model (has associated dictionary and tf_idf model)
-    with open('../data/pge_gensim_LDAMallet.pkl', 'wb') as f:
+    with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'wb') as f:
         pickle.dump(optimum_model, f)
 
     # Save model to disk.

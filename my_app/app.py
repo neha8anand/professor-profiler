@@ -20,23 +20,23 @@ app = Flask(__name__,
         static_url_path='')
 
 # topic model and vectorizer(using sklearn)
-with open('../data/pge_topic_model.pkl', 'rb') as f:
+with open('../data/pickle/pge_topic_model.pkl', 'rb') as f:
         topic_model = pickle.load(f)
 
-with open('../data/pge_topic_vectorizer.pkl', 'rb') as f:
+with open('../data/pickle/pge_topic_vectorizer.pkl', 'rb') as f:
     topic_vectorizer = pickle.load(f)
 
 # gensim model and vectorizer
-with open('../data/pge_gensim_LDA.pkl', 'rb') as f:
+with open('../data/pickle/pge_gensim_LDA.pkl', 'rb') as f:
         gensim_LDA = pickle.load(f)
 
-with open('../data/pge_gensim_LDAMallet.pkl', 'rb') as f:
+with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'rb') as f:
         gensim_LDAMallet = pickle.load(f)
 
 # database
-final_topic_df = pd.read_json('../data/final_topic_database.json')
-final_gensim_database_LDA = pd.read_json('../data/final_gensim_database_LDA')
-final_gensim_database_LDAMallet = pd.read_json('../data/final_gensim_database_LDAMallet')
+final_topic_df = pd.read_json('../data/json/final_topic_database.json')
+final_gensim_database_LDA = pd.read_json('../data/json/final_gensim_database_LDA')
+final_gensim_database_LDAMallet = pd.read_json('../data/json/final_gensim_database_LDAMallet')
 
 # from gensim.test.utils import datapath
 # gensim_file = datapath("optimum_LDA_model")

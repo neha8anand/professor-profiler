@@ -8,7 +8,7 @@ the original data and the reduced data (to help with visualization of clusters).
 """
 
 from cleaning import database_cleaner
-from model import get_data, MyModel
+from clustering_model import get_data, MyModel
 
 from time import time
 
@@ -179,7 +179,7 @@ def silhouette_analysis(range_n_clusters, data):
 
 if __name__ == '__main__':
     range_n_clusters = range(5, 20)
-    vectorizer, data = get_data('../data/pge_database.json')
+    vectorizer, data = get_data('../data/json/pge_database.json')
     elbow_method(range_n_clusters, data)
     score_df = silhouette_analysis(range_n_clusters, data)
     print(score_df)

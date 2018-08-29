@@ -5,21 +5,21 @@ import pandas as pd
 import pickle
 
 # cluster_model
-with open('../data/pge_model.pkl', 'rb') as f:
+with open('../data/pickle/pge_model.pkl', 'rb') as f:
         model = pickle.load(f)
 
-with open('../data/pge_vectorizer.pkl', 'rb') as f:
+with open('../data/pickle/pge_vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
 
 # topic_model
-with open('../data/pge_topic_model.pkl', 'rb') as f:
+with open('../data/pickle/pge_topic_model.pkl', 'rb') as f:
         topic_model = pickle.load(f)
 
-with open('../data/pge_topic_vectorizer.pkl', 'rb') as f:
+with open('../data/pickle/pge_topic_vectorizer.pkl', 'rb') as f:
     topic_vectorizer = pickle.load(f)
 
-final_df = pd.read_json('../data/final_database.json')
-final_topic_df = pd.read_json('../data/final_topic_database.json')
+final_df = pd.read_json('../data/json/final_database.json')
+final_topic_df = pd.read_json('../data/json/final_topic_database.json')
 
 # Search algorithm and Ranking algorithm
 def search(search_text, type='text_input', choose_model='topic_model'):

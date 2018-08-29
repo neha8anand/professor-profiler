@@ -58,14 +58,14 @@ class MyModel():
         most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
         return np.array(most_similar)
 
-def get_corpus(filename):
+def get_data(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
     Parameters
     ----------
     filename: The path to a json file containing the university database.
     Returns
     -------
-    corpus: A numpy array containing abstracts.
+    data: A numpy array containing abstracts.
     """
     df_cleaned = database_cleaner(filename)
 
@@ -79,9 +79,9 @@ def get_corpus(filename):
     df_nlp = df_filtered[~missing]
 
     # Choosing abstracts and paper_titles to predict topics for a professor
-    corpus = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
+    data = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
 
-    return corpus
+    return data
 
 def vectorize_corpus(corpus, tf_idf=True, stem_lem=None, **kwargs):
     """
@@ -107,26 +107,26 @@ def reverse_vocabulary(vocabulary):
 
 if __name__ == '__main__':
     # Create pge_database with updated predicted_research_areas based on top-10 features
-    current_db_path = '../data/ut_database.json'
-    new_db_paths = ['../data/stanford_database.json', '../data/tamu_database.json', '../data/utulsa_database.json']
-    combined_db_path = '../data/pge_database.json'
+    current_db_path = '../data/json/ut_database.json'
+    new_db_paths = ['../data/json/stanford_database.json', '../data/json/tamu_database.json', '../data/json/utulsa_database.json']
+    combined_db_path = '../data/json/pge_database.json'
     add_database(current_db_path, new_db_paths, combined_db_path)
 
-    corpus = get_corpus('../data/pge_database.json')
+    corpus = get_data('../data/json/pge_database.json')
     # words occurring in only one document or in at least 80% of the documents are removed.
     vectorizer, matrix = vectorize_corpus(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
-                                    max_df=0.8, min_df=2, max_features=None)
+                                    max_df=0.8, min_df=5, max_features=None)
     model = MyModel(12)
     y_pred = model.fit_predict(matrix)
 
-    pge_df = database_cleaner('../data/pge_database.json')
+    pge_df = pd.read_json('../data/json/pge_database.json')
     top_ten_features = model.top_n_features(vectorizer.vocabulary_, 10)
     pge_df['predicted_cluster_num'] = y_pred
     pge_df['predicted_research_areas'] = [top_ten_features[num] for num in y_pred]
-    pge_df.to_json(path_or_buf='../data/final_database.json')
+    pge_df.to_json(path_or_buf='../data/json/final_database.json')
 
-    with open('../data/pge_model.pkl', 'wb') as f:
+    with open('../data/pickle/pge_model.pkl', 'wb') as f:
         pickle.dump(model, f)
 
-    with open('../data/pge_vectorizer.pkl', 'wb') as f:
+    with open('../data/pickle/pge_vectorizer.pkl', 'wb') as f:
         pickle.dump(vectorizer, f)
