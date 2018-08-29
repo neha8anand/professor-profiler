@@ -1,0 +1,1090 @@
+{
+    "university_name": "Texas A&M University at College Station",
+    "faculty_names": {
+        "Akhil Datta-Gupta": {
+            "title": "University Distinguished Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/adattagupta.html",
+            "phone": "979-847-9030 ",
+            "office": "RICH 401G",
+            "email": "datta-gupta@tamu.edu",
+            "research_areas": [
+                "Dr. Datta-Gupta has research interests in rapid flow simulation techniques, reservoir optimization, large-scale parameter estimation via inverse methods and uncertainty quantification/ assessments.",
+                "Streamline simulation and applications",
+                "Inverse modeling and multi-scale data integration",
+                "Geostatistics and stochastic reservoir characterization",
+                "Modeling and scale-up of enhanced oil recovery"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=Al-SABYAAAAJ&hl=en"
+        },
+        "A. Daniel Hill": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/adhill.html",
+            "phone": "979-845-2244",
+            "office": "RICH 1012",
+            "email": "danhill@tamu.edu",
+            "research_areas": [
+                "Dr. Hill has five patents in oil recovery and well injection processes, and is recognized as an industry expert in the areas of production engineering, well completions, well stimulation, production logging, and complex well performance (horizontal and multilateral wells). He has presented lectures and courses and consulted on these topics throughout the world."
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=EBnWDgMAAAAJ&hl=en"
+        },
+        "Nasser Al-Mohannadi ": {
+            "title": "Adjunct Associate Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/al-mohannadi-nasser.html",
+            "phone": "974-4423-0232",
+            "office": "204Q",
+            "email": "",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Nayef Alyafei": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/alyafei-nayef.html",
+            "phone": "974-4423-0526",
+            "office": "204J",
+            "email": "nayef.alyafei@qatar.tamu.edu",
+            "research_areas": [
+                "Multi-phase flow in porous media research, mainly on spontaneous imbibition and wettability studies ",
+                "Capillary trapping phenomena on both the macro and micro scales"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=RL5O0EoAAAAJ&hl"
+        },
+        "Albertus Retnanto": {
+            "title": "Associate Professor of the Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/aretnanto.html",
+            "phone": "974-4423-0281",
+            "office": "204K",
+            "email": "albertus.retnanto@qatar.tamu.edu",
+            "research_areas": [
+                "Field development and planning",
+                "Production enhancement and optimization",
+                "Well testing",
+                "Perforation technology",
+                "Horizontal and multilateral well performance",
+                "Formation damage and stimulation"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=kN7PsV8AAAAJ&hl=en"
+        },
+        "Berna Hascakir": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/bhascakir.html",
+            "phone": "979-845-6614",
+            "office": "RICH 401N",
+            "email": "hascakir@tamu.edu",
+            "research_areas": [
+                "Heavy oil and oil shale recovery with enhanced oil recovery methods",
+                "In-Situ combustion",
+                "Hot fluid injection; steam/hot water/hot gas flooding, steam assisted gravity drainage (SAGD), cyclic steam injection (CC)",
+                "Chemical/Thermal EOR applications: solvent flooding, solvent-steam injection, solvent-SAGD, surfactant flooding, surfactant-steam injection, surfactant-SAGD",
+                "Thermal Stimulation: Electrical, Microwave, and Radio Frequency heating",
+                "Diagnostic studies on reservoir rock and fluids",
+                "X-ray computed tomography, X-ray diffraction (XRD), fourier transform infrared (FTIR), scanning electron microscopy (SEM), and X-ray photoelectron spectroscopy (XPS)",
+                "Analyze reaction kinetics with thermogravimetric analysis (TGA) and differential scanning calorimetry (DSC)",
+                "Produced water management"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=wdJYAO4AAAAJ&hl=en"
+        },
+        "Barbi Miller": {
+            "title": "Administrative Associate IV",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/bmiller.html",
+            "phone": "979-845-2287",
+            "office": "RICH 401W",
+            "email": "barbi.miller@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Betty Robbins": {
+            "title": "Administrative Coordinator I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/brobbins.html",
+            "phone": "979-845-2653",
+            "office": "RICH 407",
+            "email": "betty.robbins@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Charles H. Bowman": {
+            "title": "Professor Emeritus of Petroleum Engineering and Dean Emeritus of Texas A&M University Qatar",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/cbowman.html",
+            "phone": "",
+            "office": "",
+            "email": "",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Christine Ehlig-Economides": {
+            "title": "Professor Emeritus of Petroleum Engineering",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/ceeconomides.html",
+            "phone": "",
+            "office": "",
+            "email": "",
+            "research_areas": [
+                "Dr. Ehlig-Economides is internationally recognized for her expertise in reservoir engineering, pressure transient analysis, integrated reservoir characterization, complex well design, and production enhancement."
+            ],
+            "google_scholar_link": ""
+        },
+        "Cathy Sliva": {
+            "title": "Associate Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/csliva.html",
+            "phone": "979-845-2933",
+            "office": "RICH 501U",
+            "email": "cathy.sliva@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Don Conlee": {
+            "title": "Technician III",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/dconlee.html",
+            "phone": "979-845-0666",
+            "office": "823 Richardson",
+            "email": "don.conlee@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "W. David Kennedy": {
+            "title": "Professor of engineering practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/dkennedy.html",
+            "phone": "979-458-0721",
+            "office": "RICH 401M",
+            "email": "david_kennedy@tamu.edu",
+            "research_areas": [
+                "Theoretical petrophysics",
+                "Conductivity anisotropy in rocks",
+                "Numerical modeling of logging instrument responses",
+                "Formation evaluation education and training"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=48MmXsMAAAAJ&hl=en"
+        },
+        "Duane McVay": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/dmcvay.html",
+            "phone": "979-862-8466",
+            "office": "RICH 407B",
+            "email": "mcvay@tamu.edu",
+            "research_areas": [
+                "Risk and uncertainty assessment",
+                "Unconventional resource assessment",
+                "Petroleum reservoir simulation",
+                "Integrated reservoir characterization and management"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=SNONsX0AAAAJ&hl=en"
+        },
+        "David Schechter": {
+            "title": "Associate Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/dschechter.html",
+            "phone": "979-845-2275",
+            "office": "RICH 610",
+            "email": "david-s-schechter@tamu.edu",
+            "research_areas": [
+                "Spraberry Trend Area",
+                "Geological and petrophysical analysis",
+                "Wettability determination and imbibition experiments",
+                "Numerical modeling",
+                "Reservoir simulation",
+                "CO2 flooding and gas injection"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=QO_066wAAAAJ&hl=en"
+        },
+        "Ding Zhu": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/dzhu.html",
+            "phone": "979-458-4522",
+            "office": "RICH 1011",
+            "email": "dingzhu@tamu.edu",
+            "research_areas": [
+                "General production engineering",
+                "Well stimulation",
+                "matrix acidizing",
+                "acid fracturing",
+                "hydraulic fracturing",
+                "Complex well performance",
+                "horizontal well",
+                "multilateral well",
+                "intelligent completion technology",
+                "downhole monitoring and control",
+                "distributed temperature and acoustic measurement and interpretation",
+                "optimization of well performance by downhole flow control equipment"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=flJOKqQAAAAJ&hl=en"
+        },
+        "Eduardo Gildin": {
+            "title": "Associate Professor ",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/egildin.html",
+            "phone": "979.862.4578",
+            "office": "RICH 401J",
+            "email": "egildin@tamu.edu",
+            "research_areas": [
+                "Model reduction of large scale dynamical systems",
+                "Control and optimization of large scale dynamical systems",
+                "Reservoir modeling and simulation",
+                "Closed-Loop Reservoir Management: Production Optimization, History Matching and Optimal Control"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=x8Cr7AMAAAAJ&hl=en"
+        },
+        "Eleanor Schuler": {
+            "title": "Senior Administrative Coordinator I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/eschuler.html",
+            "phone": "979-845-8402",
+            "office": "RICH 401U",
+            "email": "e-schuler@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Mohamed Fadlelmula": {
+            "title": "Instructional Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/fadlelmula-mohamed.html",
+            "phone": "974-4423-0438",
+            "office": "204F",
+            "email": "mohamed.fadlelmula@qatar.tamu.edu",
+            "research_areas": [
+                "Reservoir characterization",
+                "Geostatistics",
+                "Uncertainty analysis",
+                "Reliability based modeling",
+                "Rock mechanics"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=IK60ZMYAAAAJ&hl=en"
+        },
+        "Fred Dupriest": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/fdupriest.html",
+            "phone": "979-862-1138",
+            "office": "RICH 501C",
+            "email": "fred.dupriest@tamu.edu",
+            "research_areas": [
+                "Drilling performance workflows",
+                "Drilling mechanics theory and practices",
+                "Lost circulation theory and practices",
+                "Stuck pipe avoidance",
+                "Borehole quality management practices",
+                "Advanced well control practices"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=tougpDcAAAAJ&hl=en"
+        },
+        "Gail Krueger": {
+            "title": "Senior Administrative Coordinator I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/gkrueger.html",
+            "phone": "979.845.6955",
+            "office": "RICH 501R",
+            "email": "gail.krueger@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "George Moridis": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/gmoridis.html",
+            "phone": "979-458-4470",
+            "office": "RICH 407L",
+            "email": "moridis@tamu.edu",
+            "research_areas": [
+                "George Moridis is a",
+                "Visiting Senior Scientist and Faculty Associate in the Energy Geosciences Division of the Lawrence Berkeley National Laboratory (LBNL);",
+                "ExxonMobil Chair Professor for in the Department of Chemical and Biomolecular Engineering, National University of Singapore;",
+                "Visiting Professor in the Guangzhou Center for Gas Hydrate Research of the Chinese Academy of Sciences;",
+                "Adjunct Professor in the Chemical Engineering Dept. at the Colorado School of Mines; and",
+                "Adjunct Professor in the Petroleum and Natural Gas Engineering Dept. of the Middle East Technical University, Ankara, Turkey.",
+                "He is in charge of the Hydrocarbon Resource Program at LBNL, and is in charge of research programs on unconventional resources, including gas hydrates."
+            ],
+            "google_scholar_link": ""
+        },
+        "Glenn Sliva": {
+            "title": "Associate Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/gsliva.html",
+            "phone": "979-845-2933",
+            "office": "RICH 501U",
+            "email": "glenn.sliva@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Dominique Guerillot": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/guerillot-dominique.html",
+            "phone": "974.4423.0146",
+            "office": "204A",
+            "email": "dominique.guerillot@qatar.tamu.edu",
+            "research_areas": [
+                "Reservoir characterization and simulation",
+                "Carbon storage",
+                "Thermodynamical, geochemical and transport phenomena applied to improved oil and gas recovery processes, CO2\u00a0sequestration and natural gas storage",
+                "Stratigraphical modeling",
+                "Numerical methods and application of computing",
+                "Upscaling and multiscale reservoir simulation",
+                "Proxy models and global optimization",
+                "Production optimization",
+                "History matching and optimal control"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=DsDUS2wAAAAJ&hl=en"
+        },
+        "George Voneiff": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/gvoneiff.html",
+            "phone": "979-845-2939",
+            "office": "RICH 901K",
+            "email": "george.voneiff@tamu.edu",
+            "research_areas": [
+                "Applied petroleum economics in unconventional plays",
+                "Statistical analysis of large datasets from unconventional formations",
+                "Large-Scale production data analysis using empirical techniques"
+            ],
+            "google_scholar_link": ""
+        },
+        "Huili Guan": {
+            "title": "Research Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/hguan.html",
+            "phone": "979.845.1509",
+            "office": "RICH 612",
+            "email": "huili.guan@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Hadi Nasrabadi": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/hnasrabadi.html",
+            "phone": "979-862-6483",
+            "office": "RICH 401Q",
+            "email": "hadi.nasrabadi@tamu.edu",
+            "research_areas": [
+                "Compositional modeling of multiphase/multicomponent fluid flow in porous media",
+                "Enhanced oil recovery and sequestration",
+                "Phase behavior of reservoir fluids",
+                "Modeling asphaltene precipitation in porous media",
+                "Shale gas and oil recovery"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=O-Za5DEAAAAJ&hl=en"
+        },
+        "Hisham Nasr-El-Din": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/hnasreldin.html",
+            "phone": "979-862-1473",
+            "office": "RICH 710BA",
+            "email": "hisham.nasreldin@tamu.edu",
+            "research_areas": [
+                "Enhancing well performance through chemical means",
+                "Developing environmentally friendly chemicals"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=iSrdgOYAAAAJ&hl=en"
+        },
+        "Hongjie Xiong": {
+            "title": "Adjunct Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/hxiong.html",
+            "phone": "",
+            "office": "",
+            "email": "xionghongjie78@gmail.com",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Ibere Alves": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/ialves.html",
+            "phone": "979-845-2263",
+            "office": "RICH 901G",
+            "email": "ibere.alves@tamu.edu",
+            "research_areas": [
+                "Gas and oil production",
+                "Two phase flow modeling",
+                "Artificial lift",
+                "Flow assurance",
+                "Intelligent fields",
+                "Deep water petroleum production"
+            ],
+            "google_scholar_link": ""
+        },
+        "I. Yucel Akkutlu": {
+            "title": "Associate Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/iyakkutlu.html",
+            "phone": "979-845-4069",
+            "office": "RICH 619",
+            "email": "akkutlu@tamu.edu",
+            "research_areas": [
+                "Shale gas and oil resource assessment and characterization",
+                "CO2-enhanced shale gas and oil recovery",
+                "Shale oil recovery using surfactants and micro-emulsions",
+                "Digital rock physics and pore-network modeling",
+                "Compositional reservoir flow simulation coupled with geo-mechanics",
+                "Natural gas hydrates"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=7-iJhXUAAAAJ&hl=en"
+        },
+        "Joevan Beladi": {
+            "title": "Technical Assistant II",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jbeladi.html",
+            "phone": "979-845-4093",
+            "office": "RICH 1010C",
+            "email": "joevan.beladi@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "J. Bryan Maggard": {
+            "title": "Senior Lecturer",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jbmaggard.html",
+            "phone": "979-845-0592",
+            "office": "RICH 916C",
+            "email": "bryan.maggard@tamu.edu",
+            "research_areas": [
+                "Thermal recovery methods",
+                "Applied reservoir simulation",
+                "Numerical methods and application of computing"
+            ],
+            "google_scholar_link": ""
+        },
+        "Jason Demshar": {
+            "title": "Assistant Director of IT",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jdemshar.html",
+            "phone": "979-845-3781",
+            "office": "RICH 901F",
+            "email": "j-demshar@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Jenna Galliher": {
+            "title": "Business Coordinator I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jgalliher.html",
+            "phone": "979.862.7792",
+            "office": "RICH 916",
+            "email": "jenna.galliher@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "James W. Jennings": {
+            "title": "Professor Emeritus of Petroleum Engineering",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jjennings.html",
+            "phone": "",
+            "office": "",
+            "email": "",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "John Jochen": {
+            "title": "Senior Lecturer",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jjochen.html",
+            "phone": "979.845.2939",
+            "office": "RICH 901K",
+            "email": "jejochen@tamu.edu",
+            "research_areas": [
+                "Gas wells, vertical and horizontal, conventional and unconventional (shales)",
+                "Single-well production data analysis: analytical and simulation",
+                "Production forecasting: decline curve analysis and simulation based",
+                "Modelling multi-frac, horizontal wells"
+            ],
+            "google_scholar_link": ""
+        },
+        "John Killough": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jkillough.html",
+            "phone": "979.862.6416",
+            "office": "RICH 401K",
+            "email": "jkillough@tamu.edu",
+            "research_areas": [
+                "Unconventional reservoir simulation/high performance computing",
+                "Coupled surface/sub-surface reservoir models",
+                "Upscaling and multiscale reservoir simulation",
+                "Hysteresis and relative permeability"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=qZZyzioAAAAJ&hl=en"
+        },
+        "John Lee": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jlee.html",
+            "phone": "979.845.2208",
+            "office": "RICH 501F",
+            "email": "john-lee@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": "https://scholar.google.com/citations?user=xXx-tV0AAAAJ&hl=en"
+        },
+        "John Maldonado": {
+            "title": "Facilities Coordinator III",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jmaldonado.html",
+            "phone": "979-845-6583",
+            "office": "RICH 1001E",
+            "email": "john.maldonado@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "James Munnerlyn": {
+            "title": "Senior IT Professional I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jmunnerlyn.html",
+            "phone": "979-847-8912",
+            "office": "RICH 901M",
+            "email": "j-munnerlyn@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "James T. Rollins": {
+            "title": "Professor Emeritus of Petroleum Engineering",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jrollins.html",
+            "phone": "",
+            "office": "",
+            "email": "",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Jerome Schubert": {
+            "title": "Associate Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jschubert.html",
+            "phone": "979-862-1195",
+            "office": "RICH 501K",
+            "email": "jschubert@tamu.edu",
+            "research_areas": [
+                "Drilling",
+                "Well control",
+                "High pressure/High temperature cementing",
+                "High pressure/High temperature rheology",
+                "Deepwater drilling",
+                "Dual gradient drilling",
+                "Managed pressure drilling"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=ZFd6HrUAAAAJ&hl=en"
+        },
+        "Jake Williams": {
+            "title": "Academic Advisor II",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jwilliams.html",
+            "phone": "979-845-4292",
+            "office": "RICH 501V",
+            "email": "jake.williams@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "John Winkler": {
+            "title": "Business Coordinator III",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/jwinkler.html",
+            "phone": "979-845-2256",
+            "office": "RICH 916F",
+            "email": "jawink@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Kathy Beladi": {
+            "title": "Senior Administrative Coordinator I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/kbeladi.html",
+            "phone": "979-845-2243",
+            "office": "RICH 507",
+            "email": "k-beladi@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Jihoon Kim": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/kim-jihoon.html",
+            "phone": "979.845.2205",
+            "office": "RICH 501L",
+            "email": "jihoon.kim@tamu.edu",
+            "research_areas": [
+                "Coupled flow and geomechanics in hydrate, shale and tight gas, and geothermal reservoirs",
+                "Hydraulic fracturing, hydro-shearing, coupled geomechanic-geophysical modeling",
+                "Reservoir simulation, computational geomechanics"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=wSFhoE8AAAAJ&hl=en"
+        },
+        "Ken McCadden": {
+            "title": "Senior IT Professional I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/kmccadden.html",
+            "phone": "",
+            "office": "RICH 901L",
+            "email": "kmccadden@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Kan Wu": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/kwu.html",
+            "phone": "979-862-7654",
+            "office": "RICH 501Q",
+            "email": "kan.wu@tamu.edu",
+            "research_areas": [
+                "Hydraulic fracturing in unconventional reservoirs",
+                "Particle-laden flows",
+                "Coupled geomechanics and fluid flow modeling",
+                "Well performance prediction and optimization"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=Jaa7NtAAAAAJ&hl=en"
+        },
+        "Layne Lampley": {
+            "title": "Business Coordinator I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/lampley-layne.html",
+            "phone": "979.862.3609",
+            "office": "RICH 916E",
+            "email": "layne.lampley@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Laura Hall": {
+            "title": "Program Specialist I",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/lampolhall.html",
+            "phone": "979.845.9385",
+            "office": "RICH 407E",
+            "email": "laura.hall@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Heitor Lima": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/lheitor.html",
+            "phone": "979.845.2926",
+            "office": "RICH 901H",
+            "email": "heitor.lima@tamu.edu",
+            "research_areas": [
+                "Deepwater drilling",
+                "Deepwater well design",
+                "Advanced well control"
+            ],
+            "google_scholar_link": ""
+        },
+        "Jenn-Tai Liang": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/liang-jenn-tai.html",
+            "phone": "979.845.0173",
+            "office": "RICH 401T",
+            "email": "jenn-tai.liang@tamu.edu",
+            "research_areas": [
+                "Using nano drug delivery technologies for transport and controlled release of oilfield chemicals",
+                "Hydraulic fracturing fluid cleanup",
+                "Microbial enhanced oil recovery",
+                "Scale, wax, and asphaltene inhibition",
+                "In-depth conformance control",
+                "CO2 injection for carbon sequestration and improved oil recovery"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=nITcqYUAAAAJ&hl=en"
+        },
+        "Mahmood Amani": {
+            "title": "Associate Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/mamani.html",
+            "phone": "974-4423-0119",
+            "office": "204L",
+            "email": "mahmood.amani@qatar.tamu.edu",
+            "research_areas": [
+                "Drilling engineering",
+                "Production engineering",
+                "Artificial lift",
+                "Ultrasonic and acoustic stimulation"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=X7r70yUAAAAJ&hl=en"
+        },
+        "Maria A. Barrufet": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/mbarrufet.html",
+            "phone": "979-845-0314 ",
+            "office": "RICH 407C",
+            "email": "barrufet@tamu.edu",
+            "research_areas": [
+                "Multicomponent thermodynamic and transport phenomena in nanoscale pores applied to compositional reservoir simulation",
+                "Flow assurance: hydrates and asphaltene prediction and prevention",
+                "Desalination processes to treat oilfield brines"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=VWtdqgcAAAAJ&hl=en"
+        },
+        "Meredith Born": {
+            "title": "Program Assistant",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/mborn.html",
+            "phone": "979-862-2698",
+            "office": "RICH 916A",
+            "email": "meredith.born@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Mary Lu Epps": {
+            "title": "Learning Management System Coordinator",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/mepps.html",
+            "phone": "979-458-4297",
+            "office": "RICH 407F",
+            "email": "marylu.epps@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Michael King": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/mking.html",
+            "phone": "979.845.1488",
+            "office": "RICH 401E",
+            "email": "mike.king@tamu.edu",
+            "research_areas": [
+                "3D reservoir modeling and characterization",
+                "Pressure and rate transient analysis for unconventional reservoirs",
+                "Upscaling of geologic models for flow simulation",
+                "Streamline-based simulation and flow analysis??"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=fRX4WUQAAAAJ&hl=en"
+        },
+        "Marcelo Laprea-Bigott": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/mlapreabigott.html",
+            "phone": "979.845.1450",
+            "office": "RICH 916H",
+            "email": "mlaprea1950@tamu.edu",
+            "research_areas": [
+                "Transient well analysis",
+                "Reservoir engineering and production optimization in Venezuelan fields",
+                "Reservoir engineering and simulation",
+                "Heavy oil recovery methods"
+            ],
+            "google_scholar_link": ""
+        },
+        "M. Sam Mannan": {
+            "title": "Regents Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/msmannan.html",
+            "phone": "979-862-3985",
+            "office": "CHEN 246",
+            "email": "mannan@tamu.edu",
+            "research_areas": [
+                "Abnormal situation management",
+                "Aerosol research",
+                "Inherently safer design",
+                "Quantitative risk assessment",
+                "Reactive chemicals",
+                "Modeling of silane releases",
+                "LNG safety and design",
+                "Flammability research"
+            ],
+            "google_scholar_link": ""
+        },
+        "Nimir Elbashir": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/nelbashir.html",
+            "phone": "974-4423-0128",
+            "office": "204F",
+            "email": "nimir.elbashir@qatar.tamu.edu",
+            "research_areas": [
+                "Dr. Elbashir is the Director of Texas A&M Engineering Experiment Station Gas and Fuels Research Center: a major research center that involves 30 faculty members from both the Qatar and College Station campuses of Texas A&M University. He is also the Chair of the ORYX GTL Gas-to-Liquid Technology Excellence Program.",
+                "The focus of his research activities is the design of advanced midstream and downstream natural gas processing units including reactors, catalysts and conversion processes to ultra-clean fuels and value-added chemicals."
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=mO2OcCYAAAAJ&hl=en"
+        },
+        "Nancy Luedke": {
+            "title": "Communications Specialist II",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/nluedke.html",
+            "phone": "979-458-1212",
+            "office": "RICH 710C",
+            "email": "nancy.luedke@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Nobuo Morita": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/nmorita.html",
+            "phone": "979-458-3273",
+            "office": "RICH 501P",
+            "email": "nobuo.morita@tamu.edu",
+            "research_areas": [
+                "Geomechanics numerical modeling using the finite and boundary element methods for borehole, perforation, casing, and formation stabilities and hydraulic fracturing",
+                "Geomechanics laboratory and field analyses"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=AhDZF_cAAAAJ&hl=en"
+        },
+        "Oliver Mullins": {
+            "title": "Adjunct Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/omullins.html",
+            "phone": "",
+            "office": "",
+            "email": "mullins1@slb.com",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Peter Bastian": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/pbastian.html",
+            "phone": "979-845-2939",
+            "office": "RICH 901K",
+            "email": "peter.bastian@tamu.edu",
+            "research_areas": [
+                "Career reservoir engineer with over 30 years industry experience",
+                "Specializing in oil and gas economics",
+                "Reservoir engineering",
+                "Numerical reservoir simulation"
+            ],
+            "google_scholar_link": ""
+        },
+        "Priscilla McLeroy": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/pgmcleroy.html",
+            "phone": "979-845-2907",
+            "office": "RICH 901J",
+            "email": "pgmcleroy@tamu.edu",
+            "research_areas": [
+                "Improved decision and risk analysis",
+                "Lifecycle oil and gas management",
+                "Integrated E&P asset design",
+                "Oil & gas systems engineering"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=sMFbuJgAAAAJ&hl=en"
+        },
+        "Phaedra Hopcus": {
+            "title": "Program Specialist IV",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/phopcus.html",
+            "phone": "979.845.2075",
+            "office": "RICH 401F",
+            "email": "phaedra.hopcus@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Peter Valk&oacute;": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/pvalko.html",
+            "phone": "979-862-2757",
+            "office": "RICH 709",
+            "email": "p-valko@tamu.edu",
+            "research_areas": [
+                "Performance of stimulated wells",
+                "Design and analysis of hydraulic fracturing treatments",
+                "Numerical inversion of the Laplace transform"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=7DUMmEwAAAAJ&hl=en"
+        },
+        "Aziz Rahman": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/rahman-aziz.html",
+            "phone": "974-4423-0601",
+            "office": "204E",
+            "email": "aziz.rahman@qatar.tamu.edu",
+            "research_areas": [
+                "Flow assurance",
+                "Multiphase pipe flow",
+                "Wellbore hydraulics",
+                "Sand management in petroleum pipelines",
+                "Viscous and non-Newtonian fluid atomization",
+                "CFD on multiphase pipe flows/hydrotransport",
+                "Multiphase scaling",
+                "Multiphase flow in porous media",
+                "Dilling and hole cleaning issues",
+                "Advanced laser diagnostics"
+            ],
+            "google_scholar_link": ""
+        },
+        "A. Rashid Hasan": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/rhasan.html",
+            "phone": "979.847.8564",
+            "office": "RICH 501E",
+            "email": "rhasan@tamu.edu",
+            "research_areas": [
+                "Wellbore Heat transferSystematic modeling of heat transfer in wellbores. Current work plan is to develop heat transfer models for subsea completion in deep water settings.",
+                "Transient Transport ProcessesModeling fluid temperature and pressure during shut-in, startup, or rate change is complicated by the coupled nature of these transport processes. We are using numerical and semi-analytical approaches for modeling transient flow of heat, mass, and momentum in wellbores. Future work includes modeling wellbore transient heat transfer to convert wellhead pressure during water injection in unconventional formations.",
+                "Wellbore/Reservoir Fluid FlowWe are using\u00a0an integrated approach to modeling fluid flow and pressure drop in both the reservoir and the wellbore to better understand the process of liquid loading of gas wells and well blow out."
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=6lMXDd0AAAAJ&hl=en"
+        },
+        "Rudy Schultz": {
+            "title": "Business Administrator III",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/rschultz.html",
+            "phone": "979-845-2282",
+            "office": "RICH 916B",
+            "email": "rudy.schultz@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Richard A. Startzman": {
+            "title": "Professor Emeritus of Petroleum Engineering",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/rstartzman.html",
+            "phone": "",
+            "office": "",
+            "email": "",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Sara Abedi": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/sabedi.html",
+            "phone": "979-845-2920",
+            "office": "RICH 401L",
+            "email": "sara.abedi@tamu.edu",
+            "research_areas": [
+                "Mechanics and physics of geomaterials",
+                "Multiscale chemo-mechanical characterization and modeling",
+                "Reservoir geomechanics",
+                "Granular material failure and flow and granular physics"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=jfmg4jMAAAAJ&hl=en"
+        },
+        "Thomas D. Seers": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/seers-thomas-d.html",
+            "phone": "974-4423-0144",
+            "office": "204F",
+            "email": "thomas.seers@qatar.tamu.edu",
+            "research_areas": [
+                "Computational geosciences",
+                "Utilization of multimodal and multiscale 3D imaging towards the characterization and modeling of naturally fractured reservoirs",
+                "His current work pertains to three key areas:",
+                "Use of 4D X-ray tomography (synchrotron source and lab based sources) to reveal the mechanics of multiphase flow and deformation at the pore-scale within faulted and heterogeneous reservoir rocks",
+                "Application of close-range remote sensing techniques (unmanned aerial vehicle and terrestrial lidar 3D imaging platforms) towards the characterization and modeling naturally fractured reservoirs of the Middle East (digital outcrop analogues)",
+                "Hybrid geomechanical - quasi-genetic modeling of natural fractures and discontinuities within structurally complex hydrocarbon reservoirs"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=ePBr7X8AAAAJ&hl=en"
+        },
+        "Stephen A. Holditch": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/sholditch.html",
+            "phone": "979-845-2255",
+            "office": "RICH 916D",
+            "email": "holditch@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": "https://scholar.google.com/citations?user=fAfmZqQAAAAJ&hl=en"
+        },
+        "Terri Smith": {
+            "title": "Lecturer",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/smith-terri.html",
+            "phone": "979-847-8855",
+            "office": "RICH 916G",
+            "email": "terri.smith@tamu.edu",
+            "research_areas": [
+                "Terri Smith's oilfield editing projects include:",
+                "IADC Deepwater Well Control Guidelines, 1st edition (editor)",
+                "Petroleum Engineering Handbook, Vol 2: Drilling Fluids Chapter (editor)",
+                "Editorial assistance with industry response during 2010 BP Macondo crisis \u2013 Equipment Committee",
+                "International tender response projects for multiple oilfield disciplines",
+                "White papers on unconventional resources and deepwater drilling topics",
+                "Numerous SPE and industry technical papers and articles"
+            ],
+            "google_scholar_link": ""
+        },
+        "Sam Noynaert": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/snoynaert.html",
+            "phone": "979-845-6164",
+            "office": "RICH 501J",
+            "email": "noynaert@tamu.edu",
+            "research_areas": [
+                "Applied drilling research",
+                "Horizontal/deviated drilling",
+                "Automation and optimization of the drilling process",
+                "Oilfield tubular design and issues",
+                "Solutions to drilling-related problems in unconventional reservoirs"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=mj99sigAAAAJ&hl=en"
+        },
+        "Jeff Spath": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/spath-jeff.html",
+            "phone": "979-845-2278 ",
+            "office": "RICH 507",
+            "email": "spath@tamu.edu",
+            "research_areas": [
+                "Analytical simulation and pressure transient techniques."
+            ],
+            "google_scholar_link": ""
+        },
+        "Steven W. Poston": {
+            "title": "Professor Emeritus of Petroleum Engineering",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/sposton.html",
+            "phone": "",
+            "office": "",
+            "email": "",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Yuefeng Sun": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/syuefeng.html",
+            "phone": "979-845-0635",
+            "office": "HALB 63",
+            "email": "sun@tamu.edu",
+            "research_areas": [
+                "Quantitative petroleum geology:",
+                "characterization of ultra-deep petroleum systems",
+                "Rock physics:",
+                "petrophysics and well log analysis",
+                "poroelasticity, mechanics and electrodynamics of multiphase fractured porous media",
+                "biogeophysics",
+                "Reservoir geophysics:",
+                "Core-log-seismic-electromagnetic integration for reservoir description \u2013 Deep/frontier exploration, enhanced oil/gas recovery, carbon sequestration, and unconventional resources"
+            ],
+            "google_scholar_link": ""
+        },
+        "Thomas A. Blasingame": {
+            "title": "Professor ",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/tblasingame.html",
+            "phone": "979-845-2292",
+            "office": "RICH 821A",
+            "email": "t-blasingame@tamu.edu",
+            "research_areas": [
+                "Areas of specialization include:",
+                "Unconventional reservoirs",
+                "Production data analysis",
+                "Pressure transient data analysis",
+                "Petroleum reservoir engineering",
+                "Technical mathematics",
+                "Current research efforts include:",
+                "Well testing/analysis of reservoir performance",
+                "Specialized analysis techniques for well test and production data",
+                "Model-based analysis of production data",
+                "Software for the analysis, interpretation, and modeling of well test and production data",
+                "Unconventional Reservoirs: (Ultra-low permeability sands/shales)",
+                "Rate-time (decline curve) analysis for unconventional reservoir systems",
+                "Rate-time-pressure analysis for unconventional reservoir systems",
+                "Modeling of ultra-low permeability reservoirs",
+                "Field studies:",
+                "Performance analysis of tight gas/shale gas reservoir systems",
+                "Completion production correlation studies (correlation of performance with completion parameters)"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=UpW35usAAAAJ&hl=en"
+        },
+        "Tyler Neumann": {
+            "title": "IT Professional II",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/tneumann.html",
+            "phone": "979-845-2298",
+            "office": "RICH 901E",
+            "email": "tyler.neumann@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "Valerie Jochen": {
+            "title": "Professor of Engineering Practice",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/vjochen.html",
+            "phone": "979.845.3252",
+            "office": "RICH 901D",
+            "email": "vajochen@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        },
+        "William D. McCain, Jr.": {
+            "title": "Visiting Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/wdmccain.html",
+            "phone": "979-845-8401",
+            "office": "RICH 501N",
+            "email": "w-mccain01@tamu.edu",
+            "research_areas": [
+                "Reservoir engineering and reservoir management",
+                "Reservoir fluid properties",
+                "Reservoir rock properties",
+                "Reservoir simulation, especially compositional simulation",
+                "Production of volatile oils and gas condensates"
+            ],
+            "google_scholar_link": ""
+        },
+        "Ruud Weijermars": {
+            "title": "Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/weijermars-ruud.html",
+            "phone": "979-845-4067",
+            "office": "RICH 501M",
+            "email": "r.weijermars@tamu.edu",
+            "research_areas": [
+                "Petroleum economics and decision making",
+                "Reservoir models and production forecasting",
+                "Geothermal reservoir models",
+                "Wellbore stresses and hydraulic fracturing"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=iLMauC8AAAAJ&hl=en"
+        },
+        "Yuhe Wang": {
+            "title": "Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/ywang.html",
+            "phone": "974-4423-0422",
+            "office": "204H",
+            "email": "yuhe.wang@qatar.tamu.edu",
+            "research_areas": [
+                "Multiphase flow through porous media",
+                "Reservoir simulation and high performance computing",
+                "Fast and multiscale reservoir simulation",
+                "Stochastic reservoir modeling and uncertainty quantifications",
+                "Carbonate and unconventional reservoirs",
+                "Big-data analysis in reservoir engineering"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=v3VNraYAAAAJ&hl=en"
+        },
+        "Ying-Ying Lin": {
+            "title": "Research Assistant Professor",
+            "page": "https://engineering.tamu.edu/petroleum/profiles/yylin.html",
+            "phone": "979-845-1510",
+            "office": "RICH 612",
+            "email": "yingying.lin@tamu.edu",
+            "research_areas": "",
+            "google_scholar_link": ""
+        }
+    }
+}

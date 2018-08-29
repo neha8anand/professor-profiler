@@ -1,0 +1,216 @@
+{
+    "university_name": "The University of Tulsa",
+    "faculty_names": {
+        "Mustafa Onur": {
+            "title": "McMan Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mustafa-onur",
+            "phone": "918-631-3059",
+            "office": "",
+            "email": "mustafa-onur@utulsa.edu",
+            "research_areas": [
+                "Pressure Transient (Well Test) Analysis ",
+                "Wireline Formation Testers ",
+                "Reservoir Engineering Methods",
+                "Reservoir Simulation & Modeling ",
+                "Assisted History Matching ",
+                "Nonlinear Parameter Optimization ",
+                "Naturally Fractured Reservoirs ",
+                "EOR Methods",
+                "Geothermal Reservoir Engineering",
+                "Unconventional Oil and Gas Reservoirs "
+            ],
+            "google_scholar_link": ""
+        },
+        "Randy Hazlett": {
+            "title": "Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/randy-hazlett",
+            "phone": "918-631-2695",
+            "office": "",
+            "email": "randy-hazlett@utulsa.edu",
+            "research_areas": [
+                "Unconventional Reservoirs",
+                "Discrete Well Modeling",
+                "Pressure and Rate Transient Analysis",
+                "Multiphase Flow in Porous Media",
+                "Productivity Modeling of Complex Wells",
+                "Production from Complex Fracture Systems",
+                "Flow in Fractures",
+                "Computational Fluid Dynamics Applications in Reservoir Engineering",
+                "Lattice Boltzmann methods for Petroleum Engineering",
+                "Enhanced Oil Recovery"
+            ],
+            "google_scholar_link": ""
+        },
+        "Mohan Kelkar": {
+            "title": "Williams Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/balmohan-kelkar",
+            "phone": "918-631-3036",
+            "office": "",
+            "email": "mohan@utulsa.edu",
+            "research_areas": [
+                "Integrated Reservoir Modeling",
+                "Liquid Loading"
+            ],
+            "google_scholar_link": ""
+        },
+        "Jun Lu": {
+            "title": "Assistant Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/jun-lu",
+            "phone": "918-631-3886",
+            "office": "",
+            "email": "jun-lu@utulsa.edu",
+            "research_areas": [],
+            "google_scholar_link": ""
+        },
+        "Stefan Miska": {
+            "title": "Jonathan B. Detwiler Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/stefan-miska",
+            "phone": "918-631-5167",
+            "office": "",
+            "email": "stefan-miska@utulsa.edu",
+            "research_areas": [
+                "Drilling Hydraulics",
+                "Drillstring, Tubing and Casing Mechanics",
+                "Drilling Optimization",
+                "Geomechanics"
+            ],
+            "google_scholar_link": ""
+        },
+        "Evren Ozbayoglu": {
+            "title": "Wellspring Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mehmet-ozbayoglu",
+            "phone": "918-631-2972",
+            "office": "",
+            "email": "evren-ozbayoglu@utulsa.edu",
+            "research_areas": [
+                "Drilling Engineering",
+                "Fluid and Solid Mechanics",
+                "Directional Horizontal Drilling",
+                "Cuttings Transport",
+                "Fluid Characterization",
+                "Hydraulics"
+            ],
+            "google_scholar_link": ""
+        },
+        "Eduardo Pereyra": {
+            "title": "Assistant Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/eduardo-pereyra",
+            "phone": "918-631-5114",
+            "office": "",
+            "email": "eduardo-pereyra@utulsa.edu",
+            "research_areas": [
+                "Multiphase Flow",
+                "Flow Assurance",
+                "Gas Well Deliquification",
+                "Artificial Lift",
+                "Multiphase Flow Metering",
+                "Separation Technologies",
+                "Uncertainty Analysis"
+            ],
+            "google_scholar_link": ""
+        },
+        "Mauricio Prado": {
+            "title": "Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mauricio-prado",
+            "phone": "918-631-5163",
+            "office": "",
+            "email": "mauricio-prado@utulsa.edu",
+            "research_areas": [
+                "Artificial Lift",
+                "Dewatering and Boosting",
+                "Multiphase Flow",
+                "Production Optimization",
+                "Dynamic of Multiphase Flow in Pipes"
+            ],
+            "google_scholar_link": ""
+        },
+        "Cem Sarica": {
+            "title": "F.H. \"Mick\" Merelli/Cimarex Energy Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/cem-sarica",
+            "phone": "918-631-5154",
+            "office": "",
+            "email": "cem-sarica@utulsa.edu",
+            "research_areas": [
+                "Production Engineering",
+                "Multiphase Flow in Pipes",
+                "Flow Assurance",
+                "Horizontal Wells"
+            ],
+            "google_scholar_link": ""
+        },
+        "Ovadia Shoham": {
+            "title": "Floyd M. Stevenson Distinguished Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/ovadia-shoham",
+            "phone": "918-631-3255",
+            "office": "",
+            "email": "ovadia-shoham@utulsa.edu",
+            "research_areas": [
+                "Production, Transportation and Separation of Multiphase Flow",
+                "Two Phase Flow Modeling"
+            ],
+            "google_scholar_link": ""
+        },
+        "Mike Stafford": {
+            "title": "Instructor in Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/michael-stafford",
+            "phone": "918-631-2604",
+            "office": "",
+            "email": "mike-stafford@utulsa.edu",
+            "research_areas": [],
+            "google_scholar_link": ""
+        },
+        "Rami Younis": {
+            "title": "Associate Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/rami-younis",
+            "phone": "918-631-2426",
+            "office": "",
+            "email": "rami-younis@utulsa.edu",
+            "research_areas": [
+                "Numerical Reservoir Simulation",
+                "Software Design Paradigms",
+                "Nonlinear and Linear Solvers",
+                "Discretization of Coupled Flow and Transport",
+                "Geomechanics in Fractured Porous Media, Applications of Simulation in Unconventional Reservoirs and EOR"
+            ],
+            "google_scholar_link": ""
+        },
+        "Mengjiao Yu": {
+            "title": "Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/mengjiao-yu",
+            "phone": "918-631-2863",
+            "office": "",
+            "email": "mengjiao-yu@utulsa.edu",
+            "research_areas": [
+                "Drilling and Well Completion",
+                "Drilling Fluids",
+                "Fluid Rheology and Hydraulics",
+                "Wellbore Stability",
+                "Shale and Shale Stability",
+                "Cuttings Transport",
+                "UBD/MPD",
+                "Drillstring Mechanics",
+                "Downhole and Surface Measurement",
+                "Drilling Automations",
+                "Large Scale Engineering Simulations"
+            ],
+            "google_scholar_link": ""
+        },
+        "Hong-Quan Zhang": {
+            "title": "Williams Professor of Petroleum Engineering",
+            "page": "https://faculty.utulsa.edu/~/hong-quan-zhang",
+            "phone": "918-631-5142",
+            "office": "",
+            "email": "hong-quan-zhang@utulsa.edu",
+            "research_areas": [
+                "Artificial Lift",
+                "Multiphase Flow in Wells and Pipelines",
+                "Heat and Mass Transfer",
+                "Computational Fluid Dynamics",
+                "Heavy Oil and Emulsion Rheology",
+                "Oil and Gas Production",
+                "Flow Assurance"
+            ],
+            "google_scholar_link": ""
+        }
+    }
+}

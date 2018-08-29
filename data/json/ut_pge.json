@@ -1,0 +1,354 @@
+{
+    "university_name": "University of Texas at Austin",
+    "faculty_names": {
+        "Matthew Balhoff": {
+            "title": "Associate Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/balhoff",
+            "phone": "(512) 471-3246",
+            "office": "CPE 4.182A",
+            "email": "balhoff@mail.utexas.edu",
+            "research_areas": [
+                "Chemical EOR",
+                "Geological CO2 Storage",
+                "Reservoir Simulation"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=cbFq7J0AAAAJ&hl=en&oi=ao"
+        },
+        "J.Eric Bickel": {
+            "title": "Assistant Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/bickel",
+            "phone": "(512) 232-8316",
+            "office": "ETC 5.128D",
+            "email": "ebickel@mail.utexas.edu",
+            "research_areas": [
+                "Decision and risk analysis",
+                "economics",
+                "value of information",
+                "uncertainty quantification",
+                "energy policy"
+            ],
+            "google_scholar_link": ""
+        },
+        "Paul Bommer": {
+            "title": "Distinguished Senior Lecturer",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/bommer",
+            "phone": "(512) 471-1207",
+            "office": "CPE 3.124",
+            "email": "pmbommer@mail.utexas.edu",
+            "research_areas": [
+                "Cementing",
+                "Artificial lift",
+                "Down-hole separation",
+                "Multi-phase flow"
+            ],
+            "google_scholar_link": ""
+        },
+        "Hugh Daigle": {
+            "title": "Assistant Professor ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/daigle",
+            "phone": "(512) 471-3775",
+            "office": "CPE 5.174",
+            "email": "daigle@austin.utexas.edu",
+            "research_areas": [
+                "Drilling",
+                "Well Completions",
+                "and Rock Mechanics; Fundamental Processes; Integrated Reservoir Characterization; Unconventional Resources; Nanoparticle Engineering for Subsurface Processes"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=XitKtgEAAAAJ&hl=en"
+        },
+        "Mojdeh Delshad": {
+            "title": "Research Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/delshad",
+            "phone": "(512) 471-3219, (512) 471-3161",
+            "office": "CPE 2.502",
+            "email": "delshad@mail.utexas.edu",
+            "research_areas": [
+                "Environmental Engineering; Fundamental Processes; Reservoir Engineering; CO2 enhanced oil recovery",
+                "and Chemical Enhanced Oil Recovery",
+                "Improve Oil Recovery Processes from Fractured Carbonates "
+            ],
+            "google_scholar_link": ""
+        },
+        "David DiCarlo": {
+            "title": "Associate Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/dicarlo",
+            "phone": "(512) 471-1283",
+            "office": "CPE 4.174",
+            "email": "dicarlo@mail.utexas.edu",
+            "research_areas": [
+                "Chemical EOR",
+                "Gas Enhanced Oil Recovery",
+                "Geological CO2 Storage"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=OFIvuBQAAAAJ&hl=en"
+        },
+        "Nicolas Espinoza": {
+            "title": "Assistant Professor ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/espinoza",
+            "phone": "(512) 471-8280",
+            "office": "CPE 3.118A, CPE 2.502",
+            "email": "espinoza@austin.utexas.edu",
+            "research_areas": [
+                "Drilling",
+                "Well Completions",
+                "and Rock Mechanics; Fundamental Processes; Integrated Reservoir Characterization; Unconventional Resources"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=WpKx-qgAAAAJ&hl=en"
+        },
+        "John Foster": {
+            "title": "Associate Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/foster",
+            "phone": "(512) 471-6972",
+            "office": "CPE 3.108",
+            "email": "jfoster@austin.utexas.edu",
+            "research_areas": [
+                "Rock Mechanics; Fundamental Processes; Natural Gas Engineering; Unconventional Resources"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=TjdPwewAAAAJ&hl=en"
+        },
+        "Kenneth Gray": {
+            "title": "Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/gray",
+            "phone": "(512) 471-3242, (512) 471-7190",
+            "office": "CPE 3.186A, PRC B-17 R2",
+            "email": "ken_gray@mail.utexas.edu",
+            "research_areas": [
+                "MSE technologies and ROP models"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=w0hSlZgAAAAJ&hl=en"
+        },
+        "Zoya Heidari": {
+            "title": "Assistant Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/heidari",
+            "phone": "(512) 471-7218",
+            "office": "PGE 5.108",
+            "email": "zoya@utexas.edu",
+            "research_areas": [
+                "Research Areas:"
+            ],
+            "google_scholar_link": ""
+        },
+        "Deborah Hempel-Medina": {
+            "title": "Lecturer ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/hempel-medina",
+            "phone": "(512) 471-3214",
+            "office": "CPE 3.104A",
+            "email": "dhempelmedina@austin.utexas.edu",
+            "research_areas": [
+                "Research Areas:"
+            ],
+            "google_scholar_link": ""
+        },
+        "Chun Huh": {
+            "title": "Research Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/huh",
+            "phone": "(512) 471-3252",
+            "office": "CPE 4.186B",
+            "email": "chunhuh@mail.utexas.edu",
+            "research_areas": [
+                "Fundamental Processes; Nanoparticle Engineering for Subsurface Processes; Reservoir Engineering "
+            ],
+            "google_scholar_link": ""
+        },
+        "Larry Lake": {
+            "title": "Professor ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/lake",
+            "phone": "(512) 471-8233, (512) 471-3161",
+            "office": "CPE 4.108",
+            "email": "larry_lake@mail.utexas.edu",
+            "research_areas": [
+                " Fundamental Processes; Integrated Reservoir Characterization; Geostatistics",
+                "Reservoir Engineering; Enhanced Oil Recovery"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=eGlURRYAAAAJ&hl=en"
+        },
+        "Krishan Malik": {
+            "title": "Adjunct Professor ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/malik",
+            "phone": "(512) 471-3161",
+            "office": "CPE 2.502, 2.502",
+            "email": "kmalik@mail.utexas.edu",
+            "research_areas": [
+                "Energy Economics",
+                "International Energy Policy",
+                "Restructuring of the Global Oil Economy",
+                "Geopolitics of Oil",
+                "Energy Banking",
+                "Financing Energy Projects",
+                "Role of Oil in International Relations"
+            ],
+            "google_scholar_link": ""
+        },
+        "Kishore Mohanty": {
+            "title": "Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/mohanty",
+            "phone": "(512) 471-3077",
+            "office": "CPE 4.168",
+            "email": "mohanty@mail.utexas.edu",
+            "research_areas": [
+                "Chemical EOR",
+                "Gas Enhanced Oil Recovery",
+                "Hydraulic Fracturing "
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=Eocb9J4AAAAJ&hl=en"
+        },
+        "Quoc Nguyen": {
+            "title": "Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/nguyen",
+            "phone": "(512) 471-1204",
+            "office": "CPE 5.104 A",
+            "email": "quoc_p_nguyen@mail.utexas.edu",
+            "research_areas": [
+                "Unconventional Resources",
+                "Reservoir Engineering",
+                "Enhanced Oil Recovery",
+                "Improved Hydrocarbon Production System"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=l0IDbJAAAAAJ&hl=en"
+        },
+        "Ryosuke Okuno": {
+            "title": "Assistant Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/okuno",
+            "phone": "(512) 471-3250",
+            "office": "CPE 5.118B",
+            "email": "okuno@utexas.edu",
+            "research_areas": [
+                "Phase Behavior; Thermodynamics; Enhanced Oil Recovery; Heavy Oil Recovery",
+                "Reservoir Simulator Development; Unconventional Resources"
+            ],
+            "google_scholar_link": ""
+        },
+        "Hilary Olson": {
+            "title": "Lecturer ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/clementolson",
+            "phone": "(512) 653-8356",
+            "office": "CPE 5.168A",
+            "email": "holson@austin.utexas.edu",
+            "research_areas": [
+                "Phase Behavior; Thermodynamics; Enhanced Oil Recovery; Heavy Oil Recovery",
+                "Reservoir Simulator Development; Unconventional Resources"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=qab2BZMAAAAJ&hl=en"
+        },
+        "Jon Olson": {
+            "title": "Department Chair and Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/olson",
+            "phone": "(512) 471-7375, (512) 471-3161",
+            "office": "CPE 5.168B, CPE 2.502",
+            "email": "jolson@austin.utexas.edu",
+            "research_areas": [
+                "Reservoir Geomechanics",
+                "Hydraulic Fracturing",
+                "Induced Seismicity",
+                "Naturally Fractured Reservoir Characterization",
+                "Unconventional Resources"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=XjKKz70AAAAJ&hl=en"
+        },
+        "Gary Pope": {
+            "title": "Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/pope",
+            "phone": "(512) 471-3235, (512) 471-3161",
+            "office": "CPE 2.502",
+            "email": "gpope@mail.utexas.edu",
+            "research_areas": [
+                "Environmental Engineering; Natural Gas Engineering; Reservoir Engineering"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=OZRKwPQAAAAJ&hl=en"
+        },
+        "Masa Prodanovic": {
+            "title": "Associate Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/prodanovic",
+            "phone": "(512) 471-0839",
+            "office": "CPE 4.186A",
+            "email": "masha@utexas.edu",
+            "research_areas": [
+                "Fundamental Processes; Integrated Reservoir Characterization; Nanoparticle Engineering for Subsurface Processes; Unconventional Resources"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=hs_-TQoAAAAJ&hl=en"
+        },
+        "Michael Pyrcz": {
+            "title": "Associate Professor ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/pyrcz",
+            "phone": "(512) 471-3252",
+            "office": "CPE 4-186B",
+            "email": "\tmpyrcz@austin.utexas.edu",
+            "research_areas": [
+                "Integrated Reservoir Characterization; Unconventional Resources; Petrophysics and pore-scale processes; Geologic Carbon Storage;"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=QVZ20eQAAAAJ&hl=en"
+        },
+        "Kamy Sepehrnoori": {
+            "title": "Professor and Associate Department Chair ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/sepehrnoori",
+            "phone": "(512) 471-0231, (512) 471-3161",
+            "office": "CPE 4.104A",
+            "email": "kamys@mail.utexas.edu",
+            "research_areas": [
+                "Computational Methods",
+                "Reservoir Simulation Development and Application",
+                "EOR Modeling",
+                "Naturally Fractured Reservoirs",
+                "Inverse Problems",
+                "Unconventional Resources."
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=_D0BjPwAAAAJ&hl=en"
+        },
+        "Mukul Sharma": {
+            "title": "Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/sharma",
+            "phone": "(512) 471-3257, (512) 471-3161",
+            "office": "CPE 5.118A",
+            "email": "msharma@mail.utexas.edu",
+            "research_areas": [
+                "Hydraulic fracturing and well completions; formation damage; natural gas engineering; production engineering; reservoir engineering; unconventional resources; surface and colloid chemistry; flow in porous media"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=dxbN2TEAAAAJ&hl=en"
+        },
+        "Carlos Torres-Verdin": {
+            "title": "Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/torres-verdin",
+            "phone": "(512) 471-4216, (512) 471-3161",
+            "office": "CPE 5.182A",
+            "email": "cverdin@austin.utexas.edu",
+            "research_areas": [
+                "Static and Dynamic Formation Evaluation",
+                "Borehole Geophysics",
+                "Rock Physics",
+                "Petrophysics",
+                "Well Logging",
+                "Reservoir Geophysics",
+                "Integrated Geological-Geophysical-Flow Description of Reservoirs",
+                "Signal Processing",
+                "Inverse Problems.\u00a0"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=I-J9Dc8AAAAJ&hl=en"
+        },
+        "Eric van Oort": {
+            "title": "Professor",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/vanoort",
+            "phone": "(512) 471-6262",
+            "office": "CPE 5.186A",
+            "email": "vanoort@austin.utexas.edu",
+            "research_areas": [
+                "Drilling",
+                "Well Completions",
+                "and Rock Mechanics; Environmental Engineering; Unconventional Resources"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=r7InKAUAAAAJ&hl=en"
+        },
+        "Mary Wheeler": {
+            "title": "Professor ",
+            "page": "https://www.pge.utexas.edu/facultystaff/profiles/wheeler",
+            "phone": "(512) 475-8625",
+            "office": "ACE 5.324",
+            "email": "mfw@ices.utexas.edu",
+            "research_areas": [
+                "Drilling",
+                "Well Completions",
+                "and Rock Mechanics; Environmental Engineering; Reservoir Engineering; Unconventional Resources"
+            ],
+            "google_scholar_link": "https://scholar.google.com/citations?user=sX58qHkAAAAJ&hl=en"
+        }
+    }
+}

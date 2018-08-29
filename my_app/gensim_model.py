@@ -256,21 +256,22 @@ if __name__ == '__main__':
     # plt.close()
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(num_topics=9, algorithm='LDA', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=9, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
     optimum_model.transform(data)
     optimum_model.fit()
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
-    pge_df = database_cleaner('../data/pge_database.json')
-    pge_df.index = list(range(len(pge_df)))
+    # pge_df = database_cleaner('../data/pge_database.json')
+    pge_df = pd.read_json('../data/pge_database.json')
+    # pge_df.index = list(range(len(pge_df)))
 
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)
-    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database_LDA.json')
+    pge_df_updated.to_json(path_or_buf='../data/final_gensim_database_LDAMallet.json')
 
     # Pickle model (has associated dictionary and tf_idf model)
-    with open('../data/pge_gensim_LDA.pkl', 'wb') as f:
+    with open('../data/pge_gensim_LDAMallet.pkl', 'wb') as f:
         pickle.dump(optimum_model, f)
 
     # Save model to disk.
