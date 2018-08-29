@@ -47,7 +47,7 @@ class MyGenSimModel():
         - Fit a topic model to the resulting features.
     """
 
-    def __init__(self, num_topics=9, algorithm='LDAMallet', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False):
+    def __init__(self, num_topics=9, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False):
         self.num_topics = num_topics
         self.algorithm = algorithm
         self.tf_idf = tf_idf
@@ -225,6 +225,50 @@ def compute_coherence_values(dictionary, corpus, texts, limit, start=5, step=1, 
 
     return coherence_values
 
+def coherence_plot(list_num_topics, coherence_values, title):
+    """ Generates coherence plot given the range of topics and corresponding coherence values."""
+    plt.plot(list_num_topics, coherence_values)
+    plt.xlabel("Num Topics")
+    plt.ylabel("Coherence score")
+    plt.title(title)
+    # plt.show()
+    plt.savefig(title + '.png', bbox_inches='tight')
+    plt.close()
+
+def _compare_models(data, model_list):
+    """Return the best model on the basis of coherence score for a given number of topics."""
+    coherence_scores = []
+    for model in model_list:
+        model.transform(data)
+        model.fit()
+        coherence_scores.append(model.coherence_score())
+    return model_list[np.argmax(np.array(coherence_scores))]
+
+def get_optimum_model(data, num_topics):
+    """Compare different LDA based models in gensim based on coherence score given a dataset and number of topics."""
+
+    # Initiate models (LDA)
+    model1 = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    model2 = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False) # Effect of tf_idf
+    model3 = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=True) # Effect of lemmatization
+    model4 = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=True, bigrams=True, trigrams=False, lemmatization=False) # Effect of bigrams 
+    model5 = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=True, bigrams=True, trigrams=False, lemmatization=True) # Effect of bigrams + lemmatization
+    model6 = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=True, lemmatization=False) # Effect of trigrams
+    model7 = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=True, lemmatization=True) # Effect of trigrams + lemmatization
+
+    # Initiate models (LDAMallet) (tf_idf always false)
+    model8 = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    model9 = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=True) # Effect of lemmatization
+    model10 = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=True, trigrams=False, lemmatization=False) # Effect of bigrams 
+    model11 = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True) # Effect of bigrams + lemmatization
+    model12 = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=True, lemmatization=False) # Effect of trigrams
+    model13 = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=True, lemmatization=True) # Effect of trigrams + lemmatization
+
+    model_list = [model1, model2, model3, model4, model5, model6, model7,
+                  model8, model9, model10, model11, model12, model13]
+
+    return _compare_models(data, model_list)
+
 if __name__ == '__main__':
     # Create pge_database
     current_db_path = '../data/json/ut_database.json'
@@ -233,33 +277,29 @@ if __name__ == '__main__':
     add_database(current_db_path, new_db_paths, combined_db_path)
     data = get_data('../data/json/pge_database.json')
 
-    # Initiate model
-    # model = MyGenSimModel(num_topics=11, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    # # Choose optimum model for this data
+    # # model = get_optimum_model(data=data, num_topics=7)
+    # model = MyGenSimModel()
     # model.transform(data)
 
-    # # Choose optimum number of clusters
+    # # Choose optimum number of clusters for the optimum model
     # start, limit, step = 5, 17, 2
-    # coherence_values = compute_coherence_values(dictionary=model.dictionary, corpus=model.corpus, texts=model.tokens, limit=limit, start=start, step=step, algorithm=model.algorithm)
     # list_num_topics = np.array(range(start, limit, step))
+    # coherence_values = compute_coherence_values(dictionary=model.dictionary, corpus=model.corpus, texts=model.tokens, limit=limit, start=start, step=step, algorithm=model.algorithm)
     # optimum_num_topics = list_num_topics[np.argmax(np.array(coherence_values))]
-    # print(optimum_num_topics)
 
-    # # Coherence Plot
-    # plt.plot(list_num_topics, coherence_values)
-    # plt.xlabel("Num Topics")
-    # plt.ylabel("Coherence score")
-    # plt.title('Coherence Plot for LDA model')
-    # # plt.title('Coherence Plot for LDAMallet model')
-    # # plt.show()
-    # plt.savefig('LDA_Coherence_Plot.png', bbox_inches='tight')
-    # # plt.savefig('LDAMallet Coherence Plot', bbox_inches='tight')
-    # plt.close()
+    # # Generate coherence plot for the optimum model
+    # title = f'Coherence_plot_for_optimum_model_{model.algorithm}'
+    # coherence_plot(list_num_topics, coherence_values, title=title)
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(num_topics=9, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=12, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    # optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=model.tf_idf, bigrams=model.bigrams, trigrams=model.trigrams, lemmatization=model.lemmatization)
     optimum_model.transform(data)
     optimum_model.fit()
-    print(optimum_model.coherence_score())
+    print(f'The optimum model parameters- algorithm: {optimum_model.algorithm}, num_topics: {optimum_model.num_topics}, tf_idf: {optimum_model.tf_idf}, bigrams: {optimum_model.bigrams}, trigrams: {optimum_model.trigrams}, lemmatization: {optimum_model.lemmatization}')
+    print('\n')
+    print(f'The optimum model coherence score is: {optimum_model.coherence_score()}')
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
     pge_df = pd.read_json('../data/json/pge_database.json')
