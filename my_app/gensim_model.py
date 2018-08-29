@@ -234,29 +234,29 @@ if __name__ == '__main__':
     data = get_data('../data/pge_database.json')
 
     # Initiate model
-    model = MyGenSimModel(num_topics=9, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
-    model.transform(data)
+    # model = MyGenSimModel(num_topics=11, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    # model.transform(data)
 
-    # Choose optimum number of clusters
-    start, limit, step = 5, 17, 2
-    coherence_values = compute_coherence_values(dictionary=model.dictionary, corpus=model.corpus, texts=model.tokens, limit=limit, start=start, step=step, algorithm=model.algorithm)
-    list_num_topics = np.array(range(start, limit, step))
-    optimum_num_topics = list_num_topics[np.argmax(np.array(coherence_values))]
-    print(optimum_num_topics)
+    # # Choose optimum number of clusters
+    # start, limit, step = 5, 17, 2
+    # coherence_values = compute_coherence_values(dictionary=model.dictionary, corpus=model.corpus, texts=model.tokens, limit=limit, start=start, step=step, algorithm=model.algorithm)
+    # list_num_topics = np.array(range(start, limit, step))
+    # optimum_num_topics = list_num_topics[np.argmax(np.array(coherence_values))]
+    # print(optimum_num_topics)
 
-    # Coherence Plot
-    plt.plot(list_num_topics, coherence_values)
-    plt.xlabel("Num Topics")
-    plt.ylabel("Coherence score")
-    plt.title('Coherence Plot for LDA model')
-    # plt.title('Coherence Plot for LDAMallet model')
-    # plt.show()
-    plt.savefig('LDA_Coherence_Plot.png', bbox_inches='tight')
-    # plt.savefig('LDAMallet Coherence Plot', bbox_inches='tight')
-    plt.close()
+    # # Coherence Plot
+    # plt.plot(list_num_topics, coherence_values)
+    # plt.xlabel("Num Topics")
+    # plt.ylabel("Coherence score")
+    # plt.title('Coherence Plot for LDA model')
+    # # plt.title('Coherence Plot for LDAMallet model')
+    # # plt.show()
+    # plt.savefig('LDA_Coherence_Plot.png', bbox_inches='tight')
+    # # plt.savefig('LDAMallet Coherence Plot', bbox_inches='tight')
+    # plt.close()
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=9, algorithm='LDA', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
     optimum_model.transform(data)
     optimum_model.fit()
 
