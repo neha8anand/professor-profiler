@@ -285,6 +285,51 @@
                     "title": "Probabilistic resource estimation of stored and recoverable thermal energy for geothermal systems by volumetric methods",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "19",
+                    "Since 2013": "13"
+                },
+                "i10-index": {
+                    "All": "45",
+                    "Since 2013": "16"
+                }
+            },
+            "citations": {
+                "All": "1340",
+                "Since 2013": "636",
+                "1988": "4",
+                "1989": "21",
+                "1990": "8",
+                "1991": "16",
+                "1992": "5",
+                "1993": "16",
+                "1994": "11",
+                "1995": "2",
+                "1996": "7",
+                "1997": "13",
+                "1998": "12",
+                "1999": "4",
+                "2000": "10",
+                "2001": "13",
+                "2002": "11",
+                "2003": "29",
+                "2004": "24",
+                "2005": "51",
+                "2006": "32",
+                "2007": "55",
+                "2008": "35",
+                "2009": "55",
+                "2010": "107",
+                "2011": "71",
+                "2012": "71",
+                "2013": "92",
+                "2014": "96",
+                "2015": "105",
+                "2016": "129",
+                "2017": "134",
+                "2018": "80"
             }
         },
         "Randy Hazlett": {
@@ -411,6 +456,26 @@
                     "title": "",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "12"
+                }
+            },
+            "citations": {
+                "All": "836",
+                "Since 2013": "292",
+                "2008": "24",
+                "2009": "34",
+                "2010": "47",
+                "2011": "49",
+                "2012": "45",
+                "2013": "41",
+                "2014": "41",
+                "2015": "40",
+                "2016": "67",
+                "2017": "58",
+                "2018": "45"
             }
         },
         "Mohan Kelkar": {
@@ -577,6 +642,56 @@
                     "title": "Upgridding Method for Tight Gas Reservoirs",
                     "abstract": "Abstract Low permeability sandstone reservoirs in western US produce gas and water. Their geologic history indicates the development of non primary drainage equilibrium. Hence, one does not observe transition zone but trendless variation in multiphase fluid saturations throughout the formation. These varying multiphase fluid saturations will affect the effective permeability available to gas and water phases. Since the flow potential of a well is directly related to effective permeability, we propose a novel upgridding method to combine grid blocks having similar effective permeabilities which will implicitly take into account upscaling of multiphase fluid saturations in these tight gas systems.  Our algorithm groups vertical layers in a way such that the heterogeneity loss of an appropriately defined static property is minimized within layers. We define this static property of a grid block as the product of its net volume, its absolute permeability and relative permeability available to a phase within that grid block. The upgridding approach is essentially a sequential coarsening algorithm that starts from a fine scale model and merges the two adjacent layers that results in a minimum heterogeneity loss of defined static property.  To determine the optimum number of up-gridded layers for efficient numerical flow simulation of these detailed geological models, we define criteria such as removal of heterogeneity from a model at a particular coarsening step and design factor which will help preserve the critical level of heterogeneity. We compare our upgridding method with proportional upgridding and traditional variance based methods for synthetic and field cases of tight gas reservoirs, and the results demonstrate that our proposed layer combinations can better capture dynamic flow behavior of the fine scale model.  Introduction Typically, geologic models are two orders of magnitude bigger than simulation models. Since they try to capture geological and petrophysical descriptions available on log or core scale, they are described in detail. But flow simulation of these models is computationally expensive. Therefore, it is imperative to upscale these geologic models from fine to a coarser scale description. The process of upscaling is composed two steps. The first step involves combination of various grid blocks of the geological model to create a simulation grid (this is called upgridding), and second step involves reassigning reservoir properties to simulation grid using various property upscaling methods. In this paper, we propose an upgridding scheme for tight gas reservoirs under multiphase fluid (gas and water) flow where sharp changes between sandstone and shale beds are also predominant.  We only concentrate on vertical upgridding in this paper and keep the areal grid same as in fine scale. Another practical point in the process of upgridding is that from a geological point of view, we should not combine layers from different zones of reservoirs. Our upgridding scheme honors this restriction. Moreover, given an optimum number of simulation layers, we upgrid all zones of a reservoir simultaneously. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "23",
+                    "Since 2013": "14"
+                },
+                "i10-index": {
+                    "All": "63",
+                    "Since 2013": "23"
+                }
+            },
+            "citations": {
+                "All": "3399",
+                "Since 2013": "1158",
+                "1983": "15",
+                "1984": "23",
+                "1985": "31",
+                "1986": "55",
+                "1987": "45",
+                "1988": "39",
+                "1989": "52",
+                "1990": "56",
+                "1991": "45",
+                "1992": "42",
+                "1993": "56",
+                "1994": "53",
+                "1995": "74",
+                "1996": "61",
+                "1997": "84",
+                "1998": "58",
+                "1999": "59",
+                "2000": "66",
+                "2001": "77",
+                "2002": "72",
+                "2003": "99",
+                "2004": "102",
+                "2005": "108",
+                "2006": "114",
+                "2007": "103",
+                "2008": "104",
+                "2009": "126",
+                "2010": "139",
+                "2011": "112",
+                "2012": "131",
+                "2013": "162",
+                "2014": "189",
+                "2015": "211",
+                "2016": "183",
+                "2017": "238",
+                "2018": "173"
             }
         },
         "Jun Lu": {
@@ -712,6 +827,22 @@
                     "title": "",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "14"
+                }
+            },
+            "citations": {
+                "All": "492",
+                "Since 2013": "470",
+                "2012": "22",
+                "2013": "26",
+                "2014": "38",
+                "2015": "56",
+                "2016": "98",
+                "2017": "88",
+                "2018": "164"
             }
         },
         "Stefan Miska": {
@@ -964,6 +1095,26 @@
                     "title": "Mud-Cement Displacement in Eccentric Annuli: Analytical Solution, Instability Analysis, and Computational Fluid Dynamics Simulations",
                     "abstract": "A successful cement placement can provide zonal isolation and environmental safety. Effective design of cement placement and mud removal impact all the stages of the wellbore life from drilling ahead to production. Accurate predictions of fluid displacement in the wellbore are vital to design fluid properties and plan the cementing job. In this work, an analytical model is developed to simulate the displacement of fluids in eccentric annuli. This paper presents a novel method for the solution of cement/mud displacement and evaluation of inter-fluid contamination during displacement for eccentric annuli. This new approach starts by addressing the problem of single fluid flow in eccentric annuli by solving analytically the governing transport equations for a flow inside an unwrapped annulus. The solution is, then, extended to a system of two fluids in a vertical annulus by adjusting the boundary conditions for displacement. The model is completed by adding the time-dependent calculation of interface between the two fluids, enabling the accurate determination of the amount of mixing and displacement efficiency. The analytical method proposed is used to simulate single and multi-fluid flows and study the effect of fluid properties of cement, spacer, and drilling mud at different flow rates on displacement efficiency, for both concentric and eccentric, vertical annuli. 3-dimensional Computational Fluid Dynamics (CFD) simulations were also performed and the results were compared to the analytical solution. Moreover, instability of the interface in all the cases was studied and the analysis offers an understanding of the role of fluid properties and proposes applicable optimized design to enhance the displacements. The amount of mixing and contamination that occurs during the displacement was calculated for both methods. The analytical solution and CFD produce results within a 13% difference, which validates the analytical model. Evidence was gathered to support that the improper design of fluid properties and flow rate along with a highly eccentric annulus can lead to substantial cement contamination. This may lead to under-designing the amount of fluids to be pumped to provide a complete mud removal and an efficient cement placement. On the other hand, learnings and models developed allow optimizing fluid properties that may lead to best outcomes even for highly eccentric annulus. The undeniable importance of a complete cement displacement is addressed by means of an analytical solution of the displacement, which provides a realistic prediction of the amount of inter-fluid mixing and cement contamination. This approach coupled with the interface instability analysis, which offers improvement techniques for the displacement, provide beneficial enhancements for practical industrial applications. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "18"
+                }
+            },
+            "citations": {
+                "All": "1441",
+                "Since 2013": "1021",
+                "2008": "33",
+                "2009": "47",
+                "2010": "58",
+                "2011": "60",
+                "2012": "63",
+                "2013": "102",
+                "2014": "152",
+                "2015": "209",
+                "2016": "182",
+                "2017": "188",
+                "2018": "188"
             }
         },
         "Evren Ozbayoglu": {
@@ -1382,6 +1533,36 @@
                     "title": "Real Time Optimization of Drilling Parameters During Drilling Operations",
                     "abstract": "Real time optimization of drilling parameters during drilling operations aims to optimize weight on bit, bit rotation speed for obtaining maximum drilling rate as well as minimizing the drilling cost. The process is formation specific. A Statistical method namely multiple linear regression technique is used for the drilling optimization methodology. An extensive literature survey on drilling optimization was conducted for this research study. A model is developed for this purpose using actual field data collected through modern well monitoring and data recording systems, which will be predicting the rate of drilling penetration as a function of available parameters. The rate of penetration general equation is optimized for effective functions at each data point. In order to optimize the parameters in the field, a computer network is required to be developed. The computer network will keep the piped data directly from the data source, and continuously be collecting the new data to be piped. A database present at the central computer will be continuously calculating the developed model parameters by means of multiple regression technique and inform the team at the field. The field engineer will transmit the current drilling parameters back to the central computer, and the headquarters will determine the new model parameters and optimum drilling parameters by including the recently received information. Therefore, there will be a real-time-optimization process. It is considered that this technique is going to be widely used in future drilling activities since it could reduce drilling costs and minimize probability of encountering problems due to working with optimized parameters. It has been found that drilling rate of penetration could be modeled in real-time environment as function of independent drilling variables such as weight on bit, rotation speed of the string, mud weight, and formation characteristics. The ability to have the drilling rate of penetration with respect to depth characteristically with certain parameters for specific formations on real-time basis could bring new insights to the nature of drilling operations. Any departure from the trend could have significant reasons. The study has also achieved one of its objectives, giving the optimized independent drilling parameters found following statistical synthesis. Introduction The objective of optimizing drilling parameters in real-time is to arrive to a methodology that considers past drilling data and predicts drilling trend advising optimum drilling parameters in order to save drilling costs and reduce the probability of encountering problems. In order to achieve an effective optimization an extensive literature survey was conducted and findings of previous researches were taken in consideration on how to develop a drilling optimization methodology in real-time environment. The linear drilling rate of penetration model previously introduced by Bourgoyne and Young (1974) that is based on multiple regression analysis has been utilized in real-time to: The following assumptions also as given by (Miska 1988) are considered to be satisfied so that the equations given in this study are functioning properly: "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "18",
+                    "Since 2013": "16"
+                },
+                "i10-index": {
+                    "All": "36",
+                    "Since 2013": "31"
+                }
+            },
+            "citations": {
+                "All": "1152",
+                "Since 2013": "955",
+                "2003": "7",
+                "2004": "7",
+                "2005": "7",
+                "2006": "12",
+                "2007": "18",
+                "2008": "21",
+                "2009": "18",
+                "2010": "33",
+                "2011": "30",
+                "2012": "39",
+                "2013": "112",
+                "2014": "156",
+                "2015": "205",
+                "2016": "177",
+                "2017": "167",
+                "2018": "138"
             }
         },
         "Eduardo Pereyra": {
@@ -1749,6 +1930,35 @@
                     "title": "Onset to Separated Water-Layer in Three-Phase Stratified Flow",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "12",
+                    "Since 2013": "12"
+                },
+                "i10-index": {
+                    "All": "17",
+                    "Since 2013": "15"
+                }
+            },
+            "citations": {
+                "All": "533",
+                "Since 2013": "498",
+                "2004": "2",
+                "2005": "1",
+                "2006": "2",
+                "2007": "4",
+                "2008": "2",
+                "2009": "2",
+                "2010": "2",
+                "2011": "4",
+                "2012": "7",
+                "2013": "20",
+                "2014": "33",
+                "2015": "73",
+                "2016": "105",
+                "2017": "129",
+                "2018": "138"
             }
         },
         "Mauricio Prado": {
@@ -1818,6 +2028,26 @@
                     "title": "",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "6"
+                }
+            },
+            "citations": {
+                "All": "111",
+                "Since 2013": "81",
+                "2008": "2",
+                "2009": "1",
+                "2010": "8",
+                "2011": "0",
+                "2012": "6",
+                "2013": "5",
+                "2014": "13",
+                "2015": "8",
+                "2016": "18",
+                "2017": "24",
+                "2018": "13"
             }
         },
         "Cem Sarica": {
@@ -2234,6 +2464,41 @@
                     "title": "Experimental Investigation of Paraffin Deposition Under Turbulent Flow Conditions",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "32",
+                    "Since 2013": "26"
+                },
+                "i10-index": {
+                    "All": "90",
+                    "Since 2013": "74"
+                }
+            },
+            "citations": {
+                "All": "3976",
+                "Since 2013": "2464",
+                "1998": "34",
+                "1999": "16",
+                "2000": "37",
+                "2001": "75",
+                "2002": "44",
+                "2003": "79",
+                "2004": "59",
+                "2005": "81",
+                "2006": "128",
+                "2007": "87",
+                "2008": "97",
+                "2009": "146",
+                "2010": "164",
+                "2011": "175",
+                "2012": "229",
+                "2013": "287",
+                "2014": "339",
+                "2015": "427",
+                "2016": "480",
+                "2017": "497",
+                "2018": "434"
             }
         },
         "Ovadia Shoham": {
@@ -2456,6 +2721,26 @@
                     "title": "",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "27"
+                }
+            },
+            "citations": {
+                "All": "2741",
+                "Since 2013": "1123",
+                "2008": "95",
+                "2009": "117",
+                "2010": "128",
+                "2011": "138",
+                "2012": "133",
+                "2013": "153",
+                "2014": "173",
+                "2015": "162",
+                "2016": "212",
+                "2017": "246",
+                "2018": "177"
             }
         },
         "Rami Younis": {
@@ -2629,6 +2914,34 @@
                     "title": "Adaptively Localized Continuation-Newton Method--Nonlinear Solvers That Converge All the Time",
                     "abstract": "Growing interest in understanding, predicting, and controlling advanced oil-recovery methods emphasizes the importance of numerical methods that exploit the nature of the underlying physics. The fully implicit method offers unconditional stability of the discrete approximations. This stability comes at the expense of transferring the inherent physical stiffness onto the coupled nonlinear residual equations that are solved at each timestep. Current reservoir simulators apply safeguarded variants of Newton's method that can neither guarantee convergence nor provide estimates of the relation between convergence rate and timestep size. In practice, timestep chops become necessary and are guided heuristically. With growing complexity, such as in thermally reactive compositional flows, convergence difficulties can lead to substantial losses in computational effort and prohibitively small timesteps. We establish an alternative class of nonlinear iteration that converges and associates a timestep to each iteration. Moreover, the linear solution process within each iteration is performed locally. By casting the nonlinear residual equations for a given timestep as an initial-value problem, we formulate a continuation-based solution process that associates a timestep size with each iteration. Subsequently, no iterations are wasted and a solution is always attainable. Moreover, we show that the rate of progression is as rapid as that for a convergent standard Newton method. Moreover, by exploiting the local nature of nonlinear wave propagation typical to multiphase-flow problems, we establish a linear solution process that performs computation only where necessary. That is, given a linear convergence tolerance, we identify a minimal subset of solution components that will change by more than the specified tolerance. Using this a priori criterion, each linear step solves a reduced system of equations. Several challenging examples are presented, and the results demonstrate the robustness and computational efficiency of the proposed method. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "13",
+                    "Since 2013": "12"
+                },
+                "i10-index": {
+                    "All": "17",
+                    "Since 2013": "13"
+                }
+            },
+            "citations": {
+                "All": "531",
+                "Since 2013": "443",
+                "2005": "11",
+                "2006": "4",
+                "2007": "4",
+                "2008": "12",
+                "2009": "13",
+                "2010": "8",
+                "2011": "15",
+                "2012": "19",
+                "2013": "22",
+                "2014": "40",
+                "2015": "68",
+                "2016": "102",
+                "2017": "116",
+                "2018": "95"
             }
         },
         "Mengjiao Yu": {
@@ -2828,6 +3141,26 @@
                     "title": "",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "16"
+                }
+            },
+            "citations": {
+                "All": "911",
+                "Since 2013": "755",
+                "2008": "20",
+                "2009": "21",
+                "2010": "34",
+                "2011": "14",
+                "2012": "35",
+                "2013": "63",
+                "2014": "106",
+                "2015": "137",
+                "2016": "156",
+                "2017": "146",
+                "2018": "147"
             }
         },
         "Hong-Quan Zhang": {
@@ -2983,6 +3316,26 @@
                     "title": "",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "15"
+                }
+            },
+            "citations": {
+                "All": "821",
+                "Since 2013": "587",
+                "2008": "21",
+                "2009": "20",
+                "2010": "36",
+                "2011": "35",
+                "2012": "49",
+                "2013": "74",
+                "2014": "72",
+                "2015": "83",
+                "2016": "88",
+                "2017": "160",
+                "2018": "110"
             }
         }
     }

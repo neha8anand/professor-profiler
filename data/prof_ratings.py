@@ -64,22 +64,27 @@ for sid, school in  zip(sids_for_lookup, schools_for_lookup):
     if school == 'University of Texas at Austin':
         majors['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'] = {}
         for faculty in ut_pge_profs['faculty_names']:
-            majors['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
-
+            majors['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'][faculty] = ut_pge_profs['faculty_names'][faculty]
+            majors['petroleum-engineering']['University of Texas--Austin (Cockrell)'] ['faculty_names'][faculty].update(rating_and_tags(sid, school, faculty))
+    
     if school == 'Stanford University':
         majors['petroleum-engineering']['Stanford University'] ['faculty_names'] = {}
         for faculty in stanford_pge_profs['faculty_names']:
-            majors['petroleum-engineering']['Stanford University'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
+            majors['petroleum-engineering']['Stanford University'] ['faculty_names'][faculty] = stanford_pge_profs['faculty_names'][faculty]
+            majors['petroleum-engineering']['Stanford University'] ['faculty_names'][faculty].update(rating_and_tags(sid, school, faculty))
+            
 
     if school == 'Texas A&M University at College Station':
         majors['petroleum-engineering']['Texas A&M University--College Station'] ['faculty_names'] = {}
         for faculty in tamu_pge_profs['faculty_names']:
-            majors['petroleum-engineering']['Texas A&M University--College Station'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
+            majors['petroleum-engineering']['Texas A&M University--College Station'] ['faculty_names'][faculty] = tamu_pge_profs['faculty_names'][faculty]
+            majors['petroleum-engineering']['Texas A&M University--College Station'] ['faculty_names'][faculty].update(rating_and_tags(sid, school, faculty))
 
     if school == 'University of Tulsa':
         majors['petroleum-engineering']['University of Tulsa'] ['faculty_names'] = {}
         for faculty in utulsa_pge_profs['faculty_names']:
-            majors['petroleum-engineering']['University of Tulsa'] ['faculty_names'][faculty] = rating_and_tags(sid, school, faculty)
+            majors['petroleum-engineering']['University of Tulsa'] ['faculty_names'][faculty] = utulsa_pge_profs['faculty_names'][faculty]
+            majors['petroleum-engineering']['University of Tulsa'] ['faculty_names'][faculty].update(rating_and_tags(sid, school, faculty))
 
 # Writing results to a json file
 with open('json/majors_database.json', 'w', encoding='utf-8') as f:

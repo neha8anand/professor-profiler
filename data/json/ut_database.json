@@ -338,6 +338,33 @@
                     "title": "Polynomial filtration laws for low Reynolds number flows through porous media",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "20",
+                    "Since 2013": "19"
+                },
+                "i10-index": {
+                    "All": "35",
+                    "Since 2013": "33"
+                }
+            },
+            "citations": {
+                "All": "1257",
+                "Since 2013": "1048",
+                "2006": "8",
+                "2007": "9",
+                "2008": "24",
+                "2009": "16",
+                "2010": "27",
+                "2011": "50",
+                "2012": "67",
+                "2013": "87",
+                "2014": "98",
+                "2015": "155",
+                "2016": "194",
+                "2017": "275",
+                "2018": "232"
             }
         },
         "J.Eric Bickel": {
@@ -547,6 +574,36 @@
                     "title": "Climate engineering",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "19",
+                    "Since 2013": "15"
+                },
+                "i10-index": {
+                    "All": "25",
+                    "Since 2013": "22"
+                }
+            },
+            "citations": {
+                "All": "987",
+                "Since 2013": "663",
+                "2003": "3",
+                "2004": "2",
+                "2005": "3",
+                "2006": "5",
+                "2007": "10",
+                "2008": "30",
+                "2009": "43",
+                "2010": "57",
+                "2011": "63",
+                "2012": "88",
+                "2013": "133",
+                "2014": "97",
+                "2015": "114",
+                "2016": "105",
+                "2017": "123",
+                "2018": "86"
             }
         },
         "Hugh Daigle": {
@@ -962,6 +1019,29 @@
                     "title": "Determining Methane Hydrate Equilibrium Conditions in Sediments from the Nankai Trough",
                     "abstract": "Our work shows how pore size affects the quantity of methane dissolved in pore fluid in sediments from the Nankai Trough offshore Japan. Integrating log and laboratory data from shallow sediments in the Nankai Trough, we determined that the range of pore sizes in this region leads to methane hydrate equilibrium temperature depressions of about 1–3 degrees C at Site C0011, 2–5 degrees C at Site C0012, and 1-5 degrees C at Site C0018. Methane solubility was determined to increase by 10–30 percent at Sites C0011 and C0012, while solubility increases at Site C0018 were predicted to be between 10 and 50 percent throughout the methane hydrate stability zone. Further, the increase in methane solubility due to the Gibbs-Thomson effect was found to significantly decrease the mass of methane deposited as hydrate as well as decrease the thickness of the methane hydrate stability zone. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "16",
+                    "Since 2013": "16"
+                },
+                "i10-index": {
+                    "All": "29",
+                    "Since 2013": "29"
+                }
+            },
+            "citations": {
+                "All": "732",
+                "Since 2013": "678",
+                "2010": "3",
+                "2011": "22",
+                "2012": "26",
+                "2013": "27",
+                "2014": "48",
+                "2015": "91",
+                "2016": "127",
+                "2017": "170",
+                "2018": "213"
             }
         },
         "Mojdeh Delshad": {
@@ -1377,6 +1457,44 @@
                     "title": "A Novel Mechanistic Approach for Modeling Low Salinity Water Injection",
                     "abstract": "Waterflooding as a secondary oil recovery method is still the most commonly used technique for fluid injection since 1865. Recently researchers have discovered that the injected water quality is important and it should be monitored in addition to volume of water injected. This technique is known as low salinity water injection, LoSal®1, Smart Waterflood and Advanced Ion Management. Evidence from laboratory studies, supported by several field tests, has distinctly shown that injecting low salinity water can have a significant impact on oil recovery. Although there are many LoSal® experimental results reported in the literature, publications on modeling this process are scarce. In this paper, we propose a mechanistic modeling approach for the low salinity water injection. We believe no matter the manner and details of mechanism, it ought to be all about ions. The key objective in this approach is to link the water-rock chemistry to changes in the state of a rock (e.g., wettability). Since geochemical reactions are the basis for this mechanistic modeling, we would need a geochemical engine to handle geochemical reactions in the reservoir for properly modeling LoSal®. Toward this goal, it was decided to couple IPhreeqc, an open source geochemical module available by United States Geological Survey (USGS), with UTCHEM, an in-house research chemical flooding reservoir simulator developed at The University of Texas at Austin. An algorithm is presented for modeling the geochemistry in an IMPEC (implicit in pressure and explicit in concentration) solution algorithm. Finally, we show how apply the integrated tool, UTCHEM-IPhreeqc, to model low salinity water injection. Geochemical-based models can easily be implemented in this modeling approach and also compared against experimental results for validation. Implementation of several mechanisms can finally reveal the dominant mechanism for the low salinity water injection. Introduction Waterflooding as a secondary oil recovery technique is still the most common and versatile method. This is on account of various reasons, ranging from high efficiency in displacing light to medium gravity crude oils, ease of injection into oilbearing formations, availability and low cost water to lower the project capital and operating costs. This obviously leads to favorable economics compared to other improved oil recovery (IOR) methods. However, in recent years a tertiary effect of waterflooding has been observed, depending on the composition and the salinity of the injected water. Literature shows that the adjustment of injected brine composition of a mature waterflood can cause an increase in oil production. This means that the quality of injected water is as important as the quantity and the former should be monitored. 1 LoSal® is a trade mark of BP p.l.c "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "32",
+                    "Since 2013": "26"
+                },
+                "i10-index": {
+                    "All": "94",
+                    "Since 2013": "75"
+                }
+            },
+            "citations": {
+                "All": "4273",
+                "Since 2013": "2566",
+                "1995": "13",
+                "1996": "25",
+                "1997": "33",
+                "1998": "46",
+                "1999": "66",
+                "2000": "70",
+                "2001": "61",
+                "2002": "62",
+                "2003": "105",
+                "2004": "72",
+                "2005": "137",
+                "2006": "97",
+                "2007": "80",
+                "2008": "138",
+                "2009": "150",
+                "2010": "129",
+                "2011": "145",
+                "2012": "180",
+                "2013": "268",
+                "2014": "347",
+                "2015": "449",
+                "2016": "571",
+                "2017": "510",
+                "2018": "417"
             }
         },
         "David DiCarlo": {
@@ -1792,6 +1910,47 @@
                     "title": "Semicontinuum model of saturation overshoot and gravity‐driven fingering in porous media",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "30",
+                    "Since 2013": "21"
+                },
+                "i10-index": {
+                    "All": "75",
+                    "Since 2013": "46"
+                }
+            },
+            "citations": {
+                "All": "3308",
+                "Since 2013": "1489",
+                "1992": "13",
+                "1993": "37",
+                "1994": "30",
+                "1995": "24",
+                "1996": "33",
+                "1997": "9",
+                "1998": "26",
+                "1999": "77",
+                "2000": "66",
+                "2001": "78",
+                "2002": "95",
+                "2003": "69",
+                "2004": "93",
+                "2005": "96",
+                "2006": "117",
+                "2007": "118",
+                "2008": "137",
+                "2009": "144",
+                "2010": "162",
+                "2011": "174",
+                "2012": "182",
+                "2013": "197",
+                "2014": "195",
+                "2015": "194",
+                "2016": "282",
+                "2017": "376",
+                "2018": "242"
             }
         },
         "Nicolas Espinoza": {
@@ -1995,6 +2154,29 @@
                     "title": "Water‐CO2‐mineral systems: Interfacial tension, contact angle, and diffusion—Implications to CO2 geological storage",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "13",
+                    "Since 2013": "13"
+                },
+                "i10-index": {
+                    "All": "14",
+                    "Since 2013": "14"
+                }
+            },
+            "citations": {
+                "All": "1197",
+                "Since 2013": "1018",
+                "2010": "23",
+                "2011": "76",
+                "2012": "75",
+                "2013": "99",
+                "2014": "120",
+                "2015": "144",
+                "2016": "189",
+                "2017": "244",
+                "2018": "215"
             }
         },
         "John Foster": {
@@ -2188,6 +2370,31 @@
                     "title": "Viscoplasticity using peridynamics",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "14",
+                    "Since 2013": "14"
+                },
+                "i10-index": {
+                    "All": "17",
+                    "Since 2013": "17"
+                }
+            },
+            "citations": {
+                "All": "695",
+                "Since 2013": "642",
+                "2008": "2",
+                "2009": "4",
+                "2010": "7",
+                "2011": "9",
+                "2012": "25",
+                "2013": "21",
+                "2014": "58",
+                "2015": "90",
+                "2016": "137",
+                "2017": "176",
+                "2018": "159"
             }
         },
         "Kenneth Gray": {
@@ -2461,6 +2668,60 @@
                     "title": "Mechanical Behavior of Concentric Casing, Cement, And Formation Using Analytical And Numerical Methods",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "21",
+                    "Since 2013": "16"
+                },
+                "i10-index": {
+                    "All": "39",
+                    "Since 2013": "24"
+                }
+            },
+            "citations": {
+                "All": "1597",
+                "Since 2013": "933",
+                "1979": "8",
+                "1980": "9",
+                "1981": "7",
+                "1982": "11",
+                "1983": "14",
+                "1984": "9",
+                "1985": "17",
+                "1986": "24",
+                "1987": "14",
+                "1988": "18",
+                "1989": "11",
+                "1990": "13",
+                "1991": "18",
+                "1992": "24",
+                "1993": "20",
+                "1994": "13",
+                "1995": "13",
+                "1996": "15",
+                "1997": "11",
+                "1998": "18",
+                "1999": "12",
+                "2000": "11",
+                "2001": "16",
+                "2002": "20",
+                "2003": "10",
+                "2004": "13",
+                "2005": "15",
+                "2006": "12",
+                "2007": "13",
+                "2008": "22",
+                "2009": "21",
+                "2010": "40",
+                "2011": "29",
+                "2012": "45",
+                "2013": "69",
+                "2014": "83",
+                "2015": "91",
+                "2016": "129",
+                "2017": "196",
+                "2018": "355"
             }
         },
         "Zoya Heidari": {
@@ -2840,6 +3101,30 @@
                     "title": "Estimation of static and dynamic petrophysical properties from well logs in multi-layer formations",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "13",
+                    "Since 2013": "13"
+                },
+                "i10-index": {
+                    "All": "19",
+                    "Since 2013": "17"
+                }
+            },
+            "citations": {
+                "All": "484",
+                "Since 2013": "429",
+                "2009": "8",
+                "2010": "3",
+                "2011": "8",
+                "2012": "34",
+                "2013": "41",
+                "2014": "56",
+                "2015": "60",
+                "2016": "89",
+                "2017": "90",
+                "2018": "91"
             }
         },
         "Larry Lake": {
@@ -3230,6 +3515,53 @@
                     "title": "A Coreflood Investigation of Low-Salinity Enhanced Oil Recovery",
                     "abstract": "Abstract Many researchers have observed an increase in ultimate oil recovery by injecting low salinity brine in laboratory and field experiments.  In this work, linear laboratory corefloods were conducted to study the effect of low salinity waterflooding on oil recovery rate, residual oil saturation and relative permeability. We conducted 21 different waterfloods using nine brines, three crude oils, six outcrop Berea cores and two oil reservoir cores. Every core used was at least 11 long and pressure taps were use to measure pressure drop across sub-sections of the core.  Increase in ultimate recovery of crude oil with decrease in salinity of injected brine was observed in several, but not all, cases. These results suggest that that injecting low salinity brine changes the wetting state of some cores from mixed to water-wet and that this change improves the ultimate oil recovery. This hypothesis of a changing wettability is supported by the following observations: (1) When low salinity injection produced higher oil recovery, the end-point water relative permeability krwº decreased and post-waterflood end-point relative permeability to oil kroº increased. (2) Injecting low salinity brine produced a persistent wettability alteration (toward water-wet) that eliminated oil recovery salinity dependence in subsequent floods. (3) The oil recovery salinity dependence noted in (2) could be restored by extended aging (thus restoring mixed-wetness). (4) Injecting low salinity brine improved recovery by delaying breakthrough, suggesting an improvement in displacement stability.  Introduction Injection of low salinity brine has improved waterflood recovery in numerous laboratory and field experiments. The general consensus among researchers is that injecting low salinity brine creates a wetting state more favorable to oil recovery. Wettability affects the microscopic distribution and flow of oil and water in porous media and thus the residual oil saturation. The mechanisms responsible for this wettability alteration are debated.  Researchers1, 6 began injecting fresh water into core samples almost a half century ago. Bernard1 observed increased oil recovery in coreflood experiments when injecting fresh water and attributed the improvement to improved microscopic sweep efficiency induced by clay swelling and plugging of pore throat by migrating fines. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "58",
+                    "Since 2013": "34"
+                },
+                "i10-index": {
+                    "All": "166",
+                    "Since 2013": "108"
+                }
+            },
+            "citations": {
+                "All": "13066",
+                "Since 2013": "5639",
+                "1986": "41",
+                "1987": "59",
+                "1988": "72",
+                "1989": "108",
+                "1990": "123",
+                "1991": "141",
+                "1992": "132",
+                "1993": "203",
+                "1994": "158",
+                "1995": "160",
+                "1996": "205",
+                "1997": "189",
+                "1998": "173",
+                "1999": "194",
+                "2000": "249",
+                "2001": "208",
+                "2002": "245",
+                "2003": "246",
+                "2004": "265",
+                "2005": "322",
+                "2006": "359",
+                "2007": "329",
+                "2008": "453",
+                "2009": "510",
+                "2010": "580",
+                "2011": "711",
+                "2012": "715",
+                "2013": "819",
+                "2014": "1000",
+                "2015": "1030",
+                "2016": "1060",
+                "2017": "1019",
+                "2018": "708"
             }
         },
         "Kishore Mohanty": {
@@ -3645,6 +3977,53 @@
                     "title": "Interaction between Fingering and Heterogeneity during Viscous Oil Recovery in Carbonate Rocks",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "43",
+                    "Since 2013": "32"
+                },
+                "i10-index": {
+                    "All": "125",
+                    "Since 2013": "97"
+                }
+            },
+            "citations": {
+                "All": "5930",
+                "Since 2013": "3336",
+                "1986": "32",
+                "1987": "27",
+                "1988": "38",
+                "1989": "33",
+                "1990": "40",
+                "1991": "31",
+                "1992": "26",
+                "1993": "30",
+                "1994": "27",
+                "1995": "21",
+                "1996": "26",
+                "1997": "46",
+                "1998": "41",
+                "1999": "43",
+                "2000": "36",
+                "2001": "83",
+                "2002": "87",
+                "2003": "103",
+                "2004": "96",
+                "2005": "129",
+                "2006": "149",
+                "2007": "156",
+                "2008": "204",
+                "2009": "240",
+                "2010": "242",
+                "2011": "234",
+                "2012": "285",
+                "2013": "374",
+                "2014": "405",
+                "2015": "552",
+                "2016": "709",
+                "2017": "686",
+                "2018": "605"
             }
         },
         "Quoc Nguyen": {
@@ -4045,6 +4424,34 @@
                     "title": "The Effect of Gas on the Injectivity of Particles in Sandstone",
                     "abstract": "Many operations involve the injection of fluids into the formation around a well. In many cases, the fluids contain colloidal particles, either initially present or introduced during the operation through dirt or naturally occurring particles. Therefore, all injection schemes potentially suffer from injectivity decline. This injectivity decline is caused by clogging of the formation by particles, forming an external filter cake on the surface of the formation and blocking the pores inside the formation. This paper reports on the effects of gas on the injectivity of particles in sandstone. Experiments were performed in which water containing micron-sized particles (hematite) was injected into sandstone cores with or without small gas bubbles (nitrogen) present in the water. The position and amount of particle deposition could be determined both visually and by chemical analysis. It was found that the presence of gas reduces the external filter cake formed on the inlet surface of the core. Also, with gas, the particles penetrate deeper inside the core and more particles pass through the core and are detected in the effluent stream. The same effects are enhanced when the mixture of gas bubbles and water is replaced by foam. This suggests that the presence of gas/water interfaces has a major influence on the retention of particles in the sandstone. Possible mechanisms are discussed. The pressure drop across the core when gas or foam is present is initially higher than in an identical test without gas because of relative permeability effects or foam-flow resistance. However, because fewer particles are retained, ultimately the pressure drop is significantly less when gas is present. This effect may be significant in injection operations involving foam and offers ways to mitigate injectivity loss. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "30",
+                    "Since 2013": "25"
+                },
+                "i10-index": {
+                    "All": "76",
+                    "Since 2013": "70"
+                }
+            },
+            "citations": {
+                "All": "2722",
+                "Since 2013": "2094",
+                "2005": "22",
+                "2006": "13",
+                "2007": "37",
+                "2008": "34",
+                "2009": "82",
+                "2010": "86",
+                "2011": "117",
+                "2012": "204",
+                "2013": "200",
+                "2014": "266",
+                "2015": "360",
+                "2016": "423",
+                "2017": "402",
+                "2018": "442"
             }
         },
         "Ryosuke Okuno": {
@@ -4299,6 +4706,30 @@
                     "title": "Application of a Reduced Method in Compositional Simulation",
                     "abstract": "Simulating gas-injection processes requires a compositional model to predict the fluid properties resulting from mass transfer between reservoir fluid and injection gas. A drawback of compositional simulation is the efficiency and robustness of phase equilibrium calculations. Reduced methods for phase equilibrium calculations have been studied as a potential solution to improve the efficiency of compositional simulation. However, most of those studies have been performed only in standalone calculations, and the robustness and efficiency of a reduced method has not been confirmed in compositional simulation. In this research, we develop a robust and efficient algorithm for a reduced method and validate it in compositional simulation. We examine the efficiency and convergence property of the conventional algorithm for a reduced method and solve several implementation problems in a compositional simulator. The reduced method is implemented in UTCOMP, a compositional implicit-pressure/explicit concentration (IMPEC) simulator, to demonstrate the performance for various numbers of components and degrees of miscibility. The results show that the reduced method enables significant savings in execution time of compositional simulation without loss of accuracy compared to standard methods. Also, we observe that the reduced method exhibits improved robustness, especially for miscible processes where composition paths go near critical regions. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "14",
+                    "Since 2013": "14"
+                },
+                "i10-index": {
+                    "All": "18",
+                    "Since 2013": "18"
+                }
+            },
+            "citations": {
+                "All": "590",
+                "Since 2013": "545",
+                "2009": "4",
+                "2010": "9",
+                "2011": "12",
+                "2012": "19",
+                "2013": "52",
+                "2014": "50",
+                "2015": "89",
+                "2016": "78",
+                "2017": "127",
+                "2018": "148"
             }
         },
         "Jon Olson": {
@@ -4620,6 +5051,47 @@
                     "title": "Integrated Analysis to Optimize Hydraulic Fracturing Treatment Design in a Clastic and Carbonate Formation in Torunos Hydrocarbon Field, Barinas: Apure Basin, Southwest Venezuela",
                     "abstract": "Abstract Three hydraulic fracturing have been performed in the Torunos field of southwest Venezuela. One was executed in the Gobernador \"A/B\" formation in which the fracture reached a water zone located nearby. The other two treatments were performed in the Escandalosa \"O\" formation. Placing the proppant into this formation was problematic owing to propagation of multiple hydraulic fractures and excessive leak-off. Today, several wells are inactive because of low productivity. Such wells could be potential candidates for reactivation by hydraulic fracturing if the problems encountered in previous treatments can be avoided. Therefore, the purpose of this study is to optimize the design of hydraulic fracturing treatments in the formations under consideration while avoiding the problems encountered in the previous attempts. Experimental design and response surface methods were used to perform sensitivity analyses and to evaluate uncertainty to optimize the design of hydraulic fracturing treatments. Experimental design was used to generate a reduced number of cases with simultaneous combinations of uncertain variables. Simulation of the cases generated was then performed, assisted by a commercial simulator. Response surface method was used to develop surrogate equation models that fit the simulation responses. Monte Carlos analysis was performed to estimate the probability distribution function of the propped fracture length, propped fracture height, depth to the fracture bottom, and net present value (NPV) to select the optimum designs based on technical, economical, and risk analyses. The results show that the optimum hydraulic fracturing treatment design for the Gobernador \"A/B\" formation should involve small slurry volume (around 300 bbl), a low injection rate (between 6 bbl/min and 8 bbl/min), and low viscosity crosslinked fluid (20 cp). This will control the fracture height and avoid fracturing the water zone. Moreover, reducing the perforated interval to around 20 ft and using low density shot (1 SPF) will help to minimize the propagation of multiple hydraulic fractures in the Escandalosa \"O\" formation. Finally, the optimum injection rate and slurry volume in this formation are 20 bbl/min and 800 bbl respectively.  Introduction Hydraulic fracturing has been improving significantly since this technique started in 1948 (Hubbert, 1987). It is a stimulation procedure that aims to improve oil and gas recovery by overcoming the effects of formation damage and low permeability, accelerating production, and controlling water production and formation of solids (Elbel and Britt, 2000). Hydraulic fracturing treatments have been performed in several types of formations including clastics, carbonates, shales, and coals. This study involves the optimization design of hydraulic fracturing treatments in a clastic and carbonate formation in the Torunos field of southwest Venezuela, where three hydraulic treatments have been performed. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "39",
+                    "Since 2013": "35"
+                },
+                "i10-index": {
+                    "All": "69",
+                    "Since 2013": "59"
+                }
+            },
+            "citations": {
+                "All": "6132",
+                "Since 2013": "4158",
+                "1992": "16",
+                "1993": "16",
+                "1994": "27",
+                "1995": "30",
+                "1996": "24",
+                "1997": "19",
+                "1998": "28",
+                "1999": "33",
+                "2000": "48",
+                "2001": "52",
+                "2002": "90",
+                "2003": "80",
+                "2004": "127",
+                "2005": "90",
+                "2006": "103",
+                "2007": "117",
+                "2008": "110",
+                "2009": "196",
+                "2010": "227",
+                "2011": "179",
+                "2012": "299",
+                "2013": "402",
+                "2014": "558",
+                "2015": "685",
+                "2016": "902",
+                "2017": "853",
+                "2018": "752"
             }
         },
         "Gary Pope": {
@@ -5033,6 +5505,58 @@
                     "title": "Phenol-alkoxylate co-solvent surfactant composition",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "63",
+                    "Since 2013": "43"
+                },
+                "i10-index": {
+                    "All": "272",
+                    "Since 2013": "190"
+                }
+            },
+            "citations": {
+                "All": "15200",
+                "Since 2013": "7251",
+                "1981": "56",
+                "1982": "50",
+                "1983": "35",
+                "1984": "44",
+                "1985": "36",
+                "1986": "51",
+                "1987": "62",
+                "1988": "49",
+                "1989": "63",
+                "1990": "65",
+                "1991": "73",
+                "1992": "52",
+                "1993": "51",
+                "1994": "79",
+                "1995": "103",
+                "1996": "154",
+                "1997": "150",
+                "1998": "203",
+                "1999": "266",
+                "2000": "361",
+                "2001": "247",
+                "2002": "305",
+                "2003": "383",
+                "2004": "309",
+                "2005": "440",
+                "2006": "435",
+                "2007": "371",
+                "2008": "496",
+                "2009": "578",
+                "2010": "661",
+                "2011": "670",
+                "2012": "806",
+                "2013": "976",
+                "2014": "1171",
+                "2015": "1242",
+                "2016": "1495",
+                "2017": "1307",
+                "2018": "1053"
             }
         },
         "Masa Prodanovic": {
@@ -5446,6 +5970,34 @@
                     "title": "The effect of sorption on shale gas transport study using a multiphysics, multiscale network model",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "23",
+                    "Since 2013": "21"
+                },
+                "i10-index": {
+                    "All": "46",
+                    "Since 2013": "40"
+                }
+            },
+            "citations": {
+                "All": "1843",
+                "Since 2013": "1422",
+                "2005": "6",
+                "2006": "15",
+                "2007": "28",
+                "2008": "44",
+                "2009": "55",
+                "2010": "91",
+                "2011": "66",
+                "2012": "105",
+                "2013": "157",
+                "2014": "190",
+                "2015": "231",
+                "2016": "296",
+                "2017": "300",
+                "2018": "245"
             }
         },
         "Michael Pyrcz": {
@@ -5627,6 +6179,36 @@
                     "title": "PREDICTING RESERVOIR ARCHITECTURE OF TURBIDITE CHANNEL COMPLEXES: A GENERAL MODEL ADAPTABLE TO SPECIFIC SITUATIONS",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "16",
+                    "Since 2013": "13"
+                },
+                "i10-index": {
+                    "All": "24",
+                    "Since 2013": "17"
+                }
+            },
+            "citations": {
+                "All": "2055",
+                "Since 2013": "1226",
+                "2003": "27",
+                "2004": "33",
+                "2005": "57",
+                "2006": "76",
+                "2007": "77",
+                "2008": "104",
+                "2009": "95",
+                "2010": "108",
+                "2011": "109",
+                "2012": "135",
+                "2013": "208",
+                "2014": "181",
+                "2015": "212",
+                "2016": "204",
+                "2017": "216",
+                "2018": "195"
             }
         },
         "Kamy Sepehrnoori": {
@@ -6045,6 +6627,49 @@
                     "title": "Mechanistic Modeling of Oil Recovery Caused by Low-Salinity-Water Injection in Oil Reservoirs",
                     "abstract": "Low-salinity-water injection (LSWI) is an emerging way to improve waterflood performance at low cost under certain conditions. The effect of LSWI on the oil recovery from carbonate formations has been well-documented in the laboratory and to a limited extent in the field. In this study, a mechanistic geochemical model is proposed that addresses the effect on oil recovery of different geochemical reactions resulting from LSWI. The proposed model was used to history match recently published corefloods by use of the UTCHEM (2000) mechanistic reservoir simulator. Moreover, other sets of corefloods were chosen to validate the proposed LSWI mechanistic model. The geochemical model in the UTCHEM simulator was modified to calculate the molar Gibbs free energy of the brine. In the proposed LSWI mechanistic model, the relative permeability curves, including the residual oil saturation (ROS), are functions of the molar Gibbs free energy. Coreflood experiments were simulated and history matched by use of the proposed model. The proposed LSWI mechanistic model was further extended to include weakly oil-wet to mixed-wet carbonate rocks. The mechanistic model captures the effects on oil recovery of both wettability alteration and/or dissolution/fines migration through changes in the molar Gibbs free energy. This model can now be used for oil-recovery predictions and optimization of LSWI field applications. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "48",
+                    "Since 2013": "39"
+                },
+                "i10-index": {
+                    "All": "230",
+                    "Since 2013": "176"
+                }
+            },
+            "citations": {
+                "All": "9803",
+                "Since 2013": "6269",
+                "1990": "36",
+                "1991": "30",
+                "1992": "26",
+                "1993": "34",
+                "1994": "43",
+                "1995": "49",
+                "1996": "74",
+                "1997": "81",
+                "1998": "99",
+                "1999": "122",
+                "2000": "126",
+                "2001": "97",
+                "2002": "119",
+                "2003": "154",
+                "2004": "125",
+                "2005": "212",
+                "2006": "160",
+                "2007": "143",
+                "2008": "249",
+                "2009": "360",
+                "2010": "313",
+                "2011": "327",
+                "2012": "384",
+                "2013": "583",
+                "2014": "759",
+                "2015": "1084",
+                "2016": "1284",
+                "2017": "1323",
+                "2018": "1218"
             }
         },
         "Mukul Sharma": {
@@ -6458,6 +7083,50 @@
                     "title": "Unit-2 Agencies of Education",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "67",
+                    "Since 2013": "46"
+                },
+                "i10-index": {
+                    "All": "343",
+                    "Since 2013": "257"
+                }
+            },
+            "citations": {
+                "All": "18057",
+                "Since 2013": "9402",
+                "1989": "50",
+                "1990": "51",
+                "1991": "51",
+                "1992": "62",
+                "1993": "80",
+                "1994": "99",
+                "1995": "131",
+                "1996": "122",
+                "1997": "168",
+                "1998": "159",
+                "1999": "200",
+                "2000": "264",
+                "2001": "271",
+                "2002": "319",
+                "2003": "365",
+                "2004": "366",
+                "2005": "497",
+                "2006": "582",
+                "2007": "561",
+                "2008": "545",
+                "2009": "716",
+                "2010": "796",
+                "2011": "870",
+                "2012": "1034",
+                "2013": "1253",
+                "2014": "1365",
+                "2015": "1658",
+                "2016": "1792",
+                "2017": "1876",
+                "2018": "1440"
             }
         },
         "Carlos Torres-Verdin": {
@@ -6879,6 +7548,44 @@
                     "title": "Pore-scale modeling of electrical resistivity and permeability in FIB-SEM images of organic mudrock",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "34",
+                    "Since 2013": "23"
+                },
+                "i10-index": {
+                    "All": "157",
+                    "Since 2013": "90"
+                }
+            },
+            "citations": {
+                "All": "5218",
+                "Since 2013": "2863",
+                "1995": "30",
+                "1996": "30",
+                "1997": "28",
+                "1998": "22",
+                "1999": "35",
+                "2000": "52",
+                "2001": "48",
+                "2002": "56",
+                "2003": "78",
+                "2004": "93",
+                "2005": "138",
+                "2006": "173",
+                "2007": "175",
+                "2008": "239",
+                "2009": "237",
+                "2010": "227",
+                "2011": "263",
+                "2012": "350",
+                "2013": "466",
+                "2014": "411",
+                "2015": "539",
+                "2016": "493",
+                "2017": "504",
+                "2018": "447"
             }
         },
         "Eric van Oort": {
@@ -7290,6 +7997,49 @@
                     "title": "Nonproductive Time (NPT) Reduction Delivered Through Effective Failure Investigations",
                     "abstract": "Abstract Nonproductive time (NPT) caused by preventable tool and equipment failures in offshore drilling and completion operations typically accounts for 5% of well delivery time, but can reach as high as 30%[1]. This equates to millions of dollars per year that could have been spent on other well delivery opportunities. Mutual benefit exists for both operators and vendors to dedicate the time and effort necessary to consistently perform comprehensive investigations and develop effective solutions to mitigate risk of repeat failures. A one-sided or inadequately supported approach to failure response can lead to incomplete analyses and insufficient solutions that treat symptoms rather than root causes, thereby sustaining or creating reliability gaps and allowing further NPT to be incurred.  In recent years, Shell's Gulf of Mexico (GOM) drilling operations formed a specialized, dedicated team to establish and facilitate an effective, sustainable approach to failure response. The team's immediate goal was the reduction of NPT cost associated with drilling tool failures. Long term, the team's objective was to promote a culture within both operator and vendor organizations for effective failure prevention and performance improvement. Via this team consistent representation, influence, and support is maintained during failure response activities. The team enforces vendor failure response expectations and ensures complete, unbiased analyses and solutions with appropriate local, regional and global communication within operator and vendor organizations, such that the chance of repeat failures anywhere in the industry is minimized.  Since inception, the team's efforts have facilitated a significant reduction in NPT, which translates to yearly multi-million-dollar savings. Given its evident success, the scope of this initiative has been expanded within the Americas and also in global operations. This paper reviews the approach and process, clarifies the roles, responsibilities and accountabilities for both operator and suppliers, highlights the mutual benefits for operators and vendors, and illustrates the effectiveness of the approach through its very positive impact on operational NPT reduction. "
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "27",
+                    "Since 2013": "18"
+                },
+                "i10-index": {
+                    "All": "60",
+                    "Since 2013": "42"
+                }
+            },
+            "citations": {
+                "All": "3255",
+                "Since 2013": "1697",
+                "1990": "14",
+                "1991": "21",
+                "1992": "26",
+                "1993": "9",
+                "1994": "21",
+                "1995": "9",
+                "1996": "22",
+                "1997": "37",
+                "1998": "46",
+                "1999": "58",
+                "2000": "72",
+                "2001": "62",
+                "2002": "75",
+                "2003": "77",
+                "2004": "80",
+                "2005": "109",
+                "2006": "132",
+                "2007": "98",
+                "2008": "84",
+                "2009": "102",
+                "2010": "118",
+                "2011": "132",
+                "2012": "132",
+                "2013": "190",
+                "2014": "222",
+                "2015": "287",
+                "2016": "374",
+                "2017": "343",
+                "2018": "279"
             }
         },
         "Mary Wheeler": {
@@ -7705,6 +8455,57 @@
                     "title": "A postprocessing technique to produce locally conservative flux",
                     "abstract": ""
                 }
+            },
+            "indices": {
+                "h-index": {
+                    "All": "66",
+                    "Since 2013": "45"
+                },
+                "i10-index": {
+                    "All": "271",
+                    "Since 2013": "184"
+                }
+            },
+            "citations": {
+                "All": "19220",
+                "Since 2013": "7838",
+                "1982": "53",
+                "1983": "66",
+                "1984": "89",
+                "1985": "82",
+                "1986": "68",
+                "1987": "113",
+                "1988": "102",
+                "1989": "141",
+                "1990": "128",
+                "1991": "168",
+                "1992": "178",
+                "1993": "177",
+                "1994": "263",
+                "1995": "208",
+                "1996": "248",
+                "1997": "256",
+                "1998": "319",
+                "1999": "238",
+                "2000": "370",
+                "2001": "306",
+                "2002": "539",
+                "2003": "436",
+                "2004": "417",
+                "2005": "587",
+                "2006": "652",
+                "2007": "706",
+                "2008": "771",
+                "2009": "717",
+                "2010": "786",
+                "2011": "745",
+                "2012": "883",
+                "2013": "1190",
+                "2014": "1189",
+                "2015": "1235",
+                "2016": "1296",
+                "2017": "1618",
+                "2018": "1298"
             }
         }
     }
