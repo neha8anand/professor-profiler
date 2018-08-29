@@ -58,5 +58,5 @@ for pge_faculty_entry in pge_faculty_entries:
 
 pge_dictionary['faculty_names'] = faculty_names_dictionary
 
-with open('ut_pge.json', 'w') as ut_pge_faculty_names_file:
+with open('json/ut_pge.json', 'w') as ut_pge_faculty_names_file:
     json.dump(pge_dictionary, ut_pge_faculty_names_file)

@@ -52,5 +52,5 @@ pge_dictionary = {}
 pge_dictionary['university_name'] = 'Stanford University'
 pge_dictionary['faculty_names'] = faculty_names_dictionary
 
-with open('stanford_pge.json', 'w') as st_pge_faculty_names_file:
+with open('json/stanford_pge.json', 'w') as st_pge_faculty_names_file:
     json.dump(pge_dictionary, st_pge_faculty_names_file)
