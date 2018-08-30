@@ -7982,9 +7982,12 @@ button.bg-dark:focus {
 }
 
 .text-white {
-  color: #fff !important;
+  color: #FFF !important;
 }
-
+.text-black {
+  font-style: bold;
+  color: #000 !important;
+}
 .text-primary {
   color: #007bff !important;
 }
