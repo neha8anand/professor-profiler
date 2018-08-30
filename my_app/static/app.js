@@ -19,7 +19,7 @@ function drawTable(data) {
   var html = '';
   let array = JSON.parse(data);
   for (var i = 0; i < array.length; i++) {
-    html += '<tr><td>' + array[i].faculty_name + '</td><td>'+ array[i].faculty_title + '</td><td>' + array[i].research_areas + '</td><td>' + array[i].predicted_research_areas + '</td><td>' + array[i].office  + '</td><td>' + array[i].phone  + '</td><td>' + array[i].email + '</td><td>' + array[i].page + '</td><td>' + array[i].google_scholar_link + '</td></tr>';
+    html += '<tr><td>' + array[i].faculty_name + '</td><td>'+ array[i].title + '</td><td>' + array[i].research_areas + '</td><td>' + array[i].office  + '</td><td>' + array[i].phone  + '</td><td>' + array[i].email + '</td><td>' + array[i].page + '</td><td>' + array[i].google_scholar_link + '</td></tr>';
   }
   $('#results-table-body').html(html);
 }

@@ -288,7 +288,7 @@ if __name__ == '__main__':
     # coherence_plot(list_num_topics, coherence_values, title=title)
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(num_topics=12, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=12, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
     # optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=model.tf_idf, bigrams=model.bigrams, trigrams=model.trigrams, lemmatization=model.lemmatization)
     optimum_model.transform(data)
     optimum_model.fit()
@@ -297,12 +297,12 @@ if __name__ == '__main__':
     print(f'The optimum model coherence score is: {optimum_model.coherence_score()}')
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
-    pge_df = pd.read_json('../data/json/majors_database.json')
+    pge_df = database_cleaner('../data/json/majors_database.json')
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)
-    pge_df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDAMallet.json')
+    pge_df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDA.json')
 
     # Pickle model (has associated dictionary and tf_idf model)
-    with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'wb') as f:
+    with open('../data/pickle/pge_gensim_LDA.pkl', 'wb') as f:
         pickle.dump(optimum_model, f)

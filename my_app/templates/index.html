@@ -29,10 +29,10 @@
 			<link rel="stylesheet" href="css/owl.carousel.css">
 			<link rel="stylesheet" href="css/main.css">
 
-			<!-- app.js -->
-			<script type="text/javascript"
-    src="{{ url_for('static', filename='app.js') }}">
-    </script>
+		<!-- app.js -->
+		<script type="text/javascript"
+		src="{{ url_for('static', filename='app.js') }}">
+		</script>
 
 		</head>
 		<body>
@@ -86,12 +86,11 @@
              <th>Faculty Name</th>
              <th>Faculty Title</th>
              <th>Research Description</th>
-             <th>Research Tags</th>
              <th>Office</th>
              <th>Email</th>
-						 <th>Phone</th>
-						 <th>Page</th>
-						 <th>Google Scholar Profile</th>
+			 <th>Phone</th>
+			 <th>Page</th>
+			 <th>Google Scholar Profile</th>
            </tr>
          </thead>
          <tbody id="results-table-body">
@@ -100,12 +99,11 @@
                  <td class="c1">{{item['faculty_name']}}</td>
                  <td class="c2">{{item['faculty_title']}}</td>
                  <td class="c3">{{item['research_areas']}}</td>
-                 <td class="c4">{{item['predicted_research_areas']}}</td>
-                 <td class="c5">{{item['office']}}</td>
-                 <td class="c6">{{item['email']}}</td>
-								 <td class="c7">{{item['phone']}}</td>
-								 <td class="c8">{{item['page']}}</td>
-								 <td class="c9">{{item['google_scholar_link']}}</td>
+                 <td class="c4">{{item['office']}}</td>
+                 <td class="c5">{{item['email']}}</td>
+				 <td class="c6">{{item['phone']}}</td>
+				 <td class="c7">{{item['page']}}</td>
+				 <td class="c8">{{item['google_scholar_link']}}</td>
               </tr>
             {% endfor %}
          </tbody>
