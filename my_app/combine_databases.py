@@ -1,12 +1,11 @@
 """
-Module containing model to combine new university databases to the existing database.
-When run as a module, it creates the database with ut_pge as the base database.
+Module containing model to combine new majors databases to the existing database.
 """
 import pandas as pd
 
 def add_database(current_db_path, new_db_paths, combined_db_path):
     """
-    Adds new university databases (json object) to the existing database(json object).
+    Adds new majors databases (json object) to the existing database(json object).
 
     Parameters
     ----------

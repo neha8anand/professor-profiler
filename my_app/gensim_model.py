@@ -270,12 +270,7 @@ def get_optimum_model(data, num_topics):
     return _compare_models(data, model_list)
 
 if __name__ == '__main__':
-    # Create pge_database
-    current_db_path = '../data/json/ut_database.json'
-    new_db_paths = ['../data/json/stanford_database.json', '../data/json/tamu_database.json', '../data/json/utulsa_database.json']
-    combined_db_path = '../data/json/pge_database.json'
-    add_database(current_db_path, new_db_paths, combined_db_path)
-    data = get_data('../data/json/pge_database.json')
+    data = get_data('../data/json/majors_database.json')
 
     # # Choose optimum model for this data
     # # model = get_optimum_model(data=data, num_topics=7)
@@ -302,7 +297,7 @@ if __name__ == '__main__':
     print(f'The optimum model coherence score is: {optimum_model.coherence_score()}')
 
     # Append to pge_database with updated predicted_research_areas based on top-10 features
-    pge_df = pd.read_json('../data/json/pge_database.json')
+    pge_df = pd.read_json('../data/json/majors_database.json')
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([doc_topics_df, pge_df], axis=1)

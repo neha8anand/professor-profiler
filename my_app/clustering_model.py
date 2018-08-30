@@ -5,7 +5,6 @@ When run as a module, this will load a json dataset, train a clustering
 model, and then pickle the resulting model object to disk.
 """
 from cleaning import database_cleaner
-from combine_databases import add_database
 from nlp_pipeline import feature_matrix
 
 import numpy as np
@@ -106,20 +105,13 @@ def reverse_vocabulary(vocabulary):
     return reverse_vocab
 
 if __name__ == '__main__':
-    # Create pge_database with updated predicted_research_areas based on top-10 features
-    current_db_path = '../data/json/ut_database.json'
-    new_db_paths = ['../data/json/stanford_database.json', '../data/json/tamu_database.json', '../data/json/utulsa_database.json']
-    combined_db_path = '../data/json/pge_database.json'
-    add_database(current_db_path, new_db_paths, combined_db_path)
-
-    corpus = get_data('../data/json/pge_database.json')
-    # words occurring in only one document or in at least 80% of the documents are removed.
-    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
+    data = get_data('../data/json/majors_database.json')
+    vectorizer, matrix = vectorize_corpus(data, tf_idf=True, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=5, max_features=None)
     model = MyModel(12)
     y_pred = model.fit_predict(matrix)
 
-    pge_df = pd.read_json('../data/json/pge_database.json')
+    pge_df = database_cleaner('../data/json/majors_database.json')
     top_ten_features = model.top_n_features(vectorizer.vocabulary_, 10)
     pge_df['predicted_cluster_num'] = y_pred
     pge_df['predicted_research_areas'] = [top_ten_features[num] for num in y_pred]

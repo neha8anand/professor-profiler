@@ -5,7 +5,6 @@ When run as a module, this will load a json dataset, train a decomposition
 model using sklearn, and then pickle the resulting model object to disk.
 """
 from cleaning import database_cleaner
-from combine_databases import add_database
 from nlp_pipeline import feature_matrix
 
 import numpy as np
@@ -62,9 +61,10 @@ def get_corpus(filename):
     Parameters
     ----------
     filename: The path to a json file containing the university database.
+
     Returns
     -------
-    corpus: A numpy array containing abstracts.
+    corpus: A numpy array containing abstracts and titles.
     """
     df_cleaned = database_cleaner(filename)
 
@@ -86,7 +86,8 @@ def vectorize_corpus(corpus, tf_idf=True, stem_lem=None, **kwargs):
     """
     Parameters
     ----------
-    corpus: A numpy array containing abstracts.
+    corpus: A numpy array containing abstracts and titles.
+
     Returns
     -------
     vectorizer: A numpy array containing TfidfVectorizer or CountVectorizer object.
@@ -98,13 +99,7 @@ def vectorize_corpus(corpus, tf_idf=True, stem_lem=None, **kwargs):
     return vectorizer, matrix
 
 if __name__ == '__main__':
-    # Create pge_database with updated predicted_research_areas based on top-10 features
-    current_db_path = '../data/json/ut_database.json'
-    new_db_paths = ['../data/json/stanford_database.json', '../data/json/tamu_database.json', '../data/json/utulsa_database.json']
-    combined_db_path = '../data/json/pge_database.json'
-    add_database(current_db_path, new_db_paths, combined_db_path)
-
-    corpus = get_corpus('../data/json/pge_database.json')
+    corpus = get_corpus('../data/json/majors_database.json')
     vectorizer, matrix = vectorize_corpus(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=5, max_features=None)
     model = MyTopicModel(n_topics=12, algorithm='NMF')
@@ -112,7 +107,7 @@ if __name__ == '__main__':
     topic_words = model.top_n_features(vectorizer, top_n=10)
     # print(model._model.perplexity(matrix))
 
-    pge_df = pd.read_json('../data/json/pge_database.json')
+    pge_df = database_cleaner('../data/json/majors_database.json')
     pge_df['predicted_topic_num'] = [num[-1] for num in y_pred.argsort(axis=1)]
     pge_df['predicted_research_areas'] = [topic_words[topic_num] for topic_num in pge_df['predicted_topic_num']]
     pge_df.to_json(path_or_buf='../data/json/final_topic_database.json')
