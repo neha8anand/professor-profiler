@@ -3,28 +3,43 @@ import pandas as pd
 
 def database_cleaner(filename):
     '''
-    Cleans the university database json files (For example: tamu_database.json)
-    and returns a pandas dataframe for use in nlp pipeline
+    Cleans the majors database json file (majors_database.json), extracts information about 
+    top - 4 petroleum schools and returns a pandas dataframe for use in nlp pipeline.
     '''
-    df = pd.read_json(filename)
+    majors_df = pd.read_json(filename)
 
-    # Rearranging and cleaning df
-    df_rearranged = df.copy()
-    df_rearranged.drop(columns='university_name', inplace=True)
-    df_rearranged.rename(index=str, columns={"faculty_names": "faculty_info"}, inplace=True)
-    df_rearranged["faculty_name"] = df_rearranged.index
-    df_rearranged.reset_index(drop=True, inplace=True)
+    # Extracting top-4 petroleum school information
+    pge_schools = ['University of Texas--Austin (Cockrell)', 'Stanford University',
+            'Texas A&M University--College Station', 'University of Tulsa']
+    pge_schools_df = pd.DataFrame(majors_df['petroleum-engineering'][pge_schools])
+    pge_schools_df.reset_index(level=0, inplace=True)
 
+    
     # Expanding faculty_info column
-    faculty_info_df = df_rearranged["faculty_info"].apply(pd.Series)
-    df_final = pd.concat([df_rearranged, faculty_info_df], axis=1).drop("faculty_info", axis=1)
-    df_final.rename(index=str, columns={"title": "faculty_title"}, inplace=True)
+    pge_df = pge_schools_df["petroleum-engineering"].apply(pd.Series)
+    df_rearranged = pd.concat([pge_schools_df, pge_df], axis=1).drop("petroleum-engineering", axis=1)
+    df_rearranged.rename(index=str, columns={"faculty_names": "faculty_info", 
+                                             "index": "university_name"}, inplace=True)
+    # Rearranging and cleaning df
+    df_list = []
 
-    # Extracting titles, abstracts from the papers column and research_areas
-    # and stringing them together for a single faculty
+    for index, row in df_rearranged.iterrows():
+        faculty_df = pd.DataFrame(row["faculty_info"]).T
+        faculty_df["faculty_name"] = faculty_df.index
+        faculty_df.reset_index(drop=True, inplace=True)
+        
+        univ_df = pd.DataFrame(row.loc[["university_name", "location", "rank", "score"]]).T 
+        univ_dfs_rep = pd.concat([univ_df] * len(faculty_df), ignore_index=True)
+        res_df = pd.concat([univ_dfs_rep, faculty_df], axis=1)
+        
+        df_list.append(res_df)
+    
+    df_final = df_list[0].append(df_list[1], ignore_index=True).append(df_list[2], ignore_index=True).append(df_list[3], ignore_index=True)
+
+    # Extracting titles, abstracts from the papers column and stringing them together for a single faculty
     faculty_paper_titles_combined = []
     faculty_abstracts_combined = []
-    research_areas_combined = []
+    
 
     for index, row in df_final.iterrows():
         paper_titles = ''
@@ -40,11 +55,9 @@ def database_cleaner(filename):
 
         faculty_paper_titles_combined.append(paper_titles)
         faculty_abstracts_combined.append(paper_abstracts)
-        research_areas_combined.append(' '.join(x for x in row['research_areas']))
 
-    df_final.drop(columns=['papers', 'research_areas'], inplace=True)
+    df_final.drop(columns=['papers'], inplace=True)
     df_final['paper_titles'] = faculty_paper_titles_combined
     df_final['abstracts'] = faculty_abstracts_combined
-    df_final['research_areas'] = research_areas_combined
 
     return df_final
