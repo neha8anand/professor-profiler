@@ -102,6 +102,9 @@ def _get_search_df(similarities, final_df):
     search_df = results_df.sort_values(by='similarity')
     return search_df
 
+def ranking_algo(model_results):
+    pass
+
 # @app.route('/plot.png')
 # def get_graph():
 #     display_data = get_model_results()
