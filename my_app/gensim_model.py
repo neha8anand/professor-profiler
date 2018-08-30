@@ -128,7 +128,7 @@ class MyGenSimModel():
         lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
         similarity_results = lda_index[self.transform_new(search_text)]
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
-        return similarity_results[:top_n]
+        return np.array(similarity_results[:top_n])
 
     def visualize_lda_model(self):
         """Visualize LDA model using pyLDAvis"""

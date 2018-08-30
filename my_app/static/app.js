@@ -19,9 +19,25 @@ function drawTable(data) {
   var html = '';
   let array = JSON.parse(data);
   for (var i = 0; i < array.length; i++) {
-    html += '<tr><td>' + array[i].faculty_name + '</td><td>'+ array[i].title + '</td><td>' + array[i].research_areas + '</td><td>' + array[i].office  + '</td><td>' + array[i].phone  + '</td><td>' + array[i].email + '</td><td>' + array[i].page + '</td><td>' + array[i].google_scholar_link + '</td></tr>';
+    img_name = "post.png"
+    if (array[i].university_name == 'Stanford University') {
+        img_name = 'stanford.png'
+    }
+    else if (array[i].university_name == 'Texas A&M University--College Station') {
+        img_name = 'tamu.png'
+    }
+    else if (array[i].university_name == 'University of Texas--Austin (Cockrell)'){
+        img_name = 'utaustin.png'
+    }
+    else if (array[i].university_name == 'University of Tulsa'){
+        img_name = 'utulsa.png'
+    }
+
+    html += '<div class="single-post d-flex flex-row"><div class="thumb"><img src="img/' + img_name + '" alt=""></div><div class="details" style="padding-left: 20px"><div class="title d-flex flex-row justify-content-between"><div class="titles"><h4>' + array[i].faculty_name + '</h4><h6><i>' + array[i].title + '</i>, ' + array[i].university_name + '</h6></div></div><p>' + array[i].research_areas + '</p></div></div>'
+    //html += '<tr><td>' + array[i].faculty_name + '</td><td>'+ array[i].title + '</td><td>' + array[i].research_areas + '</td><td>' + array[i].office  + '</td><td>' + array[i].phone  + '</td><td>' + array[i].email + '</td><td>' + array[i].page + '</td><td>' + array[i].google_scholar_link + '</td></tr>';
   }
-  $('#results-table-body').html(html);
+  $('#facecards').html(html);
+  $('#facecards')[0].scrollIntoView();
 }
 
 // button on-click function
@@ -29,3 +45,5 @@ let predict = function(){
         let X = get_input_text();
         send_text_json(X);
     };
+
+    

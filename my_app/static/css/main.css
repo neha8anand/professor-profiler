@@ -2190,7 +2190,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .section-gap {
-  padding: 120px 0;
+  padding: 40px 0;
 }
 
 .section-title {
@@ -2308,7 +2308,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-content {
-  margin-top: -90px;
+  margin-top: 450px;
   text-align: center;
 }
 
@@ -2360,7 +2360,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-content .form-wrap {
   background-color: #a998f6;
   border: 1px solid #b8aaf3;
-  padding: 20px 0;
+  padding: 20px 0px 0px 0px;
   margin: 40px 0;
 }
 
@@ -3106,7 +3106,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area {
-  padding-top: 100px;
+  padding-top: 0px;
   background-color: #222222;
 }
 
@@ -3350,7 +3350,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-bottom {
-  padding-top: 80px;
+  padding-top: 0px;
 }
 
 .footer-text a, .footer-text i {

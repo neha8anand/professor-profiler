@@ -62,7 +62,7 @@ def submit():
     return display_data.to_json(force_ascii=True,  orient='records')
 
 # Search and Ranking algorithm
-def _get_model_results(search_text, model_choice='LDAMallet'):
+def _get_model_results(search_text, model_choice='LDAMallet', top_n=5):
     '''
     Parameters
     ----------
@@ -70,34 +70,36 @@ def _get_model_results(search_text, model_choice='LDAMallet'):
     model_choice: Choice of the model to be used, valid choices are 'LDA', 'LDAMallet', 'KMeans', 'NMF'
     '''
     # list of columns to be displayed to the user
+    # cols = ['faculty_name', 'university_name', 'rank', 'title', 'rating', 'tags', 'research_areas', 'location', 'office', 'email', 'phone', 'page', 'google_scholar_link', 'indices', 'citations']
     
-    if model_choice == 'NMF':
-        similarities = topic_model.most_similar(clean_text(search_text), topic_vectorizer, top_n=5) # document_id, similarity
-        similarities = similarities[similarities[:,0].argsort()] # sorting by document_id
-        document_ids = list(map(int, similarities[:,0]))
-        df = final_topic_df.copy()
-        results_df = df[df.index.isin(document_ids)].sort_index()
-        results_df['similarity'] = similarities[:,1]
-        cols = ['faculty_name', 'university_name', 'rank', 'title', 'rating', 'tags', 'research_areas', 'location', 'office', 'email', 'phone', 'page', 'google_scholar_link', 'indices', 'citations']
-        search_df = results_df.sort_values(by='similarity')[cols][:5]
-    
-    elif model_choice == 'KMeans':
-        y_test = model.predict(vectorizer.transform(clean_text(search_text))) # predicted cluster label for given text
+    if model_choice == 'KMeans':
+        # y_test = cluster_model.predict(cluster_vectorizer.transform(clean_text(search_text))) # predicted cluster label for given text
         # results_df = final_df[final_df['predicted_cluster_num'] == y_test[0]]
-        similarities = model.most_similar(search_text, vectorizer, top_n=5) # document_id, similarity
-        similarities = similarities[similarities[:,0].argsort()] # sorting by document_id
-        document_ids = list(map(int, similarities[:,0]))
-        df = final_df.copy()
-        results_df = df[df.index.isin(document_ids)].sort_index()
-        results_df['similarity'] = similarities[:,1]
-        search_df = results_df.sort_values(by='similarity')[['faculty_name', 'research_areas', 'predicted_research_areas']]
+        similarities = cluster_model.most_similar(search_text, cluster_vectorizer, top_n=top_n) # document_id, similarity
+        search_df = _get_search_df(similarities, final_cluster_df)
+
+    elif model_choice == 'NMF':
+        similarities = topic_model.most_similar(clean_text(search_text), topic_vectorizer, top_n=top_n) # document_id, similarity
+        search_df = _get_search_df(similarities, final_topic_df)
 
     elif model_choice == 'LDA':
-        pass
+        similarities = gensim_LDA.most_similar(search_text, top_n=top_n)
+        search_df = _get_search_df(similarities, final_gensim_LDA_df)
     
     elif model_choice == 'LDAMallet':
-        pass
+         similarities = gensim_LDAMallet.most_similar(search_text, top_n=top_n)
+         search_df = _get_search_df(similarities, final_gensim_LDAMallet_df)
 
+    return search_df
+
+def _get_search_df(similarities, final_df):
+    """Returns a dataframe containing information about similar professors."""
+    similarities = similarities[similarities[:,0].argsort()] # sorting by document_id
+    document_ids = list(map(int, similarities[:,0]))
+    df = final_df.copy()
+    results_df = df[df.index.isin(document_ids)].sort_index()
+    results_df['similarity'] = similarities[:,1]
+    search_df = results_df.sort_values(by='similarity')
     return search_df
 
 # @app.route('/plot.png')
