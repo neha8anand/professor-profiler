@@ -78,7 +78,8 @@ def get_corpus(filename):
     df_nlp = df_filtered[~missing]
 
     # Choosing abstracts and paper_titles to predict topics for a professor
-    corpus = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
+    df_nlp['research_areas'] = df_nlp['research_areas'].apply(lambda x: " ".join(x))
+    corpus = (df_nlp['paper_titles'] + df_nlp['abstracts'] + df_nlp['research_areas']).values
 
     return corpus
 

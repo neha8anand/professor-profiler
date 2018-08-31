@@ -100,11 +100,14 @@ class MyGenSimModel():
 
         elif self.algorithm == 'LDAMallet':
             # Build a Mallet Model (doesn't work with tf-idf)
-            self._model = models.wrappers.LdaMallet(mallet_path, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='~/Documents/Github/capstone/')
+            self._model = models.wrappers.LdaMallet(mallet_path, workers=8, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='~/Documents/Github/capstone/')
 
         elif self.algorithm == 'LSI':
             # Build a Latent Semantic Indexing Model
             self._model = models.LsiModel(corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
+
+        # for measuring similarity with new text
+        self.lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
 
     def transform_new(self, search_text):
         """Return transformed new data."""
@@ -124,8 +127,7 @@ class MyGenSimModel():
 
     def most_similar(self, search_text, top_n=5):
         """Returns top-n most similar professors for a given search text (cleaned and tokenized)."""
-        lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
-        similarity_results = lda_index[self.transform_new(search_text)]
+        similarity_results = self.lda_index[self.transform_new(search_text)]
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
         return np.array(similarity_results[:top_n])
 
@@ -149,7 +151,7 @@ class MyGenSimModel():
         doc_topics_df = pd.DataFrame()
 
         # Get main topic in each document
-        for i, row in enumerate(self._model[self.corpus]):
+        for _, row in enumerate(self._model[self.corpus]):
             row = sorted(row, key=lambda x: (x[1]), reverse=True)
             # Get the Dominant topic, Perc Contribution and Keywords for each document
             for j, (topic_num, prop_topic) in enumerate(row):
@@ -179,7 +181,8 @@ def get_data(filename):
     missing = df_filtered['paper_titles'] == ''
     df_nlp = df_filtered[~missing]
     # Choosing abstracts and paper_titles to predict topics for a professor
-    data = (df_nlp['paper_titles'] + df_nlp['abstracts']).values
+    df_nlp['research_areas'] = df_nlp['research_areas'].apply(lambda x: " ".join(x))
+    data = (df_nlp['paper_titles'] + df_nlp['abstracts'] + df_nlp['research_areas']).values
     return data
 
 def make_bigrams(texts, bigram_mod):
@@ -287,7 +290,7 @@ if __name__ == '__main__':
     # coherence_plot(list_num_topics, coherence_values, title=title)
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(num_topics=12, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=12, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
     # optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=model.tf_idf, bigrams=model.bigrams, trigrams=model.trigrams, lemmatization=model.lemmatization)
     optimum_model.transform(data)
     optimum_model.fit()
@@ -300,8 +303,8 @@ if __name__ == '__main__':
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([pge_df, doc_topics_df], axis=1)
-    pge_df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDAMallet.json')
+    pge_df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDA.json')
 
     # Pickle model (has associated dictionary and tf_idf model)
-    with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'wb') as f:
+    with open('../data/pickle/pge_gensim_LDA.pkl', 'wb') as f:
         pickle.dump(optimum_model, f)

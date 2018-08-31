@@ -64,4 +64,7 @@ def database_cleaner(filename):
     df_final['abstracts'] = faculty_abstracts_combined
     df_final['paper_count'] = faculty_abstracts_counts
 
+    # Make h_index column
+    df_final["h_index"] = df_final["indices"].apply(pd.Series)["h-index"].apply(pd.Series)["All"]
+
     return df_final

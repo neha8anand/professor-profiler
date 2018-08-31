@@ -58,7 +58,7 @@ def index():
 def submit():
     user_data = request.json
     search_text = user_data["text_input"]
-    display_data = _get_model_results(search_text, model_choice='NMF')
+    display_data = _get_model_results(search_text, model_choice='NMF', top_n=10)[:5] # taking top-5
     return display_data.to_json(force_ascii=True,  orient='records')
 
 # Search and Ranking algorithm
@@ -99,13 +99,15 @@ def _get_search_df(similarities, final_df):
     df = final_df.copy()
     results_df = df[df.index.isin(document_ids)].sort_index()
     results_df['similarity'] = similarities[:,1]
-    search_df = results_df.sort_values(by='similarity') # call ranking algorithm
+    search_df = _ranking_algo(results_df[results_df['paper_count'] > 20], weights=[0.05, 0.2, 0.10, 0.65]) # filter people with less than 10 papers in database
     return search_df
 
-def ranking_algo(model_results):
-    """Rank search results based on university rank, h-index, professor rating 
-    and cosine similarity between the search_text and the corpus for the model."""
-    pass
+def _ranking_algo(results_df, weights=[0.05, 0.35, 0.15, 0.45]):
+    """Rank search results based on university rank, number of papers in majors_database, 
+    h-index, and similarity between the search_text and the corpus for the model."""
+    search_df = results_df.copy()
+    search_df["composite_score"] = weights[0] * search_df["rank"] + weights[1] * search_df["paper_count"] +  weights[2] * search_df["h_index"] + weights[3] * search_df["similarity"] 
+    return search_df.sort_values(by="composite_score", ascending=False)
 
 # @app.route('/plot.png')
 # def get_graph():
