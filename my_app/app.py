@@ -99,10 +99,12 @@ def _get_search_df(similarities, final_df):
     df = final_df.copy()
     results_df = df[df.index.isin(document_ids)].sort_index()
     results_df['similarity'] = similarities[:,1]
-    search_df = results_df.sort_values(by='similarity')
+    search_df = results_df.sort_values(by='similarity') # call ranking algorithm
     return search_df
 
 def ranking_algo(model_results):
+    """Rank search results based on university rank, h-index, professor rating 
+    and cosine similarity between the search_text and the corpus for the model."""
     pass
 
 # @app.route('/plot.png')

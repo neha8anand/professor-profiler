@@ -39,11 +39,12 @@ def database_cleaner(filename):
     # Extracting titles, abstracts from the papers column and stringing them together for a single faculty
     faculty_paper_titles_combined = []
     faculty_abstracts_combined = []
-    
+    faculty_abstracts_counts = []
 
     for index, row in df_final.iterrows():
         paper_titles = ''
         paper_abstracts = ''
+        paper_abstracts_counts = 0
 
         for entry in row['papers'].values():
             if 'title' in entry:
@@ -51,13 +52,16 @@ def database_cleaner(filename):
 
             if 'abstract' in entry:
                 paper_abstracts += ' ' + entry['abstract']
+                paper_abstracts_counts += 1
 
 
         faculty_paper_titles_combined.append(paper_titles)
         faculty_abstracts_combined.append(paper_abstracts)
+        faculty_abstracts_counts.append(paper_abstracts_counts)
 
     df_final.drop(columns=['papers'], inplace=True)
     df_final['paper_titles'] = faculty_paper_titles_combined
     df_final['abstracts'] = faculty_abstracts_combined
+    df_final['paper_count'] = faculty_abstracts_counts
 
     return df_final
