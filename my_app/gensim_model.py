@@ -290,7 +290,7 @@ if __name__ == '__main__':
     # coherence_plot(list_num_topics, coherence_values, title=title)
 
     # Fit optimum model to training data
-    optimum_model = MyGenSimModel(num_topics=12, algorithm='LDA', tf_idf=True, bigrams=False, trigrams=False, lemmatization=False)
+    optimum_model = MyGenSimModel(num_topics=12, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
     # optimum_model = MyGenSimModel(num_topics=optimum_num_topics, algorithm=model.algorithm, tf_idf=model.tf_idf, bigrams=model.bigrams, trigrams=model.trigrams, lemmatization=model.lemmatization)
     optimum_model.transform(data)
     optimum_model.fit()
@@ -303,8 +303,12 @@ if __name__ == '__main__':
     doc_topics_df = optimum_model.format_document_topics()
     print(doc_topics_df)
     pge_df_updated = pd.concat([pge_df, doc_topics_df], axis=1)
-    pge_df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDA.json')
+    pge_df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDAMallet.json')
+
+    # Save html for the pyLDAvis visualization of LDAMallet model
+    vis = optimum_model.visualize_lda_mallet()
+    pyLDAvis.save_html(data=vis, fileobj="templates/LDAMallet.html") 
 
     # Pickle model (has associated dictionary and tf_idf model)
-    with open('../data/pickle/pge_gensim_LDA.pkl', 'wb') as f:
+    with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'wb') as f:
         pickle.dump(optimum_model, f)
