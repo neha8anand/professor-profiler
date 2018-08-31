@@ -34,7 +34,6 @@ function drawTable(data) {
     }
 
     html += '<div class="single-post d-flex flex-row"><div class="thumb"><img src="img/' + img_name + '" alt=""></div><div class="details" style="padding-left: 20px"><div class="title d-flex flex-row justify-content-between"><div class="titles"><h4>' + array[i].faculty_name + '</h4><h6><i>' + array[i].title + '</i>, ' + array[i].university_name + '</h6></div></div><p>' + array[i].research_areas + '</p></div></div>'
-    //html += '<tr><td>' + array[i].faculty_name + '</td><td>'+ array[i].title + '</td><td>' + array[i].research_areas + '</td><td>' + array[i].office  + '</td><td>' + array[i].phone  + '</td><td>' + array[i].email + '</td><td>' + array[i].page + '</td><td>' + array[i].google_scholar_link + '</td></tr>';
   }
   $('#facecards').html(html);
   $('#facecards')[0].scrollIntoView();

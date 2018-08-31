@@ -53,6 +53,11 @@ final_gensim_LDAMallet_df = pd.read_json('../data/json/final_gensim_database_LDA
 def index():
     return render_template('index.html')
 
+# pyLDAvis html
+@app.route('/visualize', methods=['GET'])
+def visualize():
+    return render_template('LDAMallet.html')
+    
 # My professor profiler app
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -99,7 +104,7 @@ def _get_search_df(similarities, final_df):
     df = final_df.copy()
     results_df = df[df.index.isin(document_ids)].sort_index()
     results_df['similarity'] = similarities[:,1]
-    search_df = _ranking_algo(results_df[results_df['paper_count'] > 20], weights=[0.05, 0.2, 0.10, 0.65]) # filter people with less than 10 papers in database
+    search_df = _ranking_algo(results_df[results_df['paper_count'] > 20], weights=[0.05, 0.10, 0.15, 0.65]) # filter people with less than 10 papers in database
     return search_df
 
 def _ranking_algo(results_df, weights=[0.05, 0.35, 0.15, 0.45]):

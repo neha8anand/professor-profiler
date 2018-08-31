@@ -10,7 +10,7 @@ from nlp_pipeline import feature_matrix
 import numpy as np
 import pickle
 import pandas as pd
-from sklearn.metrics.pairwise import euclidean_distances
+from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
 
 class MyTopicModel():
@@ -51,9 +51,9 @@ class MyTopicModel():
     def most_similar(self, search_text, vectorizer, top_n=5):
         """Returns most similar professors for a given search text (cleaned and tokenized)."""
         x = self._model.transform(vectorizer.transform(search_text))[0]
-        dists = euclidean_distances(x.reshape(1, -1), self.transformed_X)
-        pairs = enumerate(dists[0])
-        most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]
+        similarities = cosine_similarity(x.reshape(1, -1), self.transformed_X)
+        pairs = enumerate(similarities[0])
+        most_similar = sorted(pairs, key=lambda item: item[1], reverse=True)[:top_n]
         return np.array(most_similar)
 
 def get_corpus(filename):
