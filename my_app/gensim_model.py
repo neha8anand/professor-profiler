@@ -131,17 +131,17 @@ class MyGenSimModel():
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
         return np.array(similarity_results[:top_n])
 
-    def visualize_lda_model(self):
+    def visualize_lda_model(self, **kwargs):
         """Visualize LDA model using pyLDAvis"""
-        vis = pyLDAvis.gensim.prepare(self._model, self.corpus, self.dictionary)
+        vis = pyLDAvis.gensim.prepare(self._model, self.corpus, self.dictionary, **kwargs)
         return vis
 
-    def visualize_lda_mallet(self):
+    def visualize_lda_mallet(self, **kwargs):
         """Visualize LDA model using pyLDAvis"""
-        dataDir = "/Users/Neha/Documents/GitHub/capstone"
+        dataDir = "/Users/Neha/Documents/GitHub/capstone" # update this if needed
         statefile = 'state.mallet.gz'
         data = get_LDA_data(dataDir, statefile)
-        vis = pyLDAvis.prepare(**data)
+        vis = pyLDAvis.prepare(**data, **kwargs)
         return vis
 
     def format_document_topics(self):
@@ -155,7 +155,7 @@ class MyGenSimModel():
             row = sorted(row, key=lambda x: (x[1]), reverse=True)
             # Get the Dominant topic, Perc Contribution and Keywords for each document
             for j, (topic_num, prop_topic) in enumerate(row):
-                if j == 0:  # => dominant topic
+                if j == 0:  # dominant topic
                     wp = self._model.show_topic(topic_num)
                     topic_keywords = ", ".join([word for word, prop in wp])
                     doc_topics_df = doc_topics_df.append(pd.Series([int(topic_num), round(prop_topic,4), topic_keywords]), ignore_index=True)

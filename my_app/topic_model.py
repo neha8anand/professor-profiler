@@ -5,13 +5,18 @@ When run as a module, this will load a json dataset, train a decomposition
 model using sklearn, and then pickle the resulting model object to disk.
 """
 from cleaning import database_cleaner
-from nlp_pipeline import feature_matrix
+from nlp_pipeline import feature_matrix, clean_text
 
 import numpy as np
 import pickle
 import pandas as pd
+
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
+
+# Plotting tools
+import pyLDAvis
+import pyLDAvis.sklearn
 
 class MyTopicModel():
     """A topic model to identify research areas given information about papers:
@@ -34,6 +39,7 @@ class MyTopicModel():
 
     def fit_transform(self, X):
         """Return transformed training data."""
+        self.X = X
         self.transformed_X = self._model.fit_transform(X)
         return self.transformed_X
 
@@ -44,17 +50,26 @@ class MyTopicModel():
     def top_n_features(self, vectorizer, top_n=10):
         """Returns top n features/words for all topics given a vectorizer object."""
         topic_words = []
-        for idx, topic in enumerate(self._model.components_):
+        for _, topic in enumerate(self._model.components_):
             topic_words.append([vectorizer.get_feature_names()[i] for i in topic.argsort()[:-top_n - 1:-1]])
         return np.array(topic_words)
 
     def most_similar(self, search_text, vectorizer, top_n=5):
         """Returns most similar professors for a given search text (cleaned and tokenized)."""
-        x = self._model.transform(vectorizer.transform(search_text))[0]
+        x = self._model.transform(vectorizer.transform(clean_text(search_text)))[0]
         similarities = cosine_similarity(x.reshape(1, -1), self.transformed_X)
         pairs = enumerate(similarities[0])
         most_similar = sorted(pairs, key=lambda item: item[1], reverse=True)[:top_n]
         return np.array(most_similar)
+
+    def visualize_lda_model(self, matrix, vectorizer, **kwargs):
+        """Visualize LDA model using pyLDAvis"""
+        vis = pyLDAvis.sklearn.prepare(self._model, matrix, vectorizer, **kwargs)
+        return vis
+    
+    def visualize_nmf_model(self):
+        return vis
+
 
 def get_corpus(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
@@ -71,10 +86,6 @@ def get_corpus(filename):
     # For nlp, only retaining faculty_name, research_areas, paper_titles, abstracts
     df_filtered = df_cleaned[['faculty_name', 'research_areas', 'paper_titles', 'abstracts']]
     missing = df_filtered['paper_titles'] == ''
-    num_missing = sum(missing)
-    print(f'{num_missing} faculties have missing papers in {filename}')
-    print('Running nlp-pipeline on faculties with non-missing papers...')
-
     df_nlp = df_filtered[~missing]
 
     # Choosing abstracts and paper_titles to predict topics for a professor
@@ -99,11 +110,12 @@ def vectorize_corpus(corpus, tf_idf=True, stem_lem=None, **kwargs):
 
     return vectorizer, matrix
 
+
 if __name__ == '__main__':
     corpus = get_corpus('../data/json/majors_database.json')
-    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
+    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=False, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=5, max_features=None)
-    model = MyTopicModel(n_topics=12, algorithm='NMF')
+    model = MyTopicModel(n_topics=12, algorithm='LDA')
     y_pred = model.fit_transform(matrix)
     topic_words = model.top_n_features(vectorizer, top_n=10)
     # print(model._model.perplexity(matrix))
@@ -111,10 +123,10 @@ if __name__ == '__main__':
     pge_df = database_cleaner('../data/json/majors_database.json')
     pge_df['predicted_topic_num'] = [num[-1] for num in y_pred.argsort(axis=1)]
     pge_df['predicted_research_areas'] = [topic_words[topic_num] for topic_num in pge_df['predicted_topic_num']]
-    pge_df.to_json(path_or_buf='../data/json/final_topic_database.json')
+    pge_df.to_json(path_or_buf='../data/json/final_sklearn_database_LDA.json')
 
-    with open('../data/pickle/pge_topic_model.pkl', 'wb') as f:
+    with open('../data/pickle/pge_sklearn_LDA.pkl', 'wb') as f:
         pickle.dump(model, f)
 
-    with open('../data/pickle/pge_topic_vectorizer.pkl', 'wb') as f:
+    with open('../data/pickle/pge_sklearn_LDA_vectorizer.pkl', 'wb') as f:
         pickle.dump(vectorizer, f)

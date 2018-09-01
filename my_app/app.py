@@ -29,11 +29,18 @@ with open('../data/pickle/pge_vectorizer.pkl', 'rb') as f:
     cluster_vectorizer = pickle.load(f)
 
 # NMF topic model and vectorizer(using sklearn)
-with open('../data/pickle/pge_topic_model.pkl', 'rb') as f:
-        topic_model = pickle.load(f)
+with open('../data/pickle/pge_NMF_model.pkl', 'rb') as f:
+        NMF_model = pickle.load(f)
 
-with open('../data/pickle/pge_topic_vectorizer.pkl', 'rb') as f:
-    topic_vectorizer = pickle.load(f)
+with open('../data/pickle/pge_NMF_vectorizer.pkl', 'rb') as f:
+    NMF_vectorizer = pickle.load(f)
+
+# NMF topic model and vectorizer(using sklearn)
+with open('../data/pickle/pge_sklearn_LDA.pkl', 'rb') as f:
+        sklearn_LDA = pickle.load(f)
+
+with open('../data/pickle/pge_sklearn_LDA_vectorizer.pkl', 'rb') as f:
+    sklearn_LDA_vectorizer = pickle.load(f)
 
 # gensim model and vectorizer
 with open('../data/pickle/pge_gensim_LDA.pkl', 'rb') as f:
@@ -44,12 +51,14 @@ with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'rb') as f:
 
 # corresponding databases
 final_cluster_df = pd.read_json('../data/json/final_database.json')
-final_topic_df = pd.read_json('../data/json/final_topic_database.json')
+final_NMF_df = pd.read_json('../data/json/final_NMF_database.json')
+final_sklearn_LDA_df = pd.read_json('../data/json/final_sklearn_database_LDA.json')
 final_gensim_LDA_df = pd.read_json('../data/json/final_gensim_database_LDA.json')
 final_gensim_LDAMallet_df = pd.read_json('../data/json/final_gensim_database_LDAMallet.json')
 
 # Form page to submit text
 @app.route('/', methods=['GET'])
+@app.route('/index.html', methods=['GET'])
 def index():
     return render_template('index.html')
 
