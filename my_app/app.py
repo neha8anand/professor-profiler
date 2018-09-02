@@ -93,8 +93,8 @@ def _get_model_results(search_text, model_choice='LDAMallet', top_n=5):
         search_df = _get_search_df(similarities, final_cluster_df)
 
     elif model_choice == 'NMF':
-        similarities = topic_model.most_similar(clean_text(search_text), topic_vectorizer, top_n=top_n) # document_id, similarity
-        search_df = _get_search_df(similarities, final_topic_df)
+        similarities = NMF_model.most_similar(search_text, NMF_vectorizer, top_n=top_n) # document_id, similarity
+        search_df = _get_search_df(similarities, final_NMF_df)
 
     elif model_choice == 'LDA':
         similarities = gensim_LDA.most_similar(search_text, top_n=top_n)

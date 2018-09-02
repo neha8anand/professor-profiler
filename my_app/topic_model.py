@@ -18,6 +18,10 @@ from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
 import pyLDAvis
 import pyLDAvis.sklearn
 
+# gensim
+from gensim import corpora
+from gensim.models import CoherenceModel # for getting coherence score
+
 class MyTopicModel():
     """A topic model to identify research areas given information about papers:
         - cleans the json dataset
@@ -68,7 +72,16 @@ class MyTopicModel():
         return vis
     
     def visualize_nmf_model(self):
-        return vis
+        pass
+    
+    def coherence_score(self, data, vectorizer):
+        """Returns topic coherence for topic models. This is the implementation of the four stage topic coherence pipeline."""
+        # top_n_features(self, vectorizer, top_n=10)
+        self.tokens = clean_text(data)
+        self.dictionary = corpora.Dictionary(self.tokens)
+        topics = vectorizer.get_feature_names()
+        coherence_model = CoherenceModel(topics=topics, texts=self.tokens, dictionary=self.dictionary, coherence='c_v')
+        return coherence_model.get_coherence()
 
 
 def get_corpus(filename):
