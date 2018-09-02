@@ -6,7 +6,7 @@ model using gensim, optimize the number of topics, and then pickle
 the resulting optimum model object to disk.
 """
 from cleaning import database_cleaner
-from nlp_pipeline import clean_text
+from nlp_pipeline import clean_text, add_stopwords
 from pyLDAvis_mallet import get_LDA_data
 
 import numpy as np
@@ -38,6 +38,9 @@ import warnings
 warnings.filterwarnings("ignore",category=UserWarning)
 
 mallet_path = '~/Documents/GitHub/capstone/mallet-2.0.8/bin/mallet' # update this path if needed
+stopwords_ = stopwords.words('english')
+more_stopwords_ = add_stopwords()
+stopwords_.extend(more_stopwords_)
 
 class MyGenSimModel():
     """A gensim based topic model to identify research areas given information about papers:
@@ -57,7 +60,7 @@ class MyGenSimModel():
     def transform(self, data):
         """Transform training data."""
         # For gensim we need to tokenize the data and filter out stopwords
-        self.tokens = [clean_text(doc) for doc in data]
+        self.tokens = [clean_text(doc, stopwords_) for doc in data]
 
         # bigrams
         if self.bigrams:
@@ -79,6 +82,9 @@ class MyGenSimModel():
             spacy_nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
             # Do lemmatization keeping only noun, adj, vb, adv
             self.tokens = do_lemmatization(spacy_nlp=spacy_nlp, texts=self.tokens, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+        
+        # Again remove stopwords after doing lemmatization
+        self.tokens = [token for token in self.tokens if token not in stopwords_]
 
         # Build a Dictionary - association word to numeric id
         self.dictionary = corpora.Dictionary(self.tokens)
@@ -115,7 +121,7 @@ class MyGenSimModel():
 
     def transform_new(self, search_text):
         """Return transformed new data."""
-        bow = self.dictionary.doc2bow(clean_text(search_text))
+        bow = self.dictionary.doc2bow(clean_text(search_text, stopwords_))
         if self.tf_idf:
             return self._model[self._tfidf_model[bow]]
         return self._model[bow]
@@ -137,7 +143,7 @@ class MyGenSimModel():
 
     def visualize_lda_model(self, **kwargs):
         """Visualize LDA model using pyLDAvis"""
-        vis = pyLDAvis.gensim.prepare(self._model, self.corpus, self.dictionary, **kwargs)
+        vis = pyLDAvis.gensim.prepare(self._model, self.corpus, self.dictionary,sort_topics=False, **kwargs)
         return vis
 
     def visualize_lda_mallet(self, **kwargs):
@@ -145,7 +151,7 @@ class MyGenSimModel():
         dataDir = "/Users/Neha/Documents/GitHub/capstone" # update this if needed
         statefile = 'state.mallet.gz'
         data = get_LDA_data(dataDir, statefile)
-        vis = pyLDAvis.prepare(**data, **kwargs)
+        vis = pyLDAvis.prepare(sort_topics=False, **data, **kwargs)
         return vis
 
     def format_document_topics(self, top_n=12):
@@ -164,7 +170,7 @@ class MyGenSimModel():
                     wp = self._model.show_topic(topic_num)
                     topic_keywords = ", ".join([word for word, prop in wp])
                     prop_topics.append(100 * round(prop_topic,4))
-                    topic_nums.append(int(topic_num))
+                    topic_nums.append(int(topic_num) + 1)# To match pyLDAvis topic numbers
                     topic_keywords_list.append(topic_keywords)
                 else:
                     break
@@ -258,13 +264,13 @@ if __name__ == '__main__':
     data = get_data('../data/json/majors_database.json')
 
     # Fit LDA to training data(doesn't work with tf-idf)
-    lda_model = MyGenSimModel(num_topics=12, algorithm='LDA', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    lda_model = MyGenSimModel(num_topics=12, algorithm='LDA', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     lda_model.transform(data)
     lda_model.fit()
     print(lda_model.coherence_score())
 
     # Fit LDAMallet to training data(doesn't work with tf-idf)
-    ldamallet_model = MyGenSimModel(num_topics=12, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    ldamallet_model = MyGenSimModel(num_topics=12, algorithm='LDAMallet', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     ldamallet_model.transform(data)
     ldamallet_model.fit()
     print(ldamallet_model.coherence_score())
