@@ -148,25 +148,29 @@ class MyGenSimModel():
         vis = pyLDAvis.prepare(**data, **kwargs)
         return vis
 
-    def format_document_topics(self):
-        """Returns a dataframe with dominant topic, contribution of dominant topic to document
-        and keywords for the dominant topic"""
+    def format_document_topics(self, top_n=12):
+        """Returns a dataframe with top-n dominant topics, contribution of these topics to document
+        and keywords for them"""
         # Init output
         doc_topics_df = pd.DataFrame()
 
         # Get main topic in each document
         for idx, row in enumerate(self._model[self.corpus]):
             row = sorted(row, key=lambda x: (x[1]), reverse=True)
-            # Get the Dominant topic, Perc Contribution and Keywords for each document
+            # Get the Dominant topics, Perc Contributions and Keywords list for each document
+            prop_topics, topic_nums, topic_keywords_list = [], [], []
             for j, (topic_num, prop_topic) in enumerate(row):
-                if j == 0:  # dominant topic
+                if j in list(range(top_n)):  # top-n dominant topics
                     wp = self._model.show_topic(topic_num)
                     topic_keywords = ", ".join([word for word, prop in wp])
-                    doc_topics_df = doc_topics_df.append(pd.Series([int(topic_num), round(prop_topic,4), topic_keywords]), ignore_index=True)
+                    prop_topics.append(100 * round(prop_topic,4))
+                    topic_nums.append(int(topic_num))
+                    topic_keywords_list.append(topic_keywords)
                 else:
                     break
+            doc_topics_df = doc_topics_df.append(pd.Series([topic_nums, prop_topics, topic_keywords_list]), ignore_index=True)
 
-        doc_topics_df.columns = ['Dominant_Topic', 'Perc_Contribution', 'Topic_Keywords']
+        doc_topics_df.columns = ['Dominant_Topics', 'Perc_Contributions', 'Topic_Keywords_List']
 
         return doc_topics_df
 
