@@ -14,10 +14,15 @@ from nltk.stem.snowball import SnowballStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
-punctuation_ = set(string.punctuation)
-stopwords_ = set(stopwords.words('english'))
+def add_stopwords():
+    """Add common stopwords from petroleum engineering domain"""
+    more_stopwords_ = ["oil", "gas", "water", "method", "model", "pressure", "flow", "permeability", "rock", "paper", 
+    "rate", "properties", "based", "parameters", "study", "approach", "case", "fluid", "effect", "media", 
+    "system", "results", "high", "low", "data", "compared", "impact", "work", "surface", "present", "show", 
+    "large", "reduce", "increase", "improve"]
+    return more_stopwords_
 
-def clean_text(text):
+def clean_text(text, stopwords_):
     tokenized_text = word_tokenize(text.lower())
     cleaned_text = [t for t in tokenized_text if t not in stopwords_ and re.match('[a-zA-Z-][a-zA-Z-]{3,}', t)]
     return cleaned_text
@@ -39,7 +44,7 @@ def feature_matrix(corpus, tf_idf=True, stem_lem=None, **kwargs):
     matrix: A numpy array containing the feature matrix returned by the vectorizer object.
     """
 
-    tokens_filtered = [clean_text(doc) for doc in corpus]
+    tokens_filtered = [clean_text(doc, stopwords_) for doc in corpus]
 
     # Stemming-Lemmatizing
     if stem_lem == 'stem':
@@ -68,3 +73,7 @@ def feature_matrix(corpus, tf_idf=True, stem_lem=None, **kwargs):
         matrix = vectorizer.fit_transform(tokens_filtered) # sparse matrix
 
     return vectorizer, matrix
+
+stopwords_ = stopwords.words('english')
+more_stopwords_ = add_stopwords()
+stopwords_.extend(more_stopwords_)
