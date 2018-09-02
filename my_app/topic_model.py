@@ -18,10 +18,6 @@ from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
 import pyLDAvis
 import pyLDAvis.sklearn
 
-# gensim
-from gensim import corpora
-from gensim.models import CoherenceModel # for getting coherence score
-
 class MyTopicModel():
     """A topic model to identify research areas given information about papers:
         - cleans the json dataset
@@ -70,19 +66,6 @@ class MyTopicModel():
         """Visualize LDA model using pyLDAvis"""
         vis = pyLDAvis.sklearn.prepare(self._model, matrix, vectorizer, **kwargs)
         return vis
-    
-    def visualize_nmf_model(self):
-        pass
-    
-    def coherence_score(self, data, vectorizer):
-        """Returns topic coherence for topic models. This is the implementation of the four stage topic coherence pipeline."""
-        # top_n_features(self, vectorizer, top_n=10)
-        self.tokens = clean_text(data)
-        self.dictionary = corpora.Dictionary(self.tokens)
-        topics = vectorizer.get_feature_names()
-        coherence_model = CoherenceModel(topics=topics, texts=self.tokens, dictionary=self.dictionary, coherence='c_v')
-        return coherence_model.get_coherence()
-
 
 def get_corpus(filename):
     """Load raw data from a file and return vectorizer and feature_matrix.
@@ -126,20 +109,43 @@ def vectorize_corpus(corpus, tf_idf=True, stem_lem=None, **kwargs):
 
 if __name__ == '__main__':
     corpus = get_corpus('../data/json/majors_database.json')
-    vectorizer, matrix = vectorize_corpus(corpus, tf_idf=False, stem_lem=None, ngram_range=(1,1),
+    # LDA
+    lda_vectorizer, lda_matrix = vectorize_corpus(corpus, tf_idf=False, stem_lem=None, ngram_range=(1,1),
                                     max_df=0.8, min_df=5, max_features=None)
-    model = MyTopicModel(n_topics=12, algorithm='LDA')
-    y_pred = model.fit_transform(matrix)
-    topic_words = model.top_n_features(vectorizer, top_n=10)
-    # print(model._model.perplexity(matrix))
+    lda_model = MyTopicModel(n_topics=12, algorithm='LDA')
+    lda_pred = lda_model.fit_transform(lda_matrix)
+    lda_topic_words = lda_model.top_n_features(lda_vectorizer, top_n=10)
 
+    # NMF
+    nmf_vectorizer, nmf_matrix = vectorize_corpus(corpus, tf_idf=True, stem_lem=None, ngram_range=(1,1),
+                                    max_df=0.8, min_df=5, max_features=None)
+    nmf_model = MyTopicModel(n_topics=12, algorithm='NMF')
+    nmf_pred = nmf_model.fit_transform(nmf_matrix)
+    nmf_topic_words = nmf_model.top_n_features(nmf_vectorizer, top_n=10)
+
+    # Update database with predictions
     pge_df = database_cleaner('../data/json/majors_database.json')
-    pge_df['predicted_topic_num'] = [num[-1] for num in y_pred.argsort(axis=1)]
-    pge_df['predicted_research_areas'] = [topic_words[topic_num] for topic_num in pge_df['predicted_topic_num']]
-    pge_df.to_json(path_or_buf='../data/json/final_sklearn_database_LDA.json')
 
+    pge_df_updated_LDA = pge_df.copy()
+    pge_df_updated_LDA['predicted_topic_num'] = [num[-1] for num in lda_pred.argsort(axis=1)]
+    pge_df_updated_LDA['predicted_research_areas'] = [lda_topic_words[topic_num] for topic_num in pge_df_updated_LDA['predicted_topic_num']]
+    pge_df_updated_LDA.to_json(path_or_buf='../data/json/final_sklearn_database_LDA.json')
+
+    pge_df_updated_NMF = pge_df.copy()
+    pge_df_updated_NMF['predicted_topic_num'] = [num[-1] for num in nmf_pred.argsort(axis=1)]
+    pge_df_updated_NMF['predicted_research_areas'] = [nmf_topic_words[topic_num] for topic_num in pge_df_updated_NMF['predicted_topic_num']]
+    pge_df_updated_NMF.to_json(path_or_buf='../data/json/final_sklearn_database_NMF.json')
+
+    # Pickle models and vectorizers
     with open('../data/pickle/pge_sklearn_LDA.pkl', 'wb') as f:
-        pickle.dump(model, f)
+        pickle.dump(lda_model, f)
 
     with open('../data/pickle/pge_sklearn_LDA_vectorizer.pkl', 'wb') as f:
-        pickle.dump(vectorizer, f)
+        pickle.dump(lda_vectorizer, f)
+    
+    with open('../data/pickle/pge_sklearn_NMF.pkl', 'wb') as f:
+        pickle.dump(nmf_model, f)
+
+    with open('../data/pickle/pge_sklearn_NMF_vectorizer.pkl', 'wb') as f:
+        pickle.dump(nmf_vectorizer, f)
+

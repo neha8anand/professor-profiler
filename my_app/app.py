@@ -18,6 +18,9 @@ import json
 
 from io import BytesIO
 
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
 app = Flask(__name__,
         static_url_path='')
 

@@ -67,4 +67,7 @@ def database_cleaner(filename):
     # Make h_index column
     df_final["h_index"] = df_final["indices"].apply(pd.Series)["h-index"].apply(pd.Series)["All"]
 
+    # Add prof_id column
+    df_final["prof_id"] = df_final.index
+
     return df_final
