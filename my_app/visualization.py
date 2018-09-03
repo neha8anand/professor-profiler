@@ -75,6 +75,9 @@ def process_df(input_df, topic_descriptions, num_topics=12):
         hover_text.append(', '.join(name) for name in row['faculty_names'])
         
     topic_df['text'] = topic_df['faculty_names'].apply(lambda x:'<br>'.join(x))
+    
+    # Step 5: Add topic descriptions
+    topic_df["topic_description"] = topic_descriptions
 
     return topic_df
 
