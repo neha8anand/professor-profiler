@@ -16,11 +16,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
 def add_stopwords():
     """Add common stopwords from petroleum engineering domain"""
-    more_stopwords_ = ["oil", "gas", "water", "method", "model", "pressure", "flow", "permeability", "rock", "paper", 
+    more_stopwords_ = ["oil", "gas", "water", "method", "pressure", "flow", "rock", "paper", 
     "rate", "properties", "based", "parameters", "study", "approach", "case", "fluid", "effect", "media", 
     "system", "results", "high", "low", "data", "compared", "impact", "work", "surface", "present", "show", 
     "large", "reduce", "increase", "improve", "make", "develop", "provide", "information", "application", "problem", "change",
-    "using", "produce", "propose"]
+    "using", "produce", "propose", "observe"]
     return more_stopwords_
 
 def clean_text(text, stopwords_):

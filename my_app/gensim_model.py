@@ -84,7 +84,7 @@ class MyGenSimModel():
             self.tokens = do_lemmatization(spacy_nlp=spacy_nlp, texts=self.tokens, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
         
         # Again remove stopwords after doing lemmatization
-        self.tokens = [token for token in self.tokens if token not in stopwords_]
+        self.tokens = [[token for token in doc if token not in stopwords_] for doc in self.tokens]
 
         # Build a Dictionary - association word to numeric id
         self.dictionary = corpora.Dictionary(self.tokens)
@@ -106,7 +106,7 @@ class MyGenSimModel():
 
         elif self.algorithm == 'LDAMallet':
             # Build a Mallet Model (doesn't work with tf-idf)
-            self._model = models.wrappers.LdaMallet(mallet_path, workers=8, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='~/Documents/Github/capstone/')
+            self._model = models.wrappers.LdaMallet(mallet_path, workers=8, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='~/Documents/Github/capstone/', optimize_interval=10, iterations=1000)
 
         elif self.algorithm == 'LSI':
             # Build a Latent Semantic Indexing Model
@@ -247,8 +247,7 @@ def coherence_plot(list_num_topics, coherence_values, title):
     plt.xlabel("Num Topics")
     plt.ylabel("Coherence score")
     plt.title(title)
-    # plt.show()
-    plt.savefig(title + '.png', bbox_inches='tight')
+    plt.savefig('plots/' + title + '.png', bbox_inches='tight')
     plt.close()
 
 def compare_models(data, model_list):

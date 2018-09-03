@@ -235,18 +235,18 @@ if __name__ == '__main__':
     df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDAMallet.json')
 
     # Create topic_df
-    topic_descriptions = ['Chemical EOR: Experimental and field applications involving surfactants and polymers',
-                     'Well Logging: Porosity, NMR, resistivity and density logs',
-                     'Thermal and Solvent EOR: Application of high temperature and solvents for reservoirs with heavy oil and asphaltene',
+    topic_descriptions = ['Health, Safety and Environment: Design, emissions and risk optimization',
+                     'Unconventional Reservoirs: Study geology, estimate reserves, forecast production and uncertainity analysis for shale plays',
+                     'Chemical EOR: Experimental and field applications involving surfactants and polymer',
                      'Hydraulic Fracturing: Simulations for modeling fracture propagation, network, interaction and stresses',
-                     'Pore Scale Modeling: Application in unconventional reservoirs including hydrates',
-                     'Drilling Engineering: Wellbore stability, stresses, cementing and loss of fluids',
                      'Production Engineering(Theoretical): Flow simulation models based on experimental work',
-                     'Unconventional Reservoirs: Reserves estimate, forecast production and uncertainity analysis for shale plays',
-                     'Formation Evaluation: Stimulation techniques including acidization, hydraulic fracturing to tackle formation damage',
-                     'Health, Safety and Environment: Design, emissions and risk optimization',
                      'Reservoir Simulation: Computational and numerical modeling',
-                     'Production Engineering(Field application): Pressure and Rate Transient Analysis'
+                     'Thermal and Solvent EOR: Application of high temperature and solvents for reservoirs with heavy oil and asphaltene',
+                     'Phase Behavior: Experimental and simulation work involving steam and solvent processes',
+                     'Production Engineering(Field application): Pressure and Rate Transient Analysis',
+                     'Drilling Engineering: Wellbore stability, stresses, cementing and loss of fluids',
+                     'Petrophysics and Well Logging: Pore Scale Modeling, Porosity, NMR, resistivity and density logs',
+                     'Formation Evaluation: Stimulation techniques including acidization, hydraulic fracturing to tackle formation damage'
                      ]
     topic_df = process_df(df_updated, topic_descriptions, num_topics=12)
 

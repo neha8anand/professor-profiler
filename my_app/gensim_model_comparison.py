@@ -17,13 +17,13 @@ def get_optimum_model(data, num_topics):
 
     # Initiate models 
     # LDA
-    lda_model = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    lda_model = MyGenSimModel(num_topics=num_topics, algorithm='LDA', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     # LDAMallet (tf_idf always false)
-    ldamallet_model = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    ldamallet_model = MyGenSimModel(num_topics=num_topics, algorithm='LDAMallet', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     # LSI
-    lsi_model = MyGenSimModel(num_topics=num_topics, algorithm='LSI', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    lsi_model = MyGenSimModel(num_topics=num_topics, algorithm='LSI', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     # HDP (num_topics not required)
-    hdp_model = MyGenSimModel(algorithm='HDP', tf_idf=False, bigrams=False, trigrams=False, lemmatization=False)
+    hdp_model = MyGenSimModel(algorithm='HDP', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     
     model_list = [lda_model, ldamallet_model, lsi_model, hdp_model]
 
@@ -45,7 +45,7 @@ def evaluate_bar_graph(coherences, indices, title):
     plt.xlabel('Models')
     plt.ylabel('Coherence Scores')
     plt.title(title)
-    plt.savefig(title + '.png', bbox_inches='tight',)
+    plt.savefig('plots/' + title + '.png', bbox_inches='tight',)
     plt.close()
 
 if __name__ == '__main__':
