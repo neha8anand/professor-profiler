@@ -169,7 +169,7 @@ class MyGenSimModel():
                 if j in list(range(top_n)):  # top-n dominant topics
                     wp = self._model.show_topic(topic_num)
                     topic_keywords = ", ".join([word for word, prop in wp])
-                    prop_topics.append(100 * round(prop_topic,4))
+                    prop_topics.append(round(100 * prop_topic, 2))
                     topic_nums.append(int(topic_num) + 1)# To match pyLDAvis topic numbers
                     topic_keywords_list.append(topic_keywords)
                 else:

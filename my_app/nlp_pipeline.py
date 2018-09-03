@@ -20,7 +20,7 @@ def add_stopwords():
     "rate", "properties", "based", "parameters", "study", "approach", "case", "fluid", "effect", "media", 
     "system", "results", "high", "low", "data", "compared", "impact", "work", "surface", "present", "show", 
     "large", "reduce", "increase", "improve", "make", "develop", "provide", "information", "application", "problem", "change",
-    "using", "produce"]
+    "using", "produce", "propose"]
     return more_stopwords_
 
 def clean_text(text, stopwords_):
