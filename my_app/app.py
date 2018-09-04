@@ -15,6 +15,7 @@ import matplotlib
 
 from bson import json_util, ObjectId
 import json
+import os
 
 from io import BytesIO
 
@@ -181,4 +182,7 @@ def _ranking_algo(results_df, weights=[0.05, 0.35, 0.15, 0.45]):
 #     return image.getvalue(), 200, {'Content-Type': 'image/png'}
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True, threaded=True)
+    app.debug = True
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    # app.run(host='0.0.0.0', port=8080, debug=True, threaded=True)
