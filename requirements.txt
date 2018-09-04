@@ -44,7 +44,6 @@ decorator==4.3.0
 dill==0.2.8.2
 distributed==1.21.8
 docutils==0.14
-en-core-web-sm==2.0.0
 entrypoints==0.2.3
 et-xmlfile==1.0.1
 fastcache==1.0.2
