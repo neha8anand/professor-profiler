@@ -146,7 +146,7 @@ class MyGenSimModel():
 
     def visualize_lda_mallet(self, **kwargs):
         """Visualize LDA model using pyLDAvis"""
-        dataDir = "/Users/Neha/Documents/GitHub/capstone" # update this if needed
+        dataDir = "../data/mallet_files" # update this if needed
         statefile = 'state.mallet.gz'
         data = get_LDA_data(dataDir, statefile)
         vis = pyLDAvis.prepare(sort_topics=False, **data, **kwargs)

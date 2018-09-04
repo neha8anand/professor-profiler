@@ -1,0 +1,11 @@
+0	0.15564	recovery surfactant foam permeability model injection reservoir polymer experiments surfactants flooding salinity viscosity chemical phase reservoirs core field brine relative 
+1	0.22229	production unconventional reservoirs shale reserves resources analysis wells development decline industry reservoir uncertainty north basins technology energy basin resource performance 
+2	0.12687	energy process design risk optimization safety model analysis management operations heat systems emissions optimal battery power control assessment storage modeling 
+3	0.50993	reservoir model production field simulation reservoirs models wells time analysis history permeability transient equation volume solution methods performance optimization matching 
+4	0.13552	liquid model experimental slug pipe velocity models loading two-phase horizontal viscosity holdup observed conditions critical vertical gradient wells predictions foam 
+5	0.07172	acid fracture conductivity temperature proppant fracturing stimulation treatment formation carbonate model shale acidizing injection damage experiments concentration wellbore permeability wormhole 
+6	0.09187	steam combustion phase behavior recovery temperature solvent sagd reservoir bitumen samples asphaltene heavy injection thermal crude process produced experiments viscosity 
+7	0.20787	model simulation models numerical porous modeling transport computational nonlinear problems fractured coupled multiscale convergence simulations equations scheme heterogeneous matrix framework 
+8	0.1486	drilling wellbore model fluids cement stress operations field temperature loss formation control wells stability experimental casing pore circulation pipe tests 
+9	0.22603	fracture fractures hydraulic production model shale reservoir fracturing reservoirs stress natural permeability horizontal complex injection numerical propagation coupled geometry multiple 
+10	0.15417	pore permeability measurements shale samples porosity kerogen nanoparticles distribution formation rocks formations logs organic petrophysical saturation magnetic core pores resistivity 
