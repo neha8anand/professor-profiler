@@ -17,26 +17,53 @@ import colorlover as cl
 
 sns.set()
 
-def prof_topic_plots(filename):
+def prof_topic_plots(filename, topic_descriptions):
     """Creates and saves topic distribution plots for each professor in .png format"""
     df = pd.read_json(filename)
     image_locations = []
 
     # Topic distribution plots
     for _, row in df.iterrows():
-        _, ax = plt.subplots()
         perc_contributions = row["Perc_Contributions"]
         topic_num = pd.Series('Topic ' + str(num) for num in row["Dominant_Topics"])
-        ax.barh(topic_num, perc_contributions, align='center')
-        ax.set_yticks(topic_num)
-        ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('Percent Contribution')
-        ax.set_ylabel('Topic Numbers')
-        ax.set_title(f'Topic distribution for {row["faculty_name"]}')
-        image_location = f'plots/prof_topic_plots/tp_{row["prof_id"]}'
+        
+        data = [
+                go.Bar(
+                    y=topic_num, 
+                    x=perc_contributions,
+                    orientation='h',
+                    text=[topic_descriptions[i-1] for i in row["Dominant_Topics"]],
+                    )
+                ]
+
+        layout = go.Layout(
+            title=f'Topic Distribution Plot for {row["faculty_name"]}',
+            yaxis=dict(
+                title='Topic Numbers',
+                gridcolor='rgb(255, 255, 255)',
+                autorange='reversed',
+                zerolinewidth=1,
+                ticklen=5,
+                gridwidth=2,
+            ),
+            xaxis=dict(
+                title='Percent Contribution',
+                gridcolor='rgb(255, 255, 255)',
+                autorange=True,
+                zerolinewidth=1,
+                ticklen=5,
+                gridwidth=2,
+            ),
+
+            paper_bgcolor='rgb(243, 243, 243)',
+            plot_bgcolor='rgb(243, 243, 243)',
+
+        )
+    
+        fig = go.Figure(data=data, layout=layout)
+        image_location = f'static/plots/prof_topic_plots/tp_{row["prof_id"]}.html'
+        plotly.offline.plot(fig, filename = image_location, auto_open=False)
         image_locations.append(image_location)
-        plt.savefig(image_location, bbox_inches='tight')
-        plt.close()
     
     df['topic_plot_locations'] = image_locations
 
@@ -164,14 +191,18 @@ def detailed_topic_plot(topic_df):
     data = [trace0, trace1, trace2, trace3]
 
     layout = go.Layout(
-        title='Topic Average h-index v. Topic Number',
+        title='Topic Average h-index v. Topic Descriptions',
         xaxis=dict(
-            title='Topic Number',
+            title='Topic Descriptions',
+            tickmode='array',
+            tickvals=topic_df["dominant_topic_num"],
+            ticktext=topic_df["topic_description"],
             gridcolor='rgb(255, 255, 255)',
             range=[0, 13],
             zerolinewidth=1,
             ticklen=5,
             gridwidth=2,
+            showticklabels=False,
         ),
         yaxis=dict(
             title='Topic Average h-index',
@@ -230,11 +261,6 @@ def create_topic_description_table(topic_df):
     
 
 if __name__ == '__main__':
-    # Create prof topic plots
-    df_updated = prof_topic_plots('../data/json/final_gensim_database_LDAMallet.json')
-    df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDAMallet.json')
-
-    # Create topic_df
     topic_descriptions = ['Health, Safety and Environment: Design, emissions and risk optimization',
                      'Geomechanics: Analysis and modeling of stresses, failure and deformation',
                      'Hydraulic Fracturing: Simulations for modeling fracture geometry, network, and interaction',
@@ -247,6 +273,12 @@ if __name__ == '__main__':
                      'Petrophysics and Well Logging: Pore Scale Modeling, Porosity, NMR, resistivity and density logs',
                      'Production Engineering(Theoretical): Flow simulation models based on experimental work'
                      ]
+
+    # Create prof topic plots
+    df_updated = prof_topic_plots('../data/json/final_gensim_database_LDAMallet.json', topic_descriptions)
+    df_updated.to_json(path_or_buf='../data/json/final_gensim_database_LDAMallet.json')
+
+    # Create topic_df
     topic_df = process_df(df_updated, topic_descriptions, num_topics=11)
 
     # Create detailed topic plot
