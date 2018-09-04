@@ -45,14 +45,14 @@ def evaluate_bar_graph(coherences, indices, title):
     plt.xlabel('Models')
     plt.ylabel('Coherence Scores')
     plt.title(title)
-    plt.savefig('plots/' + title + '.png', bbox_inches='tight',)
+    plt.savefig('plots/' + title + '.png', bbox_inches='tight')
     plt.close()
 
 if __name__ == '__main__':
     data = get_data('../data/json/majors_database.json')
 
     # Step 1: Choose best model for this data
-    coherence_scores, _ = get_optimum_model(data=data, num_topics=7)
+    coherence_scores, _ = get_optimum_model(data=data, num_topics=11)
     # model.transform(data)
     evaluate_bar_graph(coherence_scores,
                     ['LDA', 'LDAMallet', 'LSI', 'HDP'], title='Comparison between gensim topic models')

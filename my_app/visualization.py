@@ -35,7 +35,7 @@ def prof_topic_plots(filename):
         ax.set_title(f'Topic distribution for {row["faculty_name"]}')
         image_location = f'plots/prof_topic_plots/tp_{row["prof_id"]}'
         image_locations.append(image_location)
-        plt.savefig(image_location)
+        plt.savefig(image_location, bbox_inches='tight')
         plt.close()
     
     df['topic_plot_locations'] = image_locations
@@ -43,7 +43,7 @@ def prof_topic_plots(filename):
     return df
 
 
-def process_df(input_df, topic_descriptions, num_topics=12):
+def process_df(input_df, topic_descriptions, num_topics=11):
     """ Prepare the topic dataframe for creating detailed topic plot."""
     # Step 1: Extract the dominant topic for each professor
     df = input_df.copy()
@@ -176,7 +176,7 @@ def detailed_topic_plot(topic_df):
         yaxis=dict(
             title='Topic Average h-index',
             gridcolor='rgb(255, 255, 255)',
-            range=[13, 45],
+            range=[11, 45],
             zerolinewidth=1,
             ticklen=5,
             gridwidth=2,
@@ -236,19 +236,18 @@ if __name__ == '__main__':
 
     # Create topic_df
     topic_descriptions = ['Health, Safety and Environment: Design, emissions and risk optimization',
-                     'Unconventional Reservoirs: Study geology, estimate reserves, forecast production and uncertainity analysis for shale plays',
+                     'Geomechanics: Analysis and modeling of stresses, failure and deformation',
+                     'Hydraulic Fracturing: Simulations for modeling fracture geometry, network, and interaction',
                      'Chemical EOR: Experimental and field applications involving surfactants and polymer',
-                     'Hydraulic Fracturing: Simulations for modeling fracture propagation, network, interaction and stresses',
-                     'Production Engineering(Theoretical): Flow simulation models based on experimental work',
-                     'Reservoir Simulation: Computational and numerical modeling',
-                     'Thermal and Solvent EOR: Application of high temperature and solvents for reservoirs with heavy oil and asphaltene',
-                     'Phase Behavior: Experimental and simulation work involving steam and solvent processes',
-                     'Production Engineering(Field application): Pressure and Rate Transient Analysis',
                      'Drilling Engineering: Wellbore stability, stresses, cementing and loss of fluids',
+                     'Formation Evaluation: Stimulation techniques including acidization, hydraulic fracturing to tackle formation damage',
+                     'Reservoir Simulation: Computational and numerical modeling',
+                     'Production Engineering(Field application) in Unconventional Reservoirs: Study geology, estimate reserves, forecast production and uncertainity analysis for shale plays',
+                     'Thermal and Solvent EOR: Phase behavior, application of high temperature and solvents for reservoirs with heavy oil and asphaltene',
                      'Petrophysics and Well Logging: Pore Scale Modeling, Porosity, NMR, resistivity and density logs',
-                     'Formation Evaluation: Stimulation techniques including acidization, hydraulic fracturing to tackle formation damage'
+                     'Production Engineering(Theoretical): Flow simulation models based on experimental work'
                      ]
-    topic_df = process_df(df_updated, topic_descriptions, num_topics=12)
+    topic_df = process_df(df_updated, topic_descriptions, num_topics=11)
 
     # Create detailed topic plot
     detailed_topic_plot(topic_df)

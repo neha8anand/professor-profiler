@@ -134,7 +134,6 @@ class MyGenSimModel():
 
     def most_similar(self, search_text, top_n=5):
         """Returns top-n most similar professors for a given search text (cleaned and tokenized)."""
-        # for measuring similarity with new text
         self.lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
         similarity_results = self.lda_index[self.transform_new(search_text)]
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
@@ -262,13 +261,13 @@ if __name__ == '__main__':
     data = get_data('../data/json/majors_database.json')
 
     # Fit LDA to training data(doesn't work with tf-idf)
-    lda_model = MyGenSimModel(num_topics=12, algorithm='LDA', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
+    lda_model = MyGenSimModel(num_topics=11, algorithm='LDA', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     lda_model.transform(data)
     lda_model.fit()
     print(lda_model.coherence_score())
 
     # Fit LDAMallet to training data(doesn't work with tf-idf)
-    ldamallet_model = MyGenSimModel(num_topics=12, algorithm='LDAMallet', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
+    ldamallet_model = MyGenSimModel(num_topics=11, algorithm='LDAMallet', tf_idf=False, bigrams=True, trigrams=False, lemmatization=True)
     ldamallet_model.transform(data)
     ldamallet_model.fit()
     print(ldamallet_model.coherence_score())
