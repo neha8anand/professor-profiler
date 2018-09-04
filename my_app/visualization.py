@@ -261,14 +261,16 @@ def create_topic_description_table(topic_df):
     
 
 if __name__ == '__main__':
-    topic_descriptions = ['Health, Safety and Environment: Design, emissions and risk optimization',
+    topic_descriptions = ['Chemical EOR: Experimental and field applications involving surfactants and polymer',
+                     'Production Engineering(Field application) in Unconventional Reservoirs: Study geology, estimate reserves, forecast production and uncertainity analysis for shale plays',
+                     'Health, Safety and Environment: Design, emissions and risk optimization',
                      'Geomechanics: Analysis and modeling of stresses, failure and deformation',
                      'Hydraulic Fracturing: Simulations for modeling fracture geometry, network, and interaction',
-                     'Chemical EOR: Experimental and field applications involving surfactants and polymer',
+                     
                      'Drilling Engineering: Wellbore stability, stresses, cementing and loss of fluids',
                      'Formation Evaluation: Stimulation techniques including acidization, hydraulic fracturing to tackle formation damage',
                      'Reservoir Simulation: Computational and numerical modeling',
-                     'Production Engineering(Field application) in Unconventional Reservoirs: Study geology, estimate reserves, forecast production and uncertainity analysis for shale plays',
+                     
                      'Thermal and Solvent EOR: Phase behavior, application of high temperature and solvents for reservoirs with heavy oil and asphaltene',
                      'Petrophysics and Well Logging: Pore Scale Modeling, Porosity, NMR, resistivity and density logs',
                      'Production Engineering(Theoretical): Flow simulation models based on experimental work'

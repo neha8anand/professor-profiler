@@ -37,7 +37,8 @@ import pickle
 import warnings
 warnings.filterwarnings("ignore",category=UserWarning)
 
-mallet_path = '~/Documents/GitHub/capstone/mallet-2.0.8/bin/mallet' # update this path if needed
+# mallet_path = '~/Documents/GitHub/capstone/mallet-2.0.8/bin/mallet' # update this path if needed
+mallet_path = '../data/mallet-2.0.8/bin/mallet' # update this path if needed
 stopwords_ = stopwords.words('english')
 more_stopwords_ = add_stopwords()
 stopwords_.extend(more_stopwords_)
@@ -106,7 +107,7 @@ class MyGenSimModel():
 
         elif self.algorithm == 'LDAMallet':
             # Build a Mallet Model (doesn't work with tf-idf)
-            self._model = models.wrappers.LdaMallet(mallet_path, workers=8, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='~/Documents/Github/capstone/', optimize_interval=10, iterations=1000)
+            self._model = models.wrappers.LdaMallet(mallet_path, workers=8, corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary, prefix='../data/mallet_files/', optimize_interval=10, iterations=1000)
 
         elif self.algorithm == 'LSI':
             # Build a Latent Semantic Indexing Model
