@@ -11,7 +11,6 @@ awscli==1.15.37
 Babel==2.5.3
 backcall==0.1.0
 backports.shutil-get-terminal-size==1.0.0
-basis-expansions==0.0.1
 beautifulsoup4==4.6.0
 bitarray==0.8.1
 bkcharts==0.2
