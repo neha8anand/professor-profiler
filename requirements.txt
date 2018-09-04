@@ -13,3 +13,4 @@ seaborn==0.8.1
 beautifulsoup4==4.6.3
 pyLDAvis==2.1.2
 scikit_learn==0.19.2
+gunicorn==19.9.0
