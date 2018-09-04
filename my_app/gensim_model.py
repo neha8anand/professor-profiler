@@ -116,9 +116,6 @@ class MyGenSimModel():
              # Build a Hiearchical Dirichlet Process Model (doesn't need number of topics)
             self._model = models.hdpmodel.HdpModel(corpus=self.corpus, id2word=self.dictionary)
 
-        # for measuring similarity with new text
-        self.lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
-
     def transform_new(self, search_text):
         """Return transformed new data."""
         bow = self.dictionary.doc2bow(clean_text(search_text, stopwords_))
@@ -137,6 +134,8 @@ class MyGenSimModel():
 
     def most_similar(self, search_text, top_n=5):
         """Returns top-n most similar professors for a given search text (cleaned and tokenized)."""
+        # for measuring similarity with new text
+        self.lda_index = similarities.MatrixSimilarity(self._model[self.corpus])
         similarity_results = self.lda_index[self.transform_new(search_text)]
         similarity_results = sorted(enumerate(similarity_results), key=lambda item: -item[1])
         return np.array(similarity_results[:top_n])

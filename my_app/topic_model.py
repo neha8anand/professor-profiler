@@ -5,7 +5,7 @@ When run as a module, this will load a json dataset, train a decomposition
 model using sklearn, and then pickle the resulting model object to disk.
 """
 from cleaning import database_cleaner
-from nlp_pipeline import feature_matrix, clean_text
+from nlp_pipeline import feature_matrix, clean_text, add_stopwords
 
 import numpy as np
 import pickle
@@ -17,6 +17,11 @@ from sklearn.decomposition import NMF, LatentDirichletAllocation, TruncatedSVD
 # Plotting tools
 import pyLDAvis
 import pyLDAvis.sklearn
+
+from nltk.corpus import stopwords
+stopwords_ = stopwords.words('english')
+more_stopwords_ = add_stopwords()
+stopwords_.extend(more_stopwords_)
 
 class MyTopicModel():
     """A topic model to identify research areas given information about papers:
@@ -56,7 +61,7 @@ class MyTopicModel():
 
     def most_similar(self, search_text, vectorizer, top_n=5):
         """Returns most similar professors for a given search text (cleaned and tokenized)."""
-        x = self._model.transform(vectorizer.transform(clean_text(search_text)))[0]
+        x = self._model.transform(vectorizer.transform(clean_text(search_text,stopwords_)))[0]
         similarities = cosine_similarity(x.reshape(1, -1), self.transformed_X)
         pairs = enumerate(similarities[0])
         most_similar = sorted(pairs, key=lambda item: item[1], reverse=True)[:top_n]

@@ -5,13 +5,18 @@ When run as a module, this will load a json dataset, train a clustering
 model, and then pickle the resulting model object to disk.
 """
 from cleaning import database_cleaner
-from nlp_pipeline import feature_matrix
+from nlp_pipeline import feature_matrix, clean_text, add_stopwords
 
 import numpy as np
 import pickle
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.metrics.pairwise import cosine_similarity
+
+from nltk.corpus import stopwords
+stopwords_ = stopwords.words('english')
+more_stopwords_ = add_stopwords()
+stopwords_.extend(more_stopwords_)
 
 class MyModel():
     """A clustering model to identify research areas given information about papers:
@@ -51,7 +56,7 @@ class MyModel():
 
     def most_similar(self, search_text, vectorizer, top_n=5):
         """Returns top n most similar professors for a given search text."""
-        x = (vectorizer.transform([search_text]))
+        x = vectorizer.transform(clean_text(search_text,stopwords_))
         similarities = cosine_similarity(x, self.X)
         pairs = enumerate(similarities[0])
         most_similar = sorted(pairs, key=lambda item: item[1])[:top_n]

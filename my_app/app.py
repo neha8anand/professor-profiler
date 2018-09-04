@@ -3,7 +3,7 @@ from topic_model import MyTopicModel
 from gensim_model import MyGenSimModel
 from nlp_pipeline import clean_text
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, abort
 
 import pickle
 import numpy as np
@@ -53,11 +53,25 @@ with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'rb') as f:
         gensim_LDAMallet = pickle.load(f)
 
 # corresponding databases
+majors_df = pd.read_json('../data/json/majors_database.json')
+
 final_cluster_df = pd.read_json('../data/json/final_database.json')
+final_cluster_df["id"] = final_cluster_df.index
+
 final_NMF_df = pd.read_json('../data/json/final_NMF_database.json')
+final_NMF_df["id"] = final_NMF_df.index
+
 final_sklearn_LDA_df = pd.read_json('../data/json/final_sklearn_database_LDA.json')
+final_sklearn_LDA_df["id"] = final_sklearn_LDA_df.index
+
 final_gensim_LDA_df = pd.read_json('../data/json/final_gensim_database_LDA.json')
+final_gensim_LDA_df["id"] = final_gensim_LDA_df.index
+
 final_gensim_LDAMallet_df = pd.read_json('../data/json/final_gensim_database_LDAMallet.json')
+final_gensim_LDAMallet_df["id"] = final_gensim_LDAMallet_df.index
+
+# Choice of the model to be used, valid choices are 'LDA', 'LDAMallet', 'KMeans', 'NMF'
+model_choice='LDAMallet'
 
 # Form page to submit text
 @app.route('/', methods=['GET'])
@@ -75,16 +89,44 @@ def visualize():
 def submit():
     user_data = request.json
     search_text = user_data["text_input"]
-    display_data = _get_model_results(search_text, model_choice='NMF', top_n=10)[:5] # taking top-5
+    display_data = _get_model_results(search_text, top_n=10)[:5] # taking top-5
     return display_data.to_json(force_ascii=True,  orient='records')
 
+@app.route('/professor/<int:professor_id>', methods=['GET'])
+def professor(professor_id):
+    if professor_id > 87:
+        abort(404)
+    else:
+        prof_info = _get_prof_info(professor_id)
+        return render_template('professor.html', prof_info=prof_info)
+
+# Get the professor information
+def _get_prof_info(professor_id):
+    '''
+    Parameters
+    ----------
+    professor_id: The ID of the professor in majors database
+    '''
+    if model_choice == 'KMeans':
+        prof_info_df = final_cluster_df[final_cluster_df["id"] == professor_id].to_dict(orient='records')
+
+    elif model_choice == 'NMF':
+        prof_info_df = final_NMF_df[final_NMF_df["id"] == professor_id].to_dict(orient='records')
+
+    elif model_choice == 'LDA':
+        prof_info_df = final_gensim_LDA_df[final_gensim_LDA_df["id"] == professor_id].to_dict(orient='records')
+    
+    elif model_choice == 'LDAMallet':
+        prof_info_df = final_gensim_LDAMallet_df[final_gensim_LDAMallet_df["id"] == professor_id].to_dict(orient='records')
+
+    return prof_info_df
+
 # Search and Ranking algorithm
-def _get_model_results(search_text, model_choice='LDAMallet', top_n=5):
+def _get_model_results(search_text, top_n=5):
     '''
     Parameters
     ----------
     search_text: The text to be used for searching, could be research area or body of a paper abstract.
-    model_choice: Choice of the model to be used, valid choices are 'LDA', 'LDAMallet', 'KMeans', 'NMF'
     '''
     # list of columns to be displayed to the user
     # cols = ['faculty_name', 'university_name', 'rank', 'title', 'rating', 'tags', 'research_areas', 'location', 'office', 'email', 'phone', 'page', 'google_scholar_link', 'indices', 'citations']
