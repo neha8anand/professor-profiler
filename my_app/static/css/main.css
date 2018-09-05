@@ -56,6 +56,9 @@ body {
   font-weight: 300;
   line-height: 1.625em;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 ol, ul {
@@ -782,7 +785,7 @@ td, th {
   font-size: 24px;
 }
 
-b, sup, sub, u, del {
+sup, sub, u, del {
   color: #49e4fa;
 }
 
@@ -1884,6 +1887,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 #header.header-scrolled {
@@ -2309,7 +2313,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-content {
-  margin-top: 450px;
   text-align: center;
 }
 
@@ -4152,6 +4155,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 .commentform-area .form-control {
   border: none;
   background: #f9f9ff;
+}
+
+.spacer {
+  flex: 1;
 }
 
 /*

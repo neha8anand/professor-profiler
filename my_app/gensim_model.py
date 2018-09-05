@@ -21,7 +21,9 @@ from gensim.test.utils import datapath
 # Plotting tools
 import pyLDAvis
 import pyLDAvis.gensim
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('agg')
 
 # NLTK
 from nltk.corpus import stopwords

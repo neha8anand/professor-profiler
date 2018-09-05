@@ -3,7 +3,7 @@ from topic_model import MyTopicModel
 from gensim_model import MyGenSimModel
 from nlp_pipeline import clean_text
 
-from flask import Flask, request, render_template, abort
+from flask import Flask, request, render_template, abort, Markup
 
 import pickle
 import numpy as np
@@ -11,7 +11,7 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 import matplotlib
-# matplotlib.use('Agg') # to prevent plt image popups
+# matplotlib.use('agg') # to prevent plt image popups
 
 from bson import json_util, ObjectId
 import json
@@ -72,7 +72,7 @@ final_gensim_LDAMallet_df = pd.read_json('../data/json/final_gensim_database_LDA
 final_gensim_LDAMallet_df["id"] = final_gensim_LDAMallet_df.index
 
 # Choice of the model to be used, valid choices are 'LDA', 'LDAMallet', 'KMeans', 'NMF'
-model_choice='LDAMallet'
+model_choice='LDA'
 
 # Form page to submit text
 @app.route('/', methods=['GET'])
@@ -95,30 +95,57 @@ def submit():
 
 @app.route('/professor/<int:professor_id>', methods=['GET'])
 def professor(professor_id):
-    if professor_id > 87:
+    prof_info = _get_prof_info(professor_id)
+    prof_topic_distribution_plot = _get_prof_topic_distribution_plot(professor_id)
+    return render_template('professor.html', prof_info=prof_info, prof_topic_distribution_plot=prof_topic_distribution_plot)
+
+@app.route('/professor-topics.html', methods=['GET'])
+def professor_topics():
+    prof_info_df = _get_prof_info_df()
+    prof_names = prof_info_df["faculty_name"].tolist()
+    prof_ids = prof_info_df["id"].tolist()
+    return render_template('professor-topics.html', prof_ids_and_names=dict(zip(prof_ids, prof_names)))
+
+@app.route('/professor-topics/<int:professor_id>', methods=['POST'])
+def professor_topic(professor_id):
+    return _get_prof_topic_distribution_plot(professor_id)
+
+# Get the professor's topic distribution plot
+def _get_prof_topic_distribution_plot(professor_id):
+    if professor_id > 87 or professor_id < 0:
         abort(404)
     else:
-        prof_info = _get_prof_info(professor_id)
-        return render_template('professor.html', prof_info=prof_info)
+        prof_topic_distribution_plot = ""
+        with open(f'static/plots/prof_topic_plots/tp_{professor_id}.html', 'r', encoding='utf-8') as plots_file:
+            content = plots_file.read()
+            # remove html, head and body tags
+            prof_topic_distribution_plot = Markup(content.replace('<html><head><meta charset="utf-8" /></head><body>', '').replace('</body></html>', ''))
+        
+        return prof_topic_distribution_plot
 
-# Get the professor information
+# Get the information of a single professor 
 def _get_prof_info(professor_id):
     '''
     Parameters
     ----------
     professor_id: The ID of the professor in majors database
     '''
+    prof_info_df = _get_prof_info_df()
+    return prof_info_df[prof_info_df["id"] == professor_id].to_dict(orient='records')
+
+# Get the professor information data frame
+def _get_prof_info_df():
     if model_choice == 'KMeans':
-        prof_info_df = final_cluster_df[final_cluster_df["id"] == professor_id].to_dict(orient='records')
+        prof_info_df = final_cluster_df
 
     elif model_choice == 'NMF':
-        prof_info_df = final_NMF_df[final_NMF_df["id"] == professor_id].to_dict(orient='records')
+        prof_info_df = final_NMF_df
 
     elif model_choice == 'LDA':
-        prof_info_df = final_gensim_LDA_df[final_gensim_LDA_df["id"] == professor_id].to_dict(orient='records')
+        prof_info_df = final_gensim_LDA_df
     
     elif model_choice == 'LDAMallet':
-        prof_info_df = final_gensim_LDAMallet_df[final_gensim_LDAMallet_df["id"] == professor_id].to_dict(orient='records')
+        prof_info_df = final_gensim_LDAMallet_df
 
     return prof_info_df
 
