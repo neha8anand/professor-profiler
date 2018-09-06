@@ -30,14 +30,14 @@ with open('../data/pickle/pge_NMF_model.pkl', 'rb') as f:
 with open('../data/pickle/pge_NMF_vectorizer.pkl', 'rb') as f:
     NMF_vectorizer = pickle.load(f)
 
-# NMF topic model and vectorizer(using sklearn)
+# LDA topic model and vectorizer(using sklearn)
 with open('../data/pickle/pge_sklearn_LDA.pkl', 'rb') as f:
         sklearn_LDA = pickle.load(f)
 
 with open('../data/pickle/pge_sklearn_LDA_vectorizer.pkl', 'rb') as f:
     sklearn_LDA_vectorizer = pickle.load(f)
 
-# gensim model and vectorizer
+# gensim topic models
 with open('../data/pickle/pge_gensim_LDA.pkl', 'rb') as f:
         gensim_LDA = pickle.load(f)
 
@@ -74,12 +74,14 @@ def submit():
     display_data = _get_model_results(search_text, top_n=10)[:5] # taking top-5
     return display_data.to_json(force_ascii=True,  orient='records')
 
+# Each professor's page
 @app.route('/professor/<int:professor_id>', methods=['GET'])
 def professor(professor_id):
     prof_info = _get_prof_info(professor_id)
     prof_topic_distribution_plot = _get_prof_topic_distribution_plot(professor_id)
     return render_template('professor.html', prof_info=prof_info, prof_topic_distribution_plot=prof_topic_distribution_plot)
 
+# Topics for all the professors
 @app.route('/professor-topics.html', methods=['GET'])
 def professor_topics():
     prof_info_df = _get_prof_info_df()
@@ -87,6 +89,7 @@ def professor_topics():
     prof_ids = prof_info_df["id"].tolist()
     return render_template('professor-topics.html', prof_ids_and_names=dict(zip(prof_ids, prof_names)))
 
+# Topics for a single professor
 @app.route('/professor-topics/<int:professor_id>', methods=['POST'])
 def professor_topic(professor_id):
     return _get_prof_topic_distribution_plot(professor_id)
@@ -114,8 +117,9 @@ def _get_prof_info(professor_id):
     prof_info_df = _get_prof_info_df()
     return prof_info_df[prof_info_df["prof_id"] == professor_id].to_dict(orient='records')
 
-# Get the professor information data frame
+# Choose database for lookup
 def _get_prof_info_df():
+    """Chooses the database for looking up professor information."""
     if model_choice == 'KMeans':
         prof_info_df = final_cluster_df
 
@@ -136,16 +140,15 @@ def _get_model_results(search_text, top_n=5):
     Parameters
     ----------
     search_text: The text to be used for searching, could be research area or body of a paper abstract.
+    top_n: Number of similar professors to be returned.
     '''
     
     if model_choice == 'KMeans':
-        # y_test = cluster_model.predict(cluster_vectorizer.transform(clean_text(search_text))) # predicted cluster label for given text
-        # results_df = final_df[final_df['predicted_cluster_num'] == y_test[0]]
         similarities = cluster_model.most_similar(search_text, cluster_vectorizer, top_n=top_n) # document_id, similarity
         search_df = _get_search_df(similarities, final_cluster_df)
 
     elif model_choice == 'NMF':
-        similarities = NMF_model.most_similar(search_text, NMF_vectorizer, top_n=top_n) # document_id, similarity
+        similarities = NMF_model.most_similar(search_text, NMF_vectorizer, top_n=top_n) 
         search_df = _get_search_df(similarities, final_NMF_df)
 
     elif model_choice == 'LDA':
@@ -165,7 +168,7 @@ def _get_search_df(similarities, final_df):
     df = final_df.copy()
     results_df = df[df.index.isin(document_ids)].sort_index()
     results_df['similarity'] = similarities[:,1]
-    search_df = _ranking_algo(results_df[results_df['paper_count'] > 20], weights=[0.05, 0.10, 0.15, 0.65]) # filter people with less than 10 papers in database
+    search_df = _ranking_algo(results_df[results_df['paper_count'] > 20], weights=[0.05, 0.10, 0.15, 0.65]) # filter out professors with less than 10 papers in database
     return search_df
 
 def _ranking_algo(results_df, weights=[0.05, 0.35, 0.15, 0.45]):
