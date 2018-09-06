@@ -11,16 +11,7 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 import matplotlib
-# matplotlib.use('agg') # to prevent plt image popups
-
-from bson import json_util, ObjectId
-import json
-import os
-
-from io import BytesIO
-
-import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning)
+# matplotlib.use('agg') # to prevent plt image popups 
 
 app = Flask(__name__,
         static_url_path='')
@@ -55,24 +46,14 @@ with open('../data/pickle/pge_gensim_LDAMallet.pkl', 'rb') as f:
 
 # corresponding databases
 majors_df = pd.read_json('../data/json/majors_database.json')
-
 final_cluster_df = pd.read_json('../data/json/final_database.json')
-final_cluster_df["id"] = final_cluster_df.index
-
 final_NMF_df = pd.read_json('../data/json/final_NMF_database.json')
-final_NMF_df["id"] = final_NMF_df.index
-
 final_sklearn_LDA_df = pd.read_json('../data/json/final_sklearn_database_LDA.json')
-final_sklearn_LDA_df["id"] = final_sklearn_LDA_df.index
-
 final_gensim_LDA_df = pd.read_json('../data/json/final_gensim_database_LDA.json')
-final_gensim_LDA_df["id"] = final_gensim_LDA_df.index
-
 final_gensim_LDAMallet_df = pd.read_json('../data/json/final_gensim_database_LDAMallet.json')
-final_gensim_LDAMallet_df["id"] = final_gensim_LDAMallet_df.index
 
 # Choice of the model to be used, valid choices are 'LDA', 'LDAMallet', 'KMeans', 'NMF'
-model_choice='LDA'
+model_choice='LDAMallet'
 
 # Form page to submit text
 @app.route('/', methods=['GET'])
@@ -131,7 +112,7 @@ def _get_prof_info(professor_id):
     professor_id: The ID of the professor in majors database
     '''
     prof_info_df = _get_prof_info_df()
-    return prof_info_df[prof_info_df["id"] == professor_id].to_dict(orient='records')
+    return prof_info_df[prof_info_df["prof_id"] == professor_id].to_dict(orient='records')
 
 # Get the professor information data frame
 def _get_prof_info_df():
@@ -156,8 +137,6 @@ def _get_model_results(search_text, top_n=5):
     ----------
     search_text: The text to be used for searching, could be research area or body of a paper abstract.
     '''
-    # list of columns to be displayed to the user
-    # cols = ['faculty_name', 'university_name', 'rank', 'title', 'rating', 'tags', 'research_areas', 'location', 'office', 'email', 'phone', 'page', 'google_scholar_link', 'indices', 'citations']
     
     if model_choice == 'KMeans':
         # y_test = cluster_model.predict(cluster_vectorizer.transform(clean_text(search_text))) # predicted cluster label for given text
@@ -196,20 +175,5 @@ def _ranking_algo(results_df, weights=[0.05, 0.35, 0.15, 0.45]):
     search_df["composite_score"] = weights[0] * search_df["rank"] + weights[1] * search_df["paper_count"] +  weights[2] * search_df["h_index"] + weights[3] * search_df["similarity"] 
     return search_df.sort_values(by="composite_score", ascending=False)
 
-# @app.route('/plot.png')
-# def get_graph():
-#     display_data = get_model_results()
-#     df = pd.DataFrame(display_data)
-#     plt.figure(figsize=(10,4))
-#     ax = sns.countplot(data=df, x='country', palette='husl')
-#     ax.set(xlabel='Event Country', ylabel='Number of Flagged Events', title='Number of Flagged Events by Country')
-#     image = BytesIO()
-#     plt.savefig(image)
-#     plt.close()
-#     return image.getvalue(), 200, {'Content-Type': 'image/png'}
-
 if __name__ == '__main__':
-    app.debug = True
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
-    # app.run(host='0.0.0.0', port=8080, debug=True, threaded=True)
+    app.run(host='0.0.0.0', port=8080, debug=True, threaded=True)

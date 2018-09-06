@@ -34,8 +34,8 @@ Four metrics were used to compare and evaluate the topic models namely visualiza
 For more information about LDA Mallet, please see here: http://mallet.cs.umass.edu/
 
 **Assumptions**
-    * Text used in the model was only taken from paper titles, abstracts and the research description of the professor. It was assumed that most of the critical information about a publication would be contained in the paper title and abstract.
-    * The search algorithm has a weighted criteria based on text-similarity with the user input, h-index of the professor, number of papers of a professor in the database used in the model and the university rank.
+* Text used in the model was only taken from paper titles, abstracts and the research description of the professor. It was assumed that most of the critical information about a publication would be contained in the paper title and abstract.
+* The search algorithm has a weighted criteria based on text-similarity with the user input, h-index of the professor, number of papers of a professor in the database used in the model and the university rank.
 
 ## Run the recommender
 To run the recommender with your choice of model (NMF, LSI, LDA, LDAMallet(default), KMeans), first install the dependencies mentioned in requirements.txt and then:
@@ -46,7 +46,7 @@ python app.py
 
 ## Website demo
 You can watch the demo of the website on the link given below:
-https://drive.google.com/open?id=1Tqw3y-LWR19GDv4Q8IyIDIuyHyJMlir_
+https://drive.google.com/file/d/1Gvor95sAReVSRml-8bBJkZv2Jb8IjheK/view?usp=sharing
 
 ## Future Work
 The next steps would involve scaling the project to include more majors, schools and journals and carry out a graph and time-series analysis of the research topics.
